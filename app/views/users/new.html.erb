@@ -5,16 +5,16 @@
   <div id="signup_form">
     <%= form_for(@user) do |f| %>
         <div><%= f.label :name %></div>
-        <div><%= f.text_field :name %></div>
+        <div><%= f.text_field :name, :required => true %></div>
 
         <div><%= f.label :email %></div>
-        <div><%= f.text_field :email %></div>
+        <div><%= f.text_field :email, :required => true %></div>
 
         <div><%= f.label :password %></div>
-        <div><%= f.password_field :password %></div>
+        <div><%= f.password_field :password, :required => true %></div>
 
         <div><%= f.label :password_confirmation %></div>
-        <div><%= f.password_field :password_confirmation %></div>
+        <div><%= f.password_field :password_confirmation, :required => true %></div>
 
         <div><%= f.submit %></div>
     <% end %>
