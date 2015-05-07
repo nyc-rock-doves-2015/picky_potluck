@@ -1,12 +1,19 @@
-<%= form_for(@user) do |f| %>
-    <%= f.label :name %><br>
-    <%= f.text_field :name %><br>
+<header>
+  <h1>Sign Up</h1>
+</header>
+<section>
+  <div id="signup_form">
+    <%= form_for(@user) do |f| %>
+        <div><%= f.label :name %></div>
+        <div><%= f.text_field :name %></div>
 
-    <%= f.label :password %><br>
-    <%= f.password_field :password %><br>
+        <div><%= f.label :password %></div>
+        <div><%= f.password_field :password %></div>
 
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %><br>
-  <br>
-    <%= f.submit %>
-<% end %>
+        <div><%= f.label :password_confirmation %></div>
+        <div><%= f.password_field :password_confirmation %></div>
+        
+        <div><%= f.submit %></div>
+    <% end %>
+  </div>
+</section>
