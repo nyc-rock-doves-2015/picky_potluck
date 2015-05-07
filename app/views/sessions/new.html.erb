@@ -1,9 +1,17 @@
-<%= form_for :session, url: session_path do |f| %>
-    <div><%= f.label :name %></div>
-    <div><%= f.text_field :name %></div>
+<header>
+  <h1>Sign In</h1>
+</header>
 
-    <div><%= f.label :password %></div>
-    <div><%= f.password_field :password %></div>
+<section>
+  <div class = "signin-form"
+    <%= form_for :session, url: session_path do |f| %>
+        <div><%= f.label :name %></div>
+        <div><%= f.text_field :name %></div>
 
-    <div><%= f.submit %></div>
-<% end %>
+        <div><%= f.label :password %></div>
+        <div><%= f.password_field :password %></div>
+
+        <div><%= f.submit %></div>
+    <% end %>
+  </div>
+</section>
