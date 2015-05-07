@@ -1,0 +1,9 @@
+<h1>Create A New Party</h1>
+
+<%= form_for @party, html: {class: "new-party-form"} do |f| %>
+  <%= label_tag(:name, "Name:") %>
+  <p><%= f.text_field :name, placeholder: "Birthday Brunch" %></p>
+  <%= label_tag(:location, "Location:") %>
+  <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
+  <%= label_tag(:date, "Date:") %>
+<% end %>
