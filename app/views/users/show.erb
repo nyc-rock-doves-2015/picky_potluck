@@ -2,7 +2,7 @@
   <div class="profile-container">
     <h1><%= @user.name %></h1>
     <h2><%= @user.email %></h2>
-    <% if @user.photo %>
+    <% if @user.photo_url %>
       <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
     <% end %>
 
@@ -12,7 +12,7 @@
     <h3>Doesn't Eat:</h3>
     <ul>
       <% @user.nonos.each do |nono| %>
-        <li><%= nono %></li>
+        <li><%= nono.name %></li>
       <% end %>
     </ul>
   </div>
