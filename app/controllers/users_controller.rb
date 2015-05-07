@@ -7,9 +7,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+  end
 
   def new
-    @user = User.new
+    if !current_user
+      @user = User.new
+    else
+      redirect_to root_url
+    end
   end
 
   def create
