@@ -1,1 +1,11 @@
-Hello World
+<%= form_for :session, url: session_path do |f| %>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+
+    <%= f.label :password %><br>
+    <%= f.password_field :password %><br>
+
+
+  <br>
+    <%= f.submit %>
+<% end %>
