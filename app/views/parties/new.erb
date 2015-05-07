@@ -6,4 +6,6 @@
   <%= label_tag(:location, "Location:") %>
   <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
   <%= label_tag(:date, "Date:") %>
+  <p><%= select_month(Date.today) %> <%= select_day(Date.today) %> <%= select_year(Date.today, start_year: Date.today.year, end_year: 5.years.from_now.year) %> </p>
+  <%= f.submit "Create" %>
 <% end %>
