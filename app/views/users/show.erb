@@ -1,0 +1,12 @@
+<section>
+  <div class="profile-container">
+    <h1><%= @user.name %></h1>
+
+    <% if @user.photo %>
+      <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+    <% end %>
+
+
+
+  </div>
+</section>
