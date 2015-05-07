@@ -13,6 +13,6 @@ class PartiesController < ApplicationController
 
   private
 
-  end
+  mend
 
 end
