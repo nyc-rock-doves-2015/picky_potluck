@@ -1,9 +1,11 @@
 <h1><%= @party.name %></h1>
 
 <h2>Guests:</h2>
+<ul>
 <% @party.users.each do |user| %>
-  <%= link_to @user.name, user_path(user) %>
+  <li><%= link_to user.name, user_path(user) %></li>
 <% end %>
+</ul>
 
 <h2>We Don't Eat:</h2>
-<p>Cross-referenced eating restriction query result goes here.</p>
+<%= @restrictions %>

@@ -1,6 +1,14 @@
 class PartiesController < ApplicationController
   def show
     @party = Party.find(params[:id])
+    @attendees = @party.users
+    all_restrictions = []
+    @attendees.each do |attendee|
+      attendee.nonos.each do |nono|
+        all_restrictions << nono.name
+      end
+    end
+    @restrictions = all_restrictions.uniq!.sort{|a,b| a<=>b}.split('').join(", ")
   end
 
   def create
