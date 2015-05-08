@@ -20,7 +20,14 @@ class ApiCaller
     ingredients_array.each do |ingredient|
       query_extension << 'excludedIngredient[]='
       query_extension << ingredient.gsub(/\s+/, "%20") + "&"
-      # & in between each query...
+    end
+    query_extension.chop
+  end
+
+  def allergies_to_query(allergies_array)
+    query_extension = ""
+    allergies_array.each do |allergy|
+      query_extension << "allowedAllergy[]=#{allergy}&"
     end
     query_extension.chop
   end
