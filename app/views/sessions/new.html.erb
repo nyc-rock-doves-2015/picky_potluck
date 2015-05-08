@@ -5,13 +5,13 @@
 <section>
   <div id = "signin-form">
     <%= form_for :session, url: session_path do |f| %>
-        <div><%= f.label :name %></div>
-        <div><%= f.text_field :name, :required => true %></div>
+        <div><%= f.label :email %></div>
+        <div><%= f.text_field :email, :required => true %></div>
 
         <div><%= f.label :password %></div>
         <div><%= f.password_field :password, :required => true  %></div>
 
-        <div><%= f.submit %></div>
+        <div><%= f.submit "Sign in"%></div>
     <% end %>
   </div>
 </section>

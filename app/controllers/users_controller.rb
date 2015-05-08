@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-  def initialize
+  before_filter :init
+
+  def init
     @restrictions = ['cow','dairy','egg','fish','milk','shellfish','soy','peanut','pork','poultry','wheat']
   end
 
@@ -21,13 +23,15 @@ class UsersController < ApplicationController
   end
 
   def create
+
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thank you for signing up!"
       redirect_to root_url
     else
-      render "new"
+      flash[:notice] = "Sorry, we could not create your account. Please try again."
+      redirect_to signup_path
     end
   end
 
@@ -63,7 +67,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :password, :email, :photo_url, :fave)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name, :photo_url, :fave)
   end
 
 end
