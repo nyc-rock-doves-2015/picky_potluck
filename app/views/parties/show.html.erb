@@ -10,5 +10,11 @@
 
 <%= render partial: "invitation_form" %>
 
-<h2>We Don't Eat:</h2>
-<%= @restrictions %>
+<% if @restrictions %>
+  <h2>We Don't Eat:</h2>
+  <ul>
+  <% @restrictions.each do |nono| %>
+    <li><%= nono %></li>
+  <% end %>
+  </ul>
+<% end %>

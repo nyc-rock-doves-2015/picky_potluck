@@ -7,10 +7,10 @@ class Party < ActiveRecord::Base
     @combined_nonos = []
     @users.each do |user|
       user.nonos.each do |nono|
-        @combined_nonos << nono
+        @combined_nonos << nono.name
       end
     end
-    @combined_nonos.uniq
+    @combined_nonos.uniq.sort{|a, b| a <=> b}
   end
 
 end
