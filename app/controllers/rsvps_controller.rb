@@ -1,5 +1,13 @@
 class RsvpsController < ApplicationController
 
+  def edit
+    @party = Party.find(params[:party_id])
+    @rsvp = Rsvp.find(params[:id])
+  end
+
+  def update
+  end
+
   def create
     good_emails = []
     bad_emails = []
