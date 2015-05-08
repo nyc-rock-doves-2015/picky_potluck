@@ -1,7 +1,7 @@
 class UserMailer < ApplicationMailer
   default from: 'pickypotluck@gmail.com'
 
-  def invite(to_email, from_user, party)
+  def invite_email(to_email, from_user, party)
     @to_email = to_email
     @from_user = from_user
     @party = party
