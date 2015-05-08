@@ -2,7 +2,7 @@
 
 
 <%= form_for [party, rsvp] do |f| %>
-  <div><%= text_area :invitee_email_addresses, :placeholder => 'nosh@chomp.edu, allergic2yelp@ach.oo', :required => true %></div>
+  <div><%= text_area :invitee_email_addresses, nil, :placeholder=> 'nosh@chomp.edu, allergic2yelp@ach.oo', :required => true %></div>
 
   <div><%= f.submit "Send Invitations!" %></div>
 
