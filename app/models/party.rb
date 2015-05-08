@@ -17,9 +17,8 @@ class Party < ActiveRecord::Base
     @combined_nonos
   end
 
-  def rsvp_status(user)
-    rsvp = Rsvp.find_by(party_id: self.id, user_id: user.id)
-    rsvp.status
+  def rsvp(user)
+    Rsvp.find_by(party_id: self.id, user_id: user.id)
   end
 
 end
