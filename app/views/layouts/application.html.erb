@@ -7,8 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div id='navigation'>
+  <%= link_to 'Home', root_path %> |
+  <% if current_user %>
+    <%= link_to 'My Profile', user_path(current_user) %> |
+    <%= link_to 'Sign Out', signout_path %>
+  <% else %>
+    <%= link_to 'Sign In', signin_path %> | <%= link_to 'Sign Up', signup_path %>
+  <% end %>
+</div>
 
+<%= flash[:notice] %>
 <%= yield %>
-
 </body>
 </html>
