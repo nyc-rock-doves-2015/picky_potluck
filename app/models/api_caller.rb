@@ -7,12 +7,21 @@ class ApiCaller
     @app_key = "87db2b8f37674b94b105c8e8c088e2a4"
   end
 
-  def request(args)
+  def request(query_string)
+    req = open("http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}")
+    puts JSON.parse(req.read)
+  end
+
+  def generate_query(args)
     ingredients = args[:ingredients]
     allergies = args[:allergies]
     vegetarian_options = args[:vegetarian_options]
-    req = open("http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}")
-    puts JSON.parse(req.read)
+
+    query = "&q="
+    query << ingredients_to_query(ingredients) + "&"
+    query << allergies_to_query(allergies) + "&"
+    query << vegetarian_options_to_query(vegetarian_options) + "&"
+    query.chop
   end
 
   def ingredients_to_query(ingredients_array)
