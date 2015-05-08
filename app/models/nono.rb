@@ -1,8 +1,9 @@
 class Nono < ActiveRecord::Base
+
   has_many :nono_users
   has_many :users, through: :nono_users
 
-  # 3 possible values for type:
+  # 3 possible values for category:
     # ingredient (q= excludedIngredient[])
     # allergy (q= allowedAllergy[])
     # vegetarian (q= allowedDiet[])
@@ -35,7 +36,7 @@ class Nono < ActiveRecord::Base
     allergies = []
     vegetarian_options = []
     array_of_nonos.each do |nono|
-      case nono.type
+      case nono.category
       when "allergy"
         allergies << ALLERGIES[nono.name.to_sym]
       when "vegetarian"
