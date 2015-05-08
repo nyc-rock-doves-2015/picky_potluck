@@ -38,9 +38,11 @@ ActiveRecord::Schema.define(version: 20150507202747) do
     t.datetime "updated_at"
   end
 
-  create_table "party_users", force: :cascade do |t|
-    t.integer  "party_id",   null: false
-    t.integer  "user_id",    null: false
+  create_table "rsvps", force: :cascade do |t|
+    t.integer  "party_id",                       null: false
+    t.integer  "user_id",                        null: false
+    t.string   "status",     default: "pending"
+    t.string   "recipe"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
