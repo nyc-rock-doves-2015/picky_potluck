@@ -4,7 +4,7 @@
 <h2>Guests:</h2>
 <ul>
 <% @party.users.each do |user| %>
-  <li><%= link_to user.name, user_path(user) %> RSVP: <%= @party.rsvp_status(user) %></li>
+  <li><%= link_to user.name, user_path(user) %> RSVP: <%= @party.rsvp(user).status %></li>
 <% end %>
 </ul>
 
