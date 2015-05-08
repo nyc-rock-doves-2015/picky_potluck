@@ -4,9 +4,9 @@ class CreateNonos < ActiveRecord::Migration
       t.string :name, null: false
       t.string :type, null: false
       # possible values for type:
-      # ingredient (q= excludedIngredient[])
-      # allergy (q= allowedAllergy[])
-      # vegetarian (q= allowedDiet[])
+        # ingredient (q= excludedIngredient[])
+        # allergy (q= allowedAllergy[])
+        # vegetarian (q= allowedDiet[])
 
       t.timestamps
     end
