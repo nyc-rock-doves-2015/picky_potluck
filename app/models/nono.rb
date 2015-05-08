@@ -8,16 +8,16 @@ class Nono < ActiveRecord::Base
     # vegetarian (q= allowedDiet[])
 
   ALLERGIES = {
-    dairy: "396^Dairy-Free",
-    egg: "397^Egg-Free",
-    gluten: "393^Gluten-Free",
-    peanut: "394^Peanut-Free",
-    seafood: "398^Seafood-Free",
-    sesame: "399^Sesame-Free",
-    soy: "400^Soy-Free",
-    sulfite: "401^Sulfite-Free",
-    tree_nut: "395^Tree Nut-Free",
-    wheat: "392^Wheat-Free"
+    dairy: "396%5EDairy-Free",
+    egg: "397%5EEgg-Free",
+    gluten: "393%5EGluten-Free",
+    peanut: "394%5EPeanut-Free",
+    seafood: "398%5ESeafood-Free",
+    sesame: "399%5ESesame-Free",
+    soy: "400%5ESoy-Free",
+    sulfite: "401%5ESulfite-Free",
+    tree_nut: "395%5ETree%20Nut-Free",
+    wheat: "392%5EWheat-Free"
   }
 
   VEG_OPTIONS = {
