@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 
-  def initialize
+  before_filter :init
+
+  def init
     @restrictions = ['cow','dairy','egg','fish','milk','shellfish','soy','peanut','pork','poultry','wheat']
   end
 
