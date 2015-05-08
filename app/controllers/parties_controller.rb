@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
   def show
+    @rsvp = Rsvp.new
     @party = Party.find(params[:id])
     @location_query = @party.location.split(' ').join('+')
     @attendees = @party.users

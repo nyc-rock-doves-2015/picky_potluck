@@ -8,7 +8,7 @@
 <% end %>
 </ul>
 
-<%= render partial: "rsvps/new" %>
+<%= render partial: "rsvps/new", locals: {party: @party, rsvp: @rsvp} %>
 
 <% if @restrictions %>
   <h2>We Don't Eat:</h2>
