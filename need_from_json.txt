@@ -1,0 +1,7 @@
+id (need this to construct url: www.yummly.com/recipe/#{id})
+recipeName
+ingredients
+smallImageUrls
+sourceDisplayName
+totalTimeInSeconds
+attributes => course, cuisine, rating
