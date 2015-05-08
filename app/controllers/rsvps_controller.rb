@@ -1,4 +1,4 @@
-class RsvpController < ApplicationController
+class RsvpsController < ApplicationController
 
   def create
     
