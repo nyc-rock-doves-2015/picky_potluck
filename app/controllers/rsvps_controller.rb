@@ -4,14 +4,14 @@ class RsvpsController < ApplicationController
     good_emails = []
     bad_emails = []
     party = Party.find(params[:party_id])
-    email_addresses = params[:emails][0].split(" ")
-    email_addresses.each do |email_address|
-      user = User.find_by(email: email_address)
+    emails = params[:emails][0].split(" ")
+    emails.each do |email|
+      user = User.find_by(email: email)
       if user
         user.rsvps.create(party_id: party.id)
-        good_emails << email_address
+        good_emails << email
       else
-        bad_emails << email_address
+        bad_emails << email
       end
     end
     flash[:notice] = create_notice(good_emails, bad_emails)
