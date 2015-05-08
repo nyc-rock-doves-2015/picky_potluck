@@ -12,6 +12,10 @@ class PartiesController < ApplicationController
     @party = Party.new
   end
 
+  def invite
+
+  end
+
   private
 
   def party_params

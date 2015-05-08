@@ -2,10 +2,12 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
+  resources :parties
 
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'
   get 'signup' => 'users#new', as: 'signup'
+  post 'invite' => 'parties#invite', as: 'invite'
 
   root 'welcome#index'
 
@@ -24,8 +26,7 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
-  resources :users
-  resources :parties
+
 
   # Example resource route with options:
   #   resources :products do
