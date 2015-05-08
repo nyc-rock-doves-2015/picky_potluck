@@ -1,5 +1,3 @@
-
-
 <%= form_for @user do |f| %>
   <%= f.label "E-mail:" %><br>
   <%= f.text_field :email %><br>
@@ -8,11 +6,17 @@
   <%= f.label "Photo URL:" %><br>
   <%= f.text_field :photo_url %><br>
   <%= f.label "Ingredients you love:" %><br>
-  <%= f.text_field :fave, placeholder: "separated by comma" %><br>
+  <%= f.text_field :fave %><br>
   <%= f.label "Ingredients you cannot have:" %><br>
   <ul>
   <% @restrictions.each do |nono| %>
-    <li><%= check_box_tag "user[restrictions[#{nono}]]", 'nono' %> <%= label_tag nono %></li>
+
+    <% if @user.nonos.any?{|user_nono| user_nono.name == nono} %>
+      <li><%= check_box_tag "user[restrictions[#{nono}]]", 'nono', true %> <%= label_tag nono %></li>
+    <% else %>
+      <li><%= check_box_tag "user[restrictions[#{nono}]]", 'nono' %> <%= label_tag nono %></li>
+    <% end %>
+
   <% end %>
   </ul>
   <%= f.submit %>
