@@ -7,21 +7,21 @@ class ApiCaller
     @app_key = "87db2b8f37674b94b105c8e8c088e2a4"
   end
 
-  def request(query_string)
-    req = open("http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}")
+  def request(args)
+    query = generate_query(args)
+    req = open("http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}")
     puts JSON.parse(req.read)
   end
 
-  # args for this method come from get_search_code method in Nono model
   def generate_query(args)
     ingredients = args[:ingredients]
     allergies = args[:allergies]
     vegetarian_options = args[:vegetarian_options]
 
     query = "&q="
-    query << ingredients_to_query(ingredients) + "&"
-    query << allergies_to_query(allergies) + "&"
-    query << vegetarian_options_to_query(vegetarian_options) + "&"
+    query << ingredients_to_query(ingredients) + "&" if ingredients
+    query << allergies_to_query(allergies) + "&" if allergies
+    query << vegetarian_options_to_query(vegetarian_options) + "&" if vegetarian_options
     query.chop
   end
 
@@ -51,3 +51,7 @@ class ApiCaller
   end
 
 end
+
+req = ApiCaller.new
+# p req.generate_query({ingredients: ['onion soup','potatoes','cheese'], allergies: ["396^Dairy-Free","397^Egg-Free"], vegetarian_options: ["388^Lacto vegetarian", "389^Ovo vegetarian"]})
+p req.request({ingredients: ['potatoes','salt'], allergies: ["396^Dairy-Free","397^Egg-Free"]})
