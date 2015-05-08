@@ -12,6 +12,7 @@ class ApiCaller
     puts JSON.parse(req.read)
   end
 
+  # args for this method come from get_search_code method in Nono model
   def generate_query(args)
     ingredients = args[:ingredients]
     allergies = args[:allergies]
