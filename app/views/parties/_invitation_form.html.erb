@@ -1,7 +1,0 @@
-<h2>Invite Guests:</h2>
-
-<%= form_tag do %>
-  <p><%= label_tag :emails, "Enter email addresses, separated by commas." %></p>
-  <p><%= email_field_tag :emails, nil, placeholder: 'nosh@chomp.edu, allergic2yelp@ach.oo', class: "email-field-tag" %></p>
-  <p><%= submit_tag "Send Invitations" %></p>
-<% end %>

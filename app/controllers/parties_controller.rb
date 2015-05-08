@@ -1,5 +1,6 @@
 class PartiesController < ApplicationController
   def show
+    @rsvp = Rsvp.new
     @party = Party.find(params[:id])
     @location_query = @party.location.split(' ').join('+')
     @attendees = @party.users
@@ -18,12 +19,6 @@ class PartiesController < ApplicationController
       flash[:notice] = "You must be signed in to create a party!"
       redirect_to signin_path
     end
-  end
-
-  def invite
-    # get input from email field in parties/_invitation_form.html.erb
-    # split it by space and comma
-    # send the email using the mailer in mailers/user_mailer.rb
   end
 
   private

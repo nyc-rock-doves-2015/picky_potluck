@@ -1,0 +1,11 @@
+<h2>Invite Guests:</h2>
+
+
+<%= form_for [party, rsvp] do |f| %>
+  <div><%= label_tag :emails, "Enter your guests' email addresses, separated by a space." %></div>
+  <div><%= text_area :emails, nil, :placeholder=> 'nosh@chomp.edu, allergic2yelp@ach.oo', :required => true %></div>
+
+  <div><%= f.submit "Send Invitations!" %></div>
+
+
+<% end %>
