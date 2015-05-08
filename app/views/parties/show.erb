@@ -2,7 +2,7 @@
 
 <h2>Guests:</h2>
 <% @party.users.each do |user| %>
-  <%= @user.name, user_path(user) %>
+  <%= link_to @user.name, user_path(user) %>
 <% end %>
 
 <h2>We Don't Eat:</h2>

@@ -7,6 +7,7 @@ class PartiesController < ApplicationController
     @party = Party.new(party_params)
     # Then add the date.
     @party.save
+    redirect_to party_path(@party)
   end
 
   def new
