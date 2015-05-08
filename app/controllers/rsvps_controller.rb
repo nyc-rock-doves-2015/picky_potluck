@@ -24,6 +24,7 @@ class RsvpsController < ApplicationController
     notice = ""
     notice += "Invitations sent to #{good_emails.join(' ')}. " if good_emails.length > 0
     notice += "Could not locate Picky Potluck memberships for #{bad_emails.join(', ')}. " if bad_emails.length > 0
+    notice
   end
 
 end
