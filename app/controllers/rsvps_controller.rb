@@ -4,7 +4,7 @@ class RsvpsController < ApplicationController
     good_emails = []
     bad_emails = []
     party = Party.find(params[:party_id])
-    email_addresses = params[:invitee_email_addresses][0].split(" ")
+    email_addresses = params[:emails][0].split(" ")
     email_addresses.each do |email_address|
       user = User.find_by(email: email_address)
       if user
