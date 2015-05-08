@@ -1,6 +1,7 @@
 class PartiesController < ApplicationController
   def show
     @party = Party.find(params[:id])
+    @location_query = @party.location.split(' ').join('+')
     @attendees = @party.users
     all_restrictions = []
     @attendees.each do |attendee|
