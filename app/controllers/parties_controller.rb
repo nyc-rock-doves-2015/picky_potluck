@@ -4,7 +4,9 @@ class PartiesController < ApplicationController
   end
 
   def create
-    Party.new(params[:party])
+    @party = Party.new(party_params)
+    # Then add the date.
+    @party.save
   end
 
   def new
@@ -12,6 +14,10 @@ class PartiesController < ApplicationController
   end
 
   private
+
+  def party_params
+    params.require(:party).permit(:name, :location, :date)
+  end
 
 
 end
