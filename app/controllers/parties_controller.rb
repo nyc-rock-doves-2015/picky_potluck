@@ -31,6 +31,10 @@ class PartiesController < ApplicationController
     end
   end
 
+  def invite
+
+  end
+
   private
 
   def party_params
