@@ -6,6 +6,10 @@ class RsvpsController < ApplicationController
   end
 
   def update
+    party = Party.find(params[:party_id])
+    rsvp = Rsvp.find(params[:id])
+    rsvp.update(status: params[:rsvp][:status])
+    redirect_to party_path(party)
   end
 
   def create
