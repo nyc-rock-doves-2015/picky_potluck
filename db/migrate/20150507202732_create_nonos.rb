@@ -7,6 +7,7 @@ class CreateNonos < ActiveRecord::Migration
         # ingredient (q= excludedIngredient[])
         # allergy (q= allowedAllergy[])
         # vegetarian (q= allowedDiet[])
+      t.string :yummly_code
 
       t.timestamps
     end
