@@ -32,4 +32,12 @@ class ApiCaller
     query_extension.chop
   end
 
+   def vegetarian_options_to_query(options_array)
+    query_extension = ""
+    options_array.each do |option|
+      query_extension << "allowedDiet[]=#{option}&"
+    end
+    query_extension.chop
+  end
+
 end
