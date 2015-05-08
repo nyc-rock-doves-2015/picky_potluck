@@ -23,13 +23,14 @@ class UsersController < ApplicationController
   end
 
   def create
+
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thank you for signing up!"
       redirect_to root_url
     else
-      flash[:notice] = "Please try again."
+      flash[:notice] = "Sorry, we could not create your account. Please try again."
       redirect_to signup_path
     end
   end
