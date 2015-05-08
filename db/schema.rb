@@ -24,7 +24,9 @@ ActiveRecord::Schema.define(version: 20150507202747) do
   end
 
   create_table "nonos", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        null: false
+    t.string   "category",    null: false
+    t.string   "yummly_code"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -9,16 +9,19 @@ class ApiCaller
 
   def request(args)
     query = generate_query(args)
-    req = open("http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}")
+    s = "http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}"
+    p s
+    req = open(s)
     puts JSON.parse(req.read)
   end
 
   def generate_query(args)
+    search_term = args[:search_term]
     ingredients = args[:ingredients]
     allergies = args[:allergies]
     vegetarian_options = args[:vegetarian_options]
 
-    query = "&q="
+    query = "&q=#{search_term}"
     query << ingredients_to_query(ingredients) + "&" if ingredients
     query << allergies_to_query(allergies) + "&" if allergies
     query << vegetarian_options_to_query(vegetarian_options) + "&" if vegetarian_options
@@ -45,6 +48,7 @@ class ApiCaller
    def vegetarian_options_to_query(options_array)
     query_extension = ""
     options_array.each do |option|
+      query_extension << option.gsub(/\s+/, "%20") + "&"
       query_extension << "allowedDiet[]=#{option}&"
     end
     query_extension.chop
@@ -54,4 +58,4 @@ end
 
 req = ApiCaller.new
 # p req.generate_query({ingredients: ['onion soup','potatoes','cheese'], allergies: ["396^Dairy-Free","397^Egg-Free"], vegetarian_options: ["388^Lacto vegetarian", "389^Ovo vegetarian"]})
-p req.request({ingredients: ['potatoes','salt'], allergies: ["396^Dairy-Free","397^Egg-Free"]})
+p req.request({allergies: ["396%5EDairy-Free"]})
