@@ -52,3 +52,6 @@ group :development, :test do
   gem 'launchy'
 end
 
+# Heroku setup
+
+gem 'rails_12factor', group: :production
