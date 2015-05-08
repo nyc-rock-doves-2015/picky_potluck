@@ -4,6 +4,11 @@ class Nono < ActiveRecord::Base
   has_many :users, through: :nono_users
 
 
+#3 arrays
+#array of ingredients
+#array of allergies
+#array of vegetarian
+
 
   # # pass the return value of this method to generate_query in ApiCaller model
   # def self.get_search_code(array_of_nonos)
