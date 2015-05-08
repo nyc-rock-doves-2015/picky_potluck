@@ -13,7 +13,9 @@ class PartiesController < ApplicationController
   end
 
   def invite
-
+    # get input from email field in parties/_invitation_form.html.erb
+    # split it by space and comma
+    # send the email using the mailer in mailers/user_mailer.rb
   end
 
   private
