@@ -12,7 +12,8 @@ class ApiCaller
     s = "http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}"
     p s
     req = open(s)
-    puts JSON.parse(req.read)
+    req
+    # puts JSON.parse(req.read)
   end
 
   def generate_query(nonos_array, search_term)
