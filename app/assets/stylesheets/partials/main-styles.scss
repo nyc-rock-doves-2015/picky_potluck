@@ -1,0 +1,25 @@
+// Later: refactor tree to do all imports elsewhere.
+@import "partials/colors.scss";
+@import "partials/typography.scss";
+@import "partials/forms.scss";
+
+body {
+  background-color: $berry;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: ghostwhite;
+}
+
+p {
+  color: ghostwhite;
+}
+
+a {
+  &:link {
+    color: $squash;
+  }
+  &:visited {
+    color: $squash;
+  }
+}
