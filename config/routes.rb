@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
   resources :parties do
-    resources :rsvps, :only => [:create]
+    resources :rsvps, :only => [:create, :edit, :update]
   end
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'

@@ -17,4 +17,8 @@ class Party < ActiveRecord::Base
     @combined_nonos
   end
 
+  def rsvp(user)
+    Rsvp.find_by(party_id: self.id, user_id: user.id)
+  end
+
 end
