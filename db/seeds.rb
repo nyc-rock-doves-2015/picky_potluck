@@ -33,9 +33,13 @@ end
   }
 
   ALLERGIES.each do |k, v|
-    Nono.create(name: k, category: "allergy", yummly_code: v)
+    nono = Nono.create(name: k, category: "allergy", yummly_code: v)
+    user = User.find(rand(25)+1)
+    user.nonos << nono
   end
 
   VEG_OPTIONS.each do |k, v|
-    Nono.create(name: k, category: "vegetarian", yummly_code: v)
+    nono = Nono.create(name: k, category: "vegetarian", yummly_code: v)
+    user = User.find(rand(25)+1)
+    user.nonos << nono
   end
