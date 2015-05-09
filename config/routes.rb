@@ -2,15 +2,12 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
-  resources :recipes, :except => [:update, :destroy]
   resources :parties do
     resources :rsvps, :only => [:create, :edit, :update]
   end
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'
   get 'signup' => 'users#new', as: 'signup'
-  get 'search' => 'recipes#search', as 'search'
-  post 'search_results' => 'recipes#search_results', as 'search_results'
 
   root 'welcome#index'
 
