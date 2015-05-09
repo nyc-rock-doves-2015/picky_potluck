@@ -40,7 +40,7 @@ h2, h3, h4, h5, h6 {
   text-align: center;
 }
 
-p, ol, ul, li {
+p, ol, ul, li, label, input {
   color: $white;
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
@@ -57,5 +57,22 @@ a {
   }
   &:visited {
     color: $light-orange;
+  }
+}
+
+form {
+  background: $medium-orange;
+  width: 40%;
+  border: 2px $white solid;
+  padding: 5%;
+
+  input[type=text], input[type=password] {
+    background: $white;
+    width: 90%;
+  }
+
+  input[type=submit] {
+    background: $dark-orange;
+    margin-top: .5em;
   }
 }
