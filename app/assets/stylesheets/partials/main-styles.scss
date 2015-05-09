@@ -15,11 +15,18 @@ body {
 #container {
   width: 90%;
   margin-left: 5%;
+  margin-top: 1em;
 }
 
 
 h1, h2, h3, h4, h5, h6 {
   color: $white;
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+}
+
+.picky-potluck {
+  font-size: 6em;
 }
 
 p {
