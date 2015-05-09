@@ -2,6 +2,14 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
+  # get 'search' => 'parties#search', as: 'search'
+  # post 'search_results' => 'parties#search_results', as: 'search_results'
+  # get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
+
+
+  get 'recipes/search' => 'recipes#search', as: 'search'
+
+
   resources :parties do
     resources :rsvps, :only => [:create, :edit, :update]
   end
@@ -9,9 +17,7 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy', as: 'signout'
   get 'signup' => 'users#new', as: 'signup'
 
-  get 'search' => 'parties#search', as: 'search'
-  post 'search_results' => 'parties#search_results', as: 'search_results'
-  get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
+
 
 
   root 'welcome#index'

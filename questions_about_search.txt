@@ -1,0 +1,7 @@
+Questions About Search:
+
+1. What kind of route/controller do we use to make an API call to Yummly with the search term input by user AND the combined_nonos of the party?
+2. Is this search a "get" or a "post" request?
+3. Where in the view do we display the search form?
+4. What route and controller action display the search form?
+5. What view do we use to display the search results? What is its route/controller?
