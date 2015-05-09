@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resource :session, :only => [:new, :create, :destroy]
   resources :users, :except => [:destroy]
+  resources :recipes, :except => [:update, :destroy]
   resources :parties do
     resources :rsvps, :only => [:create, :edit, :update]
   end
