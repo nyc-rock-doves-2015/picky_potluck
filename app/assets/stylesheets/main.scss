@@ -1,7 +1,6 @@
 // scss manifest file, controls import order
 
-@import "base/mixins.scss";
-@import "base/normalize.scss";
-@import "base/globals.scss";
-
-@import "styles/root.scss"; // index page
+@import "partials/colors.scss";
+@import "partials/typography.scss";
+@import "partials/forms.scss";
+@import "partials/main-styles.scss"
