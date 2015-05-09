@@ -21,15 +21,11 @@ class PartiesController < ApplicationController
     end
   end
 
-  def search
+  def query_form
 
   end
 
-  def search_results
-
-  end
-
-  def show_search_results
+  def query_results
 
   end
 
