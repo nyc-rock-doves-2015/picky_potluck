@@ -3,13 +3,11 @@ require 'JSON'
 
 class ApiCaller
   def initialize
-    @app_id = ENV["APPLICATION_ID"]
-    @app_key = ENV["APPLICATION_KEY"]
   end
 
   def request(nonos_array, search_term)
     query = generate_query(nonos_array, search_term)
-    s = "http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}"
+    s = "http://api.yummly.com/v1/api/recipes?_app_id=#{ENV["APPLICATION_ID"]}&_app_key=#{ENV["APPLICATION_KEY"]}#{query}"
     p s
     req = open(s)
     req
