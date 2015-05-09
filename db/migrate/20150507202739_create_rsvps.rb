@@ -4,7 +4,6 @@ class CreateRsvps < ActiveRecord::Migration
       t.references :party, null: false
       t.references :user, null: false
       t.string :status, default: "pending"
-      t.string :recipe
 
       t.timestamps
     end
