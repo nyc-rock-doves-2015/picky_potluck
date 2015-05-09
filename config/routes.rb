@@ -7,10 +7,10 @@ Rails.application.routes.draw do
   # get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
 
 
-  get 'recipes/search' => 'recipes#search', as: 'search'
-
 
   resources :parties do
+    get 'query_form', on: :member
+    get 'query_results', on: :member
     resources :rsvps, :only => [:create, :edit, :update]
   end
   get 'signin' => 'sessions#new', as: 'signin'
