@@ -22,7 +22,7 @@ class PartiesController < ApplicationController
   end
 
   def query_form
-
+    @party = Party.find(params[:id])
   end
 
   def query_results

@@ -1,7 +1,7 @@
-<h3>Query Results:</h3>
+<h3>Recipes we can all eat!</h3>
 
 <ol>
-<% @available_recipes.each do |recipe|%>
-  <li><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></li>
-<% end %>
+  <% @available_recipes.each do |recipe|%>
+    <li><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></li>
+  <% end %>
 </ol>
