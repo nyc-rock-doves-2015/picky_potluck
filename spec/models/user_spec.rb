@@ -7,4 +7,10 @@ describe User do
     expect(user.name).to eq "testie"
     expect(user.password).to eq "password"
   end
+
+  it "should save to the database with good attributes" do
+    user.save
+    expect(User.count).to eq(1)
+  end
+
 end
