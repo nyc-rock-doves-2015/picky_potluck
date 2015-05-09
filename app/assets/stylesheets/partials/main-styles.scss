@@ -1,0 +1,58 @@
+// Later: refactor tree to do all imports elsewhere.
+@import "partials/colors.scss";
+@import "partials/typography.scss";
+@import "partials/forms.scss";
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: $berry;
+}
+
+#container {
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 1em;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: $white;
+  text-align: center;
+  font-family: 'Lobster Two', cursive;
+}
+
+.picky-potluck {
+  font-size: 6em;
+}
+
+p, a {
+  color: $white;
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
+}
+
+a {
+  &:link {
+    color: $squash;
+  }
+  &:visited {
+    color: $squash;
+  }
+}
+
+button {
+  background: $kale;
+  color: $white;
+  text-decoration: none;
+}
+
+
+.color-test2 {
+  background: $wine;
+    height: 100px;
+  width: 100px;
+}
