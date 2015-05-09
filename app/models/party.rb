@@ -21,4 +21,13 @@ class Party < ActiveRecord::Base
     Rsvp.find_by(party_id: self.id, user_id: user.id)
   end
 
+  def upcoming?
+    diff = date - Time.now
+    if diff >= 0
+      true
+    else
+      false
+    end
+  end
+
 end
