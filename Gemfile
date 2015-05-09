@@ -50,6 +50,8 @@ group :development, :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'launchy'
+
+  gem 'dotenv-rails'
 end
 
 # Heroku setup
