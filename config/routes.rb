@@ -5,13 +5,11 @@ Rails.application.routes.draw do
   # get 'search' => 'parties#search', as: 'search'
   # post 'search_results' => 'parties#search_results', as: 'search_results'
   # get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
-
-
-
   resources :parties do
     get 'query_form', on: :member
     get 'query_results', on: :member
     resources :rsvps, :only => [:create, :edit, :update]
+    resources :claimed_dishes, :only => [:create]
   end
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'

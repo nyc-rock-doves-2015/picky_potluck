@@ -26,8 +26,8 @@ class PartiesController < ApplicationController
   end
 
   def query_results
-    party = Party.find(params[:id])
-    combined_nonos = party.combine_nonos
+    @party = Party.find(params[:id])
+    combined_nonos = @party.combine_nonos
     food = params[:query]
     api_caller = ApiCaller.new
     response_hash = api_caller.request(combined_nonos, food)
