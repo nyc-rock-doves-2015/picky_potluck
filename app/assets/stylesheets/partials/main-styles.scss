@@ -69,10 +69,18 @@ form {
   input[type=text], input[type=password] {
     background: $white;
     width: 90%;
+    color: $dark-orange;
   }
 
   input[type=submit] {
     background: $dark-orange;
     margin-top: .5em;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline-color: $dark-orange;
   }
 }
