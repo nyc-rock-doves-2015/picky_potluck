@@ -3,16 +3,27 @@
 @import "partials/typography.scss";
 @import "partials/forms.scss";
 
-body {
-  background-color: $berry;
+html, body {
+  width: 100%;
+  height: 100%;
 }
 
+body {
+  background: $berry;
+}
+
+#container {
+  width: 90%;
+  margin-left: 5%;
+}
+
+
 h1, h2, h3, h4, h5, h6 {
-  color: ghostwhite;
+  color: $white;
 }
 
 p {
-  color: ghostwhite;
+  color: $white;
 }
 
 a {
@@ -22,4 +33,16 @@ a {
   &:visited {
     color: $squash;
   }
+}
+
+.color-test1 {
+  background: $kale;
+  height: 100px;
+  width: 100px;
+}
+
+.color-test2 {
+  background: $wine;
+    height: 100px;
+  width: 100px;
 }
