@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'
   get 'signup' => 'users#new', as: 'signup'
-  post 'invite' => 'parties#invite', as: 'invite'
+  get 'search' => 'recipes#search', as 'search'
+  post 'search_results' => 'recipes#search_results', as 'search_results'
 
   root 'welcome#index'
 
