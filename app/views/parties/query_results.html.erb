@@ -11,6 +11,8 @@
         <% if recipe["smallImageUrls"] %>
           <%= hidden_field_tag :photo_url, recipe["smallImageUrls"][0].to_sym %>
           <div class="picture-recipe"> <%= image_tag recipe["smallImageUrls"][0] %> </div>
+        <% else %>
+          <%= hidden_field_tag :photo_url, nil %>
         <% end %>
       </div>
     <% end %>
