@@ -19,6 +19,13 @@ describe User do
     expect(User.count).to eq(0)
   end
 
+  it "shouldn't save with an invalid email" do
+    user = FactoryGirl.build(:user, email: "shoepolish")
+    user.save
+    expect(User.count).to eq(0)
+  end
+
+
   it "shouldn't save without a name" do
     user = FactoryGirl.build(:user, name: nil)
     user.save
