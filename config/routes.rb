@@ -9,6 +9,10 @@ Rails.application.routes.draw do
   get 'signout' => 'sessions#destroy', as: 'signout'
   get 'signup' => 'users#new', as: 'signup'
 
+  get 'search' => 'parties#search', as: 'search'
+  post 'search_results' => 'parties#search_results', as: 'search_results'
+
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
