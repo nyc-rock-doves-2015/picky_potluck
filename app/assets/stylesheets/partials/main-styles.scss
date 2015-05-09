@@ -9,7 +9,7 @@ html, body {
 }
 
 body {
-  background: $berry;
+  background: $dark-orange;
 }
 
 #container {
@@ -19,7 +19,7 @@ body {
 }
 
 
-h1, h2, h3, h4, h5, h6 {
+h1 {
   color: $white;
   text-align: center;
   font-family: 'Lobster Two', cursive;
@@ -29,30 +29,33 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 6em;
 }
 
-p, a {
+#byline {
+  width: 70%;
+  margin-left: 15%;
+}
+
+h2, h3, h4, h5, h6 {
+  color: $white;
+  font-family: 'Cabin', sans-serif;
+  text-align: center;
+}
+
+p, ol, ul, li {
   color: $white;
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
 }
 
 a {
+
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
+
+
   &:link {
-    color: $squash;
+    color: $light-orange;
   }
   &:visited {
-    color: $squash;
+    color: $light-orange;
   }
-}
-
-button {
-  background: $kale;
-  color: $white;
-  text-decoration: none;
-}
-
-
-.color-test2 {
-  background: $wine;
-    height: 100px;
-  width: 100px;
 }
