@@ -3,8 +3,8 @@ require 'JSON'
 
 class ApiCaller
   def initialize
-    @app_id = "4079b16a"
-    @app_key = "87db2b8f37674b94b105c8e8c088e2a4"
+    @app_id = ENV["APPLICATION_ID"]
+    @app_key = ENV["APPLICATION_KEY"]
   end
 
   def request(nonos_array, search_term)
