@@ -1,1 +1,7 @@
-hello i'm query results
+<h3>Query Results:</h3>
+
+<ol>
+<% @available_recipes.each do |recipe|%>
+  <li><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></li>
+<% end %>
+</ol>

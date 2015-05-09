@@ -8,7 +8,14 @@ class ApiCaller
   def request(nonos_array, search_term)
     query = generate_query(nonos_array, search_term)
     s = "http://api.yummly.com/v1/api/recipes?_app_id=#{ENV["APPLICATION_ID"]}&_app_key=#{ENV["APPLICATION_KEY"]}#{query}"
-    open(s)
+    response = open(s)
+    doc = ""
+    response.each do |line|
+      doc << line
+    end
+    response.close
+
+    JSON.parse(doc)
   end
 
   def generate_query(nonos_array, search_term)

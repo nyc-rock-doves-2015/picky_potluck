@@ -30,8 +30,8 @@ class PartiesController < ApplicationController
     combined_nonos = party.combine_nonos
     food = params[:query]
     api_caller = ApiCaller.new
-    @available_recipes = api_caller.request(combined_nonos, food)
-    render json: @available_recipes
+    response_hash = api_caller.request(combined_nonos, food)
+    @available_recipes = response_hash['matches']
   end
 
   private
