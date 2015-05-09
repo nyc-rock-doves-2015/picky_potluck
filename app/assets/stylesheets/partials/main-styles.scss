@@ -29,8 +29,10 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 6em;
 }
 
-p {
+p, a {
   color: $white;
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
 }
 
 a {
@@ -42,11 +44,12 @@ a {
   }
 }
 
-.color-test1 {
+button {
   background: $kale;
-  height: 100px;
-  width: 100px;
+  color: $white;
+  text-decoration: none;
 }
+
 
 .color-test2 {
   background: $wine;
