@@ -1,0 +1,7 @@
+// scss manifest file, controls import order
+
+@import "base/mixins.scss";
+@import "base/normalize.scss";
+@import "base/globals.scss";
+
+@import "styles/root.scss"; // index page
