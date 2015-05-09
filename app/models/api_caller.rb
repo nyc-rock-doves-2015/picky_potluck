@@ -3,16 +3,12 @@ require 'JSON'
 
 class ApiCaller
   def initialize
-    @app_id = ENV["APPLICATION_ID"]
-    @app_key = ENV["APPLICATION_KEY"]
   end
 
   def request(nonos_array, search_term)
     query = generate_query(nonos_array, search_term)
-    s = "http://api.yummly.com/v1/api/recipes?_app_id=#{@app_id}&_app_key=#{@app_key}#{query}"
-    p s
-    req = open(s)
-    puts JSON.parse(req.read)
+    s = "http://api.yummly.com/v1/api/recipes?_app_id=#{ENV["APPLICATION_ID"]}&_app_key=#{ENV["APPLICATION_KEY"]}#{query}"
+    open(s)
   end
 
   def generate_query(nonos_array, search_term)
@@ -45,7 +41,3 @@ class ApiCaller
   end
 
 end
-
-req = ApiCaller.new
-# p req.generate_query({ingredients: ['onion soup','potatoes','cheese'], allergies: ["396^Dairy-Free","397^Egg-Free"], vegetarian_options: ["388^Lacto vegetarian", "389^Ovo vegetarian"]})
-p req.request([], "chicken")
