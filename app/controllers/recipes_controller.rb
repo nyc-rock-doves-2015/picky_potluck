@@ -10,4 +10,10 @@ class RecipesController < ApplicationController
 
   def show
   end
+
+  def search
+  end
+
+  def search_results
+  end
 end

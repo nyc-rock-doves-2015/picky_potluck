@@ -21,6 +21,18 @@ class PartiesController < ApplicationController
     end
   end
 
+  def query_form
+
+  end
+
+  def query_results
+    party = Party.find(params[:id])
+    combined_nonos = party.combine_nonos
+    food = params[:query]
+    api_caller = ApiCaller.new
+    @available_recipes = api_caller(combined_nonos, food)
+  end
+
   private
 
   def party_params
