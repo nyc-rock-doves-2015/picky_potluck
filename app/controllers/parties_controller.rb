@@ -21,6 +21,18 @@ class PartiesController < ApplicationController
     end
   end
 
+  def search
+
+  end
+
+  def search_results
+
+  end
+
+  def show_search_results
+
+  end
+
   private
 
   def party_params

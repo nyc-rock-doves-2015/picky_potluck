@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'search' => 'parties#search', as: 'search'
   post 'search_results' => 'parties#search_results', as: 'search_results'
+  get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
 
 
   root 'welcome#index'
