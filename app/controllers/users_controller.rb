@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
 
-  before_filter :init
-
-  def init
-    @restrictions = ['cow','dairy','egg','fish','milk','shellfish','soy','peanut','pork','poultry','wheat']
-  end
-
   def index
     @users = User.all
   end
@@ -16,8 +10,7 @@ class UsersController < ApplicationController
     @upcoming_parties = []
     @past_parties = []
     parties.each do |party|
-      diff = party.date - Time.now
-      if diff >= 0
+      if party.upcoming?
         @upcoming_parties << party
       else
         @past_parties << party
@@ -55,7 +48,7 @@ class UsersController < ApplicationController
       flash[:notice] = "You are not this user."
       redirect_to user_path(user)
     end
-
+    @nonos = Nono.all
   end
 
   def update
@@ -69,7 +62,7 @@ class UsersController < ApplicationController
     nonos_hash = params[:user][:restrictions]
     if nonos_hash
       nonos_hash.each_key do |key|
-        @user.nonos.find_or_create_by(name: key.downcase)
+        @user.nono_users.create(nono_id: key)
       end
     end
 
