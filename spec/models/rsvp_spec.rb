@@ -15,5 +15,11 @@ describe Rsvp do
     rsvp.valid?
     expect(rsvp.errors[:party_id]).to include("can't be blank")
   end
-  it "is invalid if BOTH the user_id and party_id belong to an existing Rsvp"
+  it "is invalid if BOTH the user_id and party_id belong to an existing Rsvp" do
+    user_id = rand(100) + 1
+    party_id = rand(100) + 1
+    rsvp1 = Rsvp.create(user_id: user_id, party_id: party_id)
+    rsvp2 = Rsvp.new(user_id: user_id, party_id: party_id)
+    expect(rsvp2.id).to be_nil
+  end
 end

@@ -6,6 +6,6 @@ class Rsvp < ActiveRecord::Base
   validates :party_id, presence: true
   validates :user_id, presence: true
 
-  validates_uniqueness_of :user_id, :scope => [:party_id]
-  validates_uniqueness_of :party_id, :scope => [:user_id]
+  validates :user_id, uniqueness: {scope: :party_id, message: "rsvp must be unique"}
+  validates :party_id, uniqueness: {scope: :user_id, message: "rsvp must be unique"}
 end
