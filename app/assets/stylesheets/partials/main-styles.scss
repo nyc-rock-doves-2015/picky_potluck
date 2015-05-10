@@ -153,6 +153,11 @@ nav {
       padding-right: 2em;
     }
 
+    li:nth-child(4) {
+      padding-left: 4em;
+      text-transform: uppercase;
+    }
+
     a:link, a:visited {
       color: $white;
       font-family: $lobster;
