@@ -16,7 +16,6 @@ body {
   width: 100%;
 }
 
-
 h1 {
   color: $white;
   text-align: center;
@@ -37,6 +36,10 @@ h1 {
   background-position: center;
   background-size: cover;
   height: 40em;
+
+  .welcome-buttons {
+    margin-left: 30%;
+  }
 }
 
 #byline {

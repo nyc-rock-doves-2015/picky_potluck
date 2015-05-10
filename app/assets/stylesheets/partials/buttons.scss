@@ -1,0 +1,37 @@
+@import "partials/colors.scss";
+@import "partials/main-styles.scss";
+
+.animate
+{
+  transition: all 0.1s;
+  -webkit-transition: all 0.1s;
+}
+
+.action-button
+{
+  position: relative;
+  padding: 10px 40px;
+  margin: 0px 10px 10px 0px;
+  float: left;
+  border-radius: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  width: 70px;
+  text-align: center;
+}
+
+.orange-button
+{
+  background-color: $white;
+  border-bottom: 3px solid $dark-orange;
+  a:link, a:visited {
+    color: $dark-orange;
+  }
+}
+
+.action-button:active
+{
+  transform: translate(0px,5px);
+  -webkit-transform: translate(0px,5px);
+  border-bottom: 1px solid;
+}
