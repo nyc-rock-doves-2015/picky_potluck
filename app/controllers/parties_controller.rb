@@ -1,10 +1,15 @@
 class PartiesController < ApplicationController
   def show
-    @rsvp = Rsvp.new
     @party = Party.find(params[:id])
-    @location_query = @party.location.split(' ').join('+')
-    @attendees = @party.users
-    @restrictions = @party.combine_nonos
+    if current_user.on_guest_list?(@party)
+      @rsvp = Rsvp.new
+      @location_query = @party.location.split(' ').join('+')
+      @attendees = @party.users
+      @restrictions = @party.combine_nonos
+    else
+      flash[:notice] = "Sorry, you don't have permission to see that."
+      redirect_to user_path(current_user)
+    end
   end
 
   def create
