@@ -19,23 +19,15 @@ class UsersController < ApplicationController
     @past_parties = @past_parties.last(3)
   end
 
-  def new
-    if !current_user
-      @user = User.new
-    else
-      redirect_to root_url
-    end
-  end
-
   def create
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thank you for signing up!"
-      redirect_to root_url
+      redirect_to user_path(user)
     else
       flash[:notice] = "Sorry, we could not create your account. Please try again."
-      redirect_to signup_path
+      redirect_to enter_path
     end
   end
 

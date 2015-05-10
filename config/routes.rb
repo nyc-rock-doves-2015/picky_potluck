@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resource :session, :only => [:new, :create, :destroy]
+  resource :session, :only => [:create, :destroy]
   resources :users, :except => [:destroy]
   # get 'search' => 'parties#search', as: 'search'
   # post 'search_results' => 'parties#search_results', as: 'search_results'
@@ -11,14 +11,11 @@ Rails.application.routes.draw do
     resources :rsvps, :only => [:create, :edit, :update]
     resources :claimed_dishes, :only => [:create]
   end
-  get 'signin' => 'sessions#new', as: 'signin'
   get 'signout' => 'sessions#destroy', as: 'signout'
-  get 'signup' => 'users#new', as: 'signup'
-
-
-
 
   root 'welcome#index'
+
+  get 'enter' => 'welcome#auth', as: 'enter'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
