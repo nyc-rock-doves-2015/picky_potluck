@@ -7,8 +7,12 @@
 <!--     <a href="#" class="action-button shadow animate orange-button">Sign In</a>
     <a href="#" class="action-button shadow animate orange-button">Sign Up</a> -->
 
-    <%= form_tag "/signin", method: "get", id: "welcome-form" do %>
+    <%= form_tag "/signin", method: "get", class: "welcome-form" do %>
       <%= submit_tag "Sign In", class: "action-button shadow animate orange-button"%>
+    <% end %>
+
+    <%= form_tag "/signup", method: "get", class: "welcome-form" do %>
+      <%= submit_tag "Sign Up", class: "action-button shadow animate orange-button"%>
     <% end %>
 
   </div>

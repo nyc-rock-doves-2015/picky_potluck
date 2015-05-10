@@ -37,8 +37,10 @@ h1 {
   background-size: cover;
   height: 40em;
 
+  // why isn't this centering?
   .welcome-buttons {
-    margin-left: 30%;
+    // margin: 0 auto;
+    margin-left: 23%;
   }
 }
 
@@ -98,7 +100,7 @@ form {
   }
 }
 
-#welcome-form {
+.welcome-form {
   background: none;
   width: 100%;
   border: none;
