@@ -18,7 +18,12 @@ describe Nono do
     expect(nono).to be_valid
   end
 
-  it "is invalid without a name"
+  it "is invalid without a name" do
+    nono = Nono.new(name: nil)
+    nono.valid?
+    expect(nono.errors[:name]).to include("can't be blank")
+  end
+
   it "is invalid without a category"
   it "is invalid if the category is something other than 'allergy', 'vegetarian', or 'ingredient'"
   it "is invalid without a yummly_code if the category is 'allergy'"
