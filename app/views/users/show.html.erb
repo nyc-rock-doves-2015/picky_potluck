@@ -13,7 +13,10 @@
         <div class="identity">
           <h1><%= @user.name %></h1>
           <h4><%= @user.email %></h4>
-          <%= link_to 'edit', edit_user_path(@user) %>
+          <div class="edit-profile">
+            <i class="fa fa-pencil-square fa-2x"></i>
+            <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+          </div>
         </div>
     </div>
     <div class="profile-bottom">
