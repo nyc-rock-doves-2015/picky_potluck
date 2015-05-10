@@ -5,6 +5,7 @@
 <section>
   <div id = "signin-form">
     <%= form_for :session, url: session_path do |f| %>
+        <div><%= flash[:notice] %></div>
         <div><%= f.label :email %></div>
         <div><%= f.text_field :email, :required => true %></div>
 
@@ -22,6 +23,7 @@
 <section>
   <div id="signup_form">
     <%= form_for(@user) do |f| %>
+        <div><%= flash[:notice] %></div>
         <div><%= f.label :name %></div>
         <div><%= f.text_field :name, :required => true %></div>
 
