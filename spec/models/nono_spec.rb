@@ -1,7 +1,23 @@
 require 'rails_helper'
 
 describe Nono do
-  it "is valid with a name and category of 'allergy', 'vegetarian', or 'ingredient'"
+  it "is valid with a name and category of 'allergy', 'vegetarian', or 'ingredient'" do
+    nono = Nono.new(
+      name: Faker::Name.name,
+      category: 'allergy')
+    expect(nono).to be_valid
+
+    nono = Nono.new(
+      name: Faker::Name.name,
+      category: 'vegetarian')
+    expect(nono).to be_valid
+
+    nono = Nono.new(
+      name: Faker::Name.name,
+      category: 'ingredient')
+    expect(nono).to be_valid
+  end
+
   it "is invalid without a name"
   it "is invalid without a category"
   it "is invalid if the category is something other than 'allergy', 'vegetarian', or 'ingredient'"
