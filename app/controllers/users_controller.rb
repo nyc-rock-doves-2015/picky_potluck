@@ -24,10 +24,10 @@ class UsersController < ApplicationController
     if user.save
       session[:user_id] = user.id
       flash[:notice] = "Thank you for signing up!"
-      redirect_to root_url
+      redirect_to user_path(user)
     else
       flash[:notice] = "Sorry, we could not create your account. Please try again."
-      redirect_to signup_path
+      redirect_to enter_path
     end
   end
 
