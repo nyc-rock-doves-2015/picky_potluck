@@ -2,12 +2,18 @@
 
 <section>
   <div class="profile-container">
+    <div class="userpic">
+      <% if @user.photo_url %>
+        <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+      <% end %>
+    </div>
     <h1><%= @user.name %></h1>
+
     <%= link_to 'edit', edit_user_path(@user) %>
+
     <h2><%= @user.email %></h2>
-    <% if @user.photo_url %>
-      <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-    <% end %>
+
+
 
     <h3>Favorites:</h3>
     <p><%= @user.fave %></p>
