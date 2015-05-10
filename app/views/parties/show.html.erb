@@ -13,7 +13,7 @@
 <%= render partial: "rsvps/new", locals: {party: @party, rsvp: @rsvp} %>
 
 <% if @restrictions %>
-  <h2>We Don't Eat:</h2>
+  <h2>Eating Restrictions:</h2>
   <ul>
   <% @restrictions.each do |nono| %>
     <li><%= nono.name %></li>
