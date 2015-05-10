@@ -52,6 +52,7 @@ group :development, :test do
   gem 'launchy'
 
   gem 'dotenv-rails'
+  gem 'rack_session_access'
 end
 
 # Heroku setup
