@@ -57,6 +57,9 @@ describe Nono do
     expect(nono.errors[:yummly_code]).to include("can't be blank")
   end
 
-  it "returns a yummly_code as a string"
+  it "returns a yummly_code as a string" do
+    nono = Nono.new(name: Faker::Name.name, category: "allergy", yummly_code: "12345/yy88%zz")
+    expect(nono.yummly_code).to eq "12345/yy88%zz"
+  end
 
 end
