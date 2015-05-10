@@ -16,14 +16,14 @@
   border-radius: 10px;
   font-size: 20px;
   text-decoration: none;
-  width: 70px;
+  width: 200px;
   text-align: center;
 }
 
 .orange-button
 {
-  background-color: $white;
-  border-bottom: 3px solid $dark-orange;
+  border: 2px solid $white;
+  border-bottom: 5px solid $light-orange;
   a:link, a:visited {
     color: $dark-orange;
   }

@@ -98,6 +98,16 @@ form {
   }
 }
 
+#welcome-form {
+  background: none;
+  width: 100%;
+  border: none;
+  padding: 0;
+  a {
+    padding: 0;
+  }
+}
+
 .result-recipe {
   background: lighten($dark-orange, 3%);
   border: $white solid 2px;
