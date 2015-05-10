@@ -5,6 +5,8 @@
     <div class="userpic">
       <% if @user.photo_url %>
         <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+      <% else %>
+        <%= image_tag "eggs.jpg", class: "user-photo" %>
       <% end %>
     </div>
     <h1><%= @user.name %></h1>
