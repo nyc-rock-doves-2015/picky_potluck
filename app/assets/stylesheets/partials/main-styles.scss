@@ -36,12 +36,6 @@ h1 {
   background-position: center;
   background-size: cover;
   height: 40em;
-
-  // why isn't this centering?
-  .welcome-buttons {
-    // margin: 0 auto;
-    margin-left: 23%;
-  }
 }
 
 #byline {
@@ -76,6 +70,7 @@ a {
 }
 
 form {
+  margin: 0 auto;
   background: $medium-orange;
   width: 40%;
   border: 2px $white solid;
@@ -101,6 +96,7 @@ form {
 }
 
 .welcome-form {
+  margin-left: 25%; // fix this centering
   background: none;
   width: 100%;
   border: none;
