@@ -18,12 +18,7 @@ class PartiesController < ApplicationController
   end
 
   def new
-    if current_user
-      @party = Party.new
-    else
-      flash[:notice] = "You must be signed in to create a party!"
-      redirect_to signin_path
-    end
+    @party = Party.new
   end
 
   def query_form
@@ -45,6 +40,5 @@ class PartiesController < ApplicationController
   def party_params
     params.require(:party).permit(:name, :location, :date)
   end
-
 
 end
