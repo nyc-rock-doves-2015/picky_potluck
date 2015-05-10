@@ -23,7 +23,7 @@ class ApiCaller
 
     query = "&q=#{encoded_search_term}"
     vegetarian_options = nonos_array.select{|nono| nono.category == 'vegetarian'}
-    ingredients = nonos_array.select{|nono| nono.category == 'ingredients'}
+    ingredients = nonos_array.select{|nono| nono.category == 'ingredient'}
     allergies = nonos_array.select{|nono| nono.category == 'allergy'}
     query << ingredients_to_query(ingredients) if ingredients
     query << allergies_to_query(allergies) if allergies
