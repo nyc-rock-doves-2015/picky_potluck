@@ -13,10 +13,14 @@ describe ApiCaller do
       name: Faker::Name.name,
       category: 'ingredient',
       yummly_code: Faker::Address.longitude) }
+  let(:api_caller) {
+    ApiCaller.new
+  }
+  let(:query) {
+    api_caller.generate_query([allergy_nono, veg_nono, ingr_nono], "onion soup")
+  }
 
   it "changes spaces to + in the input search term and includes that version in the query" do
-    api_caller = ApiCaller.new
-    query = api_caller.generate_query([allergy_nono, veg_nono, ingr_nono], "onion soup")
     expect(query).to start_with("&q=onion+soup")
   end
 
