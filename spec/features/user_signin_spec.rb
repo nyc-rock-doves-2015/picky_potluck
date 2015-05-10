@@ -17,7 +17,4 @@ feature "User trying to sign into the website" do
     click_button "Sign In"
     expect(page).to have_content "Sign In"
   end
-
-
-
 end
