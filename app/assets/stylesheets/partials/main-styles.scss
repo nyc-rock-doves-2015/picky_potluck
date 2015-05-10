@@ -60,8 +60,12 @@ p, ol, ul, li, label, input {
   font-size: 20px;
 }
 
-a {
+li {
+  list-style-type: none;
+}
 
+a {
+  text-decoration: none;
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
 
@@ -130,6 +134,21 @@ form {
 
     img {
       width: 100px;
+    }
+  }
+}
+
+// ********** NAV ************* //
+
+nav {
+  background-color: $grey;
+
+  ul {
+    display: inline-block;
+
+    li {
+      float: left;
+      padding-right: 2em;
     }
   }
 }
