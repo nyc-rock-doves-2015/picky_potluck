@@ -13,9 +13,7 @@ body {
 }
 
 #container {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 1em;
+  width: 100%;
 }
 
 
@@ -26,7 +24,17 @@ h1 {
 }
 
 .picky-potluck {
+  margin-top: 0;
+  padding-top: 1em;
   font-size: 6em;
+}
+
+.welcome {
+  background-image: image-url("kale.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40em;
 }
 
 #byline {
