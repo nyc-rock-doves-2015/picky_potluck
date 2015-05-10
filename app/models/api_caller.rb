@@ -23,18 +23,10 @@ class ApiCaller
 
     query = "&q=#{encoded_search_term}"
     vegetarian_options = nonos_array.select{|nono| nono.category == 'vegetarian'}
-    ingredients = nonos_array.select{|nono| nono.category == 'ingredients'}
     allergies = nonos_array.select{|nono| nono.category == 'allergy'}
-    query << ingredients_to_query(ingredients) if ingredients
     query << allergies_to_query(allergies) if allergies
     query << vegetarian_options_to_query(vegetarian_options) if vegetarian_options
     query
-  end
-
-  def ingredients_to_query(ingredients_array)
-    ingredients_array.map do |ingredient|
-      "&excludedIngredient[]=#{ingredient.name}"
-    end.join("")
   end
 
   def allergies_to_query(allergies_array)
