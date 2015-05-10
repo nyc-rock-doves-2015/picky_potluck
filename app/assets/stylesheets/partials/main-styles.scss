@@ -178,9 +178,26 @@ nav {
   border-top: 2px $white solid;
 }
 
-.userpic img {
-  margin: 10px;
-  height: 100px;
-  border: $white 2px solid;
-  padding: 5px;
+.profile-top {
+  display: inline-block;
+  .userpic {
+    float: left;
+    img {
+      display: inline-block;
+      margin: 10px;
+      height: 100px;
+      border: $white 2px solid;
+      padding: 5px;
+    }
+  }
+  .identity {
+    display: inline-block;
+    float: left;
+    h1, h4 {
+      text-align: left;
+      padding-top: 5px;
+      margin: 0;
+    }
+  }
+
 }

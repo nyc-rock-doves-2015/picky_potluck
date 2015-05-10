@@ -2,21 +2,20 @@
 
 <section>
   <div class="profile-container">
-    <div class="userpic">
-      <% if @user.photo_url %>
-        <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-      <% else %>
-        <%= image_tag "eggs.jpg", class: "user-photo" %>
-      <% end %>
+    <div class="profile-top">
+        <div class="userpic">
+          <% if @user.photo_url %>
+            <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+          <% else %>
+            <%= image_tag "eggs.jpg", class: "user-photo" %>
+          <% end %>
+        </div>
+        <div class="identity">
+          <h1><%= @user.name %></h1>
+          <h4><%= @user.email %></h4>
+          <%= link_to 'edit', edit_user_path(@user) %>
+        </div>
     </div>
-    <h1><%= @user.name %></h1>
-
-    <%= link_to 'edit', edit_user_path(@user) %>
-
-    <h2><%= @user.email %></h2>
-
-
-
     <h3>Favorites:</h3>
     <p><%= @user.fave %></p>
 
