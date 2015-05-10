@@ -1,6 +1,6 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-describe ApiCaller do
+# describe ApiCaller do
   # let(:allergy_nono) { Nono.create(
   #     name: "whatever",
   #     category: 'allergy',
@@ -39,4 +39,4 @@ describe ApiCaller do
   #   expect(split_query[1]).to start_with("&allowedDiet[]=veg")
   # end
 
-end 
+# end 
