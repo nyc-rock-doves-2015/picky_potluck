@@ -60,11 +60,14 @@ p, ol, ul, li, label, input {
   font-size: 20px;
 }
 
-a {
+li {
+  list-style-type: none;
+}
 
+a {
+  text-decoration: none;
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
-
 
   &:link {
     color: $light-orange;
@@ -101,7 +104,8 @@ form {
 }
 
 .welcome-form {
-  margin-left: 60%;
+  margin-top: -3em;
+  margin-left: 47%;
   background: none;
   width: 100%;
   border: none;
@@ -132,4 +136,39 @@ form {
       width: 100px;
     }
   }
+}
+
+// ********** NAV ************* //
+
+nav {
+  margin-bottom: 0;
+  background-color: darken($dark-orange, 10%);
+  border-bottom: 2px $white solid;
+
+  ul {
+    display: inline-block;
+
+    li {
+      float: left;
+      padding-right: 2em;
+    }
+
+    a:link, a:visited {
+      color: $white;
+      font-family: $lobster;
+    }
+  }
+}
+
+// *******PROFILE PAGE******** //
+
+.profile-container {
+  margin-top: 0;
+  background-image: image-url("kale.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40em;
+  height: 500px;
+  border-top: 2px $white solid;
 }
