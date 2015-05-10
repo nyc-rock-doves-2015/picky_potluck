@@ -4,6 +4,10 @@ class RsvpsController < ApplicationController
     @party = Party.find(params[:party_id])
     current_user_guest_list_check(@party)
     @rsvp = Rsvp.find(params[:id])
+    if @rsvp.user_id != current_user.id
+      flash[:notice] = "Sorry, you don't have permission to see that."
+      redirect_to user_path(current_user)
+    end
   end
 
   def update
