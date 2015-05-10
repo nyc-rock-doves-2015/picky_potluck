@@ -17,4 +17,10 @@ feature "User trying to sign into the website" do
     click_button "Sign In"
     expect(page).to have_content "Sign In"
   end
+
+  it "should be redirected to profile page if already signin" do
+    page.set_rack_session(user_id: user.id)
+    visit enter_path
+    expect(page).to have_content user.name
+  end
 end
