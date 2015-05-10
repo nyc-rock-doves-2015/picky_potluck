@@ -3,6 +3,8 @@
 @import "partials/typography.scss";
 @import "partials/forms.scss";
 
+$lobster: 'Lobster Two', cursive;
+
 html, body {
   width: 100%;
   height: 100%;
@@ -13,20 +15,32 @@ body {
 }
 
 #container {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 1em;
+  width: 100%;
 }
-
 
 h1 {
   color: $white;
   text-align: center;
-  font-family: 'Lobster Two', cursive;
+  font-family: $lobster;
 }
 
+
 .picky-potluck {
-  font-size: 6em;
+  margin-top: 0;
+  margin-bottom: .5em;
+  padding-top: 0;
+  font-size: 7em;
+  color: $white;
+  text-shadow: 1px 2px $dark-orange;
+
+}
+
+.welcome {
+  background-image: image-url("eggs.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40em;
 }
 
 #byline {
@@ -61,6 +75,7 @@ a {
 }
 
 form {
+  margin: 0 auto;
   background: $medium-orange;
   width: 40%;
   border: 2px $white solid;
@@ -82,6 +97,17 @@ form {
   textarea:focus,
   button:focus {
       outline-color: $dark-orange;
+  }
+}
+
+.welcome-form {
+  margin-left: 60%;
+  background: none;
+  width: 100%;
+  border: none;
+  padding: 0;
+  a {
+    padding: 0;
   }
 }
 

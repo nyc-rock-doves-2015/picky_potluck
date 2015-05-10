@@ -1,16 +1,32 @@
-<header>
-  <h1 class="picky-potluck">Picky Potluck</h1>
-</header>
+<div class="welcome">
 
-<section>
-  <div id="byline">
-    <h2>Recipe:</h2>
-    <ol>
-      <li>Organize a party.</li>
-      <li>Fill out your dietary restrictions.</li>
-      <li>Search for recipes by ingredient or dish.</li>
-      <li>We only show recipes everyone in your party can eat.</li>
-      <li>Enjoy!</li>
-    </ol>
+  <header>
+    <h1 class="picky-potluck">Picky Potluck</h1>
+  </header>
+  <div class="welcome-buttons">
+<!--     <a href="#" class="action-button shadow animate orange-button">Sign In</a>
+    <a href="#" class="action-button shadow animate orange-button">Sign Up</a> -->
+
+    <%= form_tag "/signin", method: "get", class: "welcome-form" do %>
+      <%= submit_tag "Sign In", class: "action-button shadow animate orange-button"%>
+    <% end %>
+
+    <%= form_tag "/signup", method: "get", class: "welcome-form" do %>
+      <%= submit_tag "Sign Up", class: "action-button shadow animate orange-button"%>
+    <% end %>
+
   </div>
-</section>
+
+  <section>
+    <!-- <div id="byline">
+      <h2>Recipe:</h2>
+      <ol>
+        <li>Organize a party.</li>
+        <li>Fill out your dietary restrictions.</li>
+        <li>Search for recipes by ingredient or dish.</li>
+        <li>We only show recipes everyone in your party can eat.</li>
+        <li>Enjoy!</li>
+      </ol> -->
+    </div>
+  </section>
+</div>
