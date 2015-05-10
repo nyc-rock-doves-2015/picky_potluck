@@ -1,10 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :gate_keeper, only: [:create]
 
-  def index
-    @users = User.all
-  end
-
   def show
     @user = User.find(params[:id])
     parties = @user.parties
