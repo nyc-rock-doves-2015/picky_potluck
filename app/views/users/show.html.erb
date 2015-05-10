@@ -2,48 +2,54 @@
 
 <section>
   <div class="profile-container">
-    <div class="profile-top">
-        <div class="userpic">
-          <% if @user.photo_url %>
-            <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-          <% else %>
-            <%= image_tag "eggs.jpg", class: "user-photo" %>
-          <% end %>
-        </div>
-        <div class="identity">
-          <h1><%= @user.name %></h1>
-          <h4><%= @user.email %></h4>
-          <div class="edit-profile">
-            <i class="fa fa-pencil-square fa-2x"></i>
-            <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+    <div class="profile-left">
+      <div class="profile-top">
+          <div class="userpic">
+            <% if @user.photo_url %>
+              <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+            <% else %>
+              <%= image_tag "eggs.jpg", class: "user-photo" %>
+            <% end %>
           </div>
-        </div>
-    </div>
-    <div class="profile-bottom">
-      <h1>Favorite Foods:</h1>
-      <p><%= @user.fave %></p>
+          <div class="identity">
+            <h1><%= @user.name %></h1>
+            <h4><%= @user.email %></h4>
+            <div class="edit-profile">
+              <i class="fa fa-pencil-square fa-2x"></i>
+              <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+            </div>
+          </div>
+      </div>
+      <div class="profile-bottom">
+        <h1>Favorite Foods:</h1>
+        <p><%= @user.fave %></p>
 
-      <h1>Eating Restrictions:</h1>
-      <p>
-        <% @user.nonos.each do |nono| %>
-          <%= nono.name %>
+        <h1>Eating Restrictions:</h1>
+        <p>
+          <% @user.nonos.each do |nono| %>
+            <%= nono.name %>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <h1>Upcoming Parties</h1>
+      <ul>
+        <% @upcoming_parties.each do |party| %>
+          <li><%= link_to party.name, party_path(party) %></li>
+          <li><%= ((party.date - Time.now)/60/60/24).floor %> days left!</li>
+          <li>RSVP: <%= party.rsvp(@user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(@user)) if current_user.id == @user.id %></li>
         <% end %>
-      </p>
+      </ul>
+
+      <h1>Attended Parties</h1>
+      <ul>
+        <% @past_parties.each do |party| %>
+          <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24*-1).floor %> days ago</li>
+        <% end %>
+      </ul>
     </div>
 
-
-    <h3>Upcoming Parties</h3>
-    <ul>
-      <% @upcoming_parties.each do |party| %>
-        <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24).floor %> days left! RSVP: <%= party.rsvp(@user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(@user)) if current_user.id == @user.id %></li>
-      <% end %>
-    </ul>
-
-    <h3>Attended Parties</h3>
-    <ul>
-      <% @past_parties.each do |party| %>
-        <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24*-1).floor %> days ago</li>
-      <% end %>
-    </ul>
   </div>
 </section>
