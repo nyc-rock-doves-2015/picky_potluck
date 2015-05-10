@@ -19,14 +19,6 @@ class UsersController < ApplicationController
     @past_parties = @past_parties.last(3)
   end
 
-  def new
-    if !current_user
-      @user = User.new
-    else
-      redirect_to root_url
-    end
-  end
-
   def create
     user = User.new(user_params)
     if user.save
