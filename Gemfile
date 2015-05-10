@@ -58,3 +58,5 @@ end
 # Heroku setup
 
 gem 'rails_12factor', group: :production
+
+gem 'font-awesome-sass'
