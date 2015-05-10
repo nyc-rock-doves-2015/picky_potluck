@@ -2,15 +2,15 @@ require 'rails_helper'
 
 describe ApiCaller do
   let(:allergy_nono) { Nono.create(
-      name: Faker::Name.name,
+      name: "beets",
       category: 'allergy',
       yummly_code: Faker::Address.longitude) }
   let(:veg_nono) { Nono.create(
-      name: Faker::Name.name,
+      name: "veg",
       category: 'vegetarian',
       yummly_code: Faker::Address.longitude) }
   let(:ingr_nono) { Nono.create(
-      name: Faker::Name.name,
+      name: "nuts",
       category: 'ingredient',
       yummly_code: Faker::Address.longitude) }
   let(:api_caller) {
@@ -24,7 +24,11 @@ describe ApiCaller do
     expect(query).to start_with("&q=onion+soup")
   end
 
-  it "adds parameters for ingredients after the ingredients query method"
+  it "adds parameters for ingredients after the ingredients query method" do
+    split_query = query.split("&excludedIngredient")
+    puts split_query
+  end
+
   it "adds parameters for vegetarian options after the vegetarian options query method"
   it "adds parameters for allergies after the allergies query method"
 end
