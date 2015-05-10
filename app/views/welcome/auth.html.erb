@@ -1,4 +1,22 @@
 <header>
+  <h1>Sign In</h1>
+</header>
+
+<section>
+  <div id = "signin-form">
+    <%= form_for :session, url: session_path do |f| %>
+        <div><%= f.label :email %></div>
+        <div><%= f.text_field :email, :required => true %></div>
+
+        <div><%= f.label :password %></div>
+        <div><%= f.password_field :password, :required => true  %></div>
+
+        <div><%= f.submit "Sign In"%></div>
+    <% end %>
+  </div>
+</section>
+
+<header>
   <h1>Sign Up</h1>
 </header>
 <section>

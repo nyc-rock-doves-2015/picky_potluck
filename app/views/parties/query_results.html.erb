@@ -1,3 +1,5 @@
+<%= render partial: "./nav" %>
+
 <h3>Recipes we can all eat!</h3>
 
 <div class="results-container">
@@ -5,14 +7,12 @@
     <% @available_recipes.each do |recipe|%>
       <div class="result-recipe">
         <div class="button-recipe">
-          <%= f.radio_button :yummly_id, recipe['id'].to_sym %>
+          <%= f.radio_button :yummly_id, recipe['id'] %>
         </div>
         <div class="link-recipe"><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></div>
         <% if recipe.has_key?("smallImageUrls") %>
-          <div class="picture-recipe"> <%= image_tag recipe["smallImageUrls"][0] %> </div>
-          <%= hidden_field_tag :photo_url, recipe["smallImageUrls"][0].to_sym %>
-        <% else %>
-          <%= hidden_field_tag :photo_url, nil %>
+          <div class="picture-recipe">
+            <%= image_tag recipe["smallImageUrls"][0] %> </div>
         <% end %>
       </div>
     <% end %>

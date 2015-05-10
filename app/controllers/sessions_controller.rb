@@ -1,20 +1,15 @@
 class SessionsController < ApplicationController
-
-  def new
-    if current_user
-      redirect_to root_url
-    end
-  end
+  skip_before_action :gate_keeper
 
   def create
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       flash[:notice] = "Logged in!"
-      redirect_to root_url
+      redirect_to user_path(user)
     else
       flash[:notice] = "Invalid email or password"
-      redirect_to signin_path
+      redirect_to enter_path
     end
   end
 

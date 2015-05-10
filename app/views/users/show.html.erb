@@ -1,8 +1,9 @@
+<%= render partial: "./nav" %>
+
 <section>
   <div class="profile-container">
     <h1><%= @user.name %></h1>
     <%= link_to 'edit', edit_user_path(@user) %>
-    <%= flash[:notice] %>
     <h2><%= @user.email %></h2>
     <% if @user.photo_url %>
       <%= image_tag "#{@user.photo_url}", class: "user-photo" %>

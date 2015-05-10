@@ -1,10 +1,11 @@
 class PartiesController < ApplicationController
   def show
-    @rsvp = Rsvp.new
     @party = Party.find(params[:id])
+    current_user_guest_list_check(@party)
+    @rsvp = Rsvp.new
     @location_query = @party.location.split(' ').join('+')
     @attendees = @party.users
-    @restrictions = @party.combine_nonos
+    @restrictions = @party.combine_nonos     
   end
 
   def create
@@ -13,16 +14,12 @@ class PartiesController < ApplicationController
   end
 
   def new
-    if current_user
-      @party = Party.new
-    else
-      flash[:notice] = "You must be signed in to create a party!"
-      redirect_to signin_path
-    end
+    @party = Party.new
   end
 
   def query_form
     @party = Party.find(params[:id])
+    current_user_guest_list_check(@party)
   end
 
   def query_results

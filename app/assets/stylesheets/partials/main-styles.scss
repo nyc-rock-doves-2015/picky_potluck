@@ -3,6 +3,8 @@
 @import "partials/typography.scss";
 @import "partials/forms.scss";
 
+$lobster: 'Lobster Two', cursive;
+
 html, body {
   width: 100%;
   height: 100%;
@@ -13,20 +15,32 @@ body {
 }
 
 #container {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 1em;
+  width: 100%;
 }
-
 
 h1 {
   color: $white;
   text-align: center;
-  font-family: 'Lobster Two', cursive;
+  font-family: $lobster;
 }
 
+
 .picky-potluck {
-  font-size: 6em;
+  margin-top: 0;
+  margin-bottom: .5em;
+  padding-top: 0;
+  font-size: 7em;
+  color: $white;
+  text-shadow: 1px 2px $dark-orange;
+
+}
+
+.welcome {
+  background-image: image-url("eggs.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40em;
 }
 
 #byline {
@@ -46,11 +60,14 @@ p, ol, ul, li, label, input {
   font-size: 20px;
 }
 
-a {
+li {
+  list-style-type: none;
+}
 
+a {
+  text-decoration: none;
   font-family: 'Cabin', sans-serif;
   font-size: 20px;
-
 
   &:link {
     color: $light-orange;
@@ -61,6 +78,7 @@ a {
 }
 
 form {
+  margin: 0 auto;
   background: $medium-orange;
   width: 40%;
   border: 2px $white solid;
@@ -85,6 +103,18 @@ form {
   }
 }
 
+.welcome-form {
+  margin-top: -3em;
+  margin-left: 47%;
+  background: none;
+  width: 100%;
+  border: none;
+  padding: 0;
+  a {
+    padding: 0;
+  }
+}
+
 .result-recipe {
   background: lighten($dark-orange, 3%);
   border: $white solid 2px;
@@ -106,4 +136,39 @@ form {
       width: 100px;
     }
   }
+}
+
+// ********** NAV ************* //
+
+nav {
+  margin-bottom: 0;
+  background-color: darken($dark-orange, 10%);
+  border-bottom: 2px $white solid;
+
+  ul {
+    display: inline-block;
+
+    li {
+      float: left;
+      padding-right: 2em;
+    }
+
+    a:link, a:visited {
+      color: $white;
+      font-family: $lobster;
+    }
+  }
+}
+
+// *******PROFILE PAGE******** //
+
+.profile-container {
+  margin-top: 0;
+  background-image: image-url("kale.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 40em;
+  height: 500px;
+  border-top: 2px $white solid;
 }
