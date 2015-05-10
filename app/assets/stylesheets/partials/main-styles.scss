@@ -169,13 +169,13 @@ nav {
 
 .profile-container {
   margin-top: 0;
-  background-image: image-url("kale.jpg");
-  background-repeat: repeat-y;
-  background-position: center;
-  background-size: cover;
   height: 100em;
   height: 500px;
   border-top: 2px $white solid;
+  padding: 1em;
+  h1 {
+    text-align: left;
+  }
 }
 
 .profile-top {
@@ -184,7 +184,7 @@ nav {
     float: left;
     img {
       display: inline-block;
-      margin: 10px;
+      margin-right: 10px;
       height: 100px;
       border: $white 2px solid;
       padding: 5px;

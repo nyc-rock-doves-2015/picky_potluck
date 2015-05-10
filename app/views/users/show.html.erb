@@ -16,15 +16,18 @@
           <%= link_to 'edit', edit_user_path(@user) %>
         </div>
     </div>
-    <h3>Favorites:</h3>
-    <p><%= @user.fave %></p>
+    <div class="profile-bottom">
+      <h1>Favorite Foods:</h1>
+      <p><%= @user.fave %></p>
 
-    <h3>Eating Restrictions:</h3>
-    <ul>
-      <% @user.nonos.each do |nono| %>
-        <li><%= nono.name %></li>
-      <% end %>
-    </ul>
+      <h1>Eating Restrictions:</h1>
+      <p>
+        <% @user.nonos.each do |nono| %>
+          <%= nono.name %>
+        <% end %>
+      </p>
+    </div>
+
 
     <h3>Upcoming Parties</h3>
     <ul>
