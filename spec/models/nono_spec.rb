@@ -30,12 +30,14 @@ describe Nono do
     expect(nono.errors[:category]).to include("can't be blank")
   end
 
-  it "is invalid if the category is something other than 'allergy', 'vegetarian', or 'ingredient'"
+  it "is invalid if the category is something other than 'allergy', 'vegetarian', or 'ingredient'" do
+    nono = Nono.new(category: Faker::Company.name)
+    nono.valid?
+    expect(nono.errors[:category]).to include("is not a valid category")
+  end
+
   it "is invalid without a yummly_code if the category is 'allergy'"
   it "is invalid without a yummly_code if the category is 'vegetarian'"
-
-  it "returns a yummly_code as a string" do
-
-  end
+  it "returns a yummly_code as a string"
 
 end
