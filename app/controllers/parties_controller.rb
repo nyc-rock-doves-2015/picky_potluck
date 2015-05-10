@@ -19,6 +19,7 @@ class PartiesController < ApplicationController
 
   def query_form
     @party = Party.find(params[:id])
+    current_user_guest_list_check(@party)
   end
 
   def query_results

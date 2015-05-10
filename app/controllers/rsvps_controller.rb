@@ -2,6 +2,7 @@ class RsvpsController < ApplicationController
 
   def edit
     @party = Party.find(params[:party_id])
+    current_user_guest_list_check(@party)
     @rsvp = Rsvp.find(params[:id])
   end
 
