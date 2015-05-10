@@ -2,13 +2,13 @@ require 'rails_helper'
 
 describe ApiCaller do
   let(:allergy_nono) { Nono.create(
-      name: "beets",
+      name: "whatever",
       category: 'allergy',
-      yummly_code: Faker::Address.longitude) }
+      yummly_code: "beets") }
   let(:veg_nono) { Nono.create(
-      name: "veg",
+      name: "whatever",
       category: 'vegetarian',
-      yummly_code: Faker::Address.longitude) }
+      yummly_code: "veg") }
   let(:ingr_nono) { Nono.create(
       name: "nuts",
       category: 'ingredient',
@@ -29,10 +29,16 @@ describe ApiCaller do
     expect(split_query[1]).to start_with("&excludedIngredient[]=nuts")
   end
 
+  it "adds parameters for allergies after the allergies query method" do
+    split_query = query.split("nuts")
+    expect(split_query[1]).to start_with("&allowedAllergy[]=beets")
+  end
+
   it "adds parameters for vegetarian options after the vegetarian options query method" do
-    split_query = query.split("&allowedDiet")
+    split_query = query.split("beets")
+    expect(split_query[1]).to start_with("&allowedDiet[]=veg")
   end
 
 
-  it "adds parameters for allergies after the allergies query method"
+
 end
