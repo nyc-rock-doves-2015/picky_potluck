@@ -7,5 +7,10 @@ class Nono < ActiveRecord::Base
   validates :category, presence: true
   validates :category, inclusion: { in: %w(allergy ingredient vegetarian),
     message: "is not a valid category" }
+  validates :yummly_code, presence: true, if: :needs_yummly_code?
+
+  def needs_yummly_code?
+    category == "allergy" || category == "vegetarian"
+  end
 
 end

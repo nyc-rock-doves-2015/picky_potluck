@@ -4,12 +4,14 @@ describe Nono do
   it "is valid with a name and category of 'allergy', 'vegetarian', or 'ingredient'" do
     nono = Nono.new(
       name: Faker::Name.name,
-      category: 'allergy')
+      category: 'allergy',
+      yummly_code: Faker::Address.longitude)
     expect(nono).to be_valid
 
     nono = Nono.new(
       name: Faker::Name.name,
-      category: 'vegetarian')
+      category: 'vegetarian',
+      yummly_code: Faker::Address.longitude)
     expect(nono).to be_valid
 
     nono = Nono.new(
@@ -36,7 +38,12 @@ describe Nono do
     expect(nono.errors[:category]).to include("is not a valid category")
   end
 
-  it "is invalid without a yummly_code if the category is 'allergy'"
+  it "is invalid without a yummly_code if the category is 'allergy'" do
+    nono = Nono.new(category: "allergy", yummly_code: nil)
+    nono.valid?
+    expect(nono.errors[:yummly_code]).to include("can't be blank")
+  end
+
   it "is invalid without a yummly_code if the category is 'vegetarian'"
   it "returns a yummly_code as a string"
 
