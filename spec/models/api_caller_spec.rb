@@ -24,21 +24,19 @@ describe ApiCaller do
     expect(query).to start_with("&q=onion+soup")
   end
 
-  it "adds parameters for ingredients after the ingredients query method" do
-    split_query = query.split("soup")
-    expect(split_query[1]).to start_with("&excludedIngredient[]=nuts")
-  end
+  # it "adds parameters for ingredients after the ingredients query method" do
+  #   split_query = query.split("soup")
+  #   expect(split_query[1]).to start_with("&excludedIngredient[]=nuts")
+  # end
 
-  it "adds parameters for allergies after the allergies query method" do
-    split_query = query.split("nuts")
-    expect(split_query[1]).to start_with("&allowedAllergy[]=beets")
-  end
+  # it "adds parameters for allergies after the allergies query method" do
+  #   split_query = query.split("nuts")
+  #   expect(split_query[1]).to start_with("&allowedAllergy[]=beets")
+  # end
 
-  it "adds parameters for vegetarian options after the vegetarian options query method" do
-    split_query = query.split("beets")
-    expect(split_query[1]).to start_with("&allowedDiet[]=veg")
-  end
-
-
+  # it "adds parameters for vegetarian options after the vegetarian options query method" do
+  #   split_query = query.split("beets")
+  #   expect(split_query[1]).to start_with("&allowedDiet[]=veg")
+  # end
 
 end 
