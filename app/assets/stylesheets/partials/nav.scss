@@ -1,0 +1,24 @@
+nav {
+  margin-bottom: 0;
+  background-color: $maroon;
+  border-bottom: 2px $white solid;
+
+  ul {
+    display: inline-block;
+
+    li {
+      float: left;
+      padding-right: 2em;
+    }
+
+    li:nth-child(4) {
+      padding-left: 6em;
+      text-transform: uppercase;
+    }
+
+    a:link, a:visited {
+      color: $white;
+      font-family: $lobster;
+    }
+  }
+}
