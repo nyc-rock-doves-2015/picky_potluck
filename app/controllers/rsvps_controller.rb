@@ -26,7 +26,7 @@ class RsvpsController < ApplicationController
       if user
         user.rsvps.create(party_id: party.id)
       end
-      UserMailer.invite_email(email, user, party).deliver
+      UserMailer.invite_email(email, current_user, party).deliver
     end
     flash[:notice] = "Invitations successfully sent."
     redirect_to party_path(party)
