@@ -10,7 +10,7 @@
       <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to [party, cd], method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?'} do %> 
           <i class="fa fa-times"></i>
         <% end %></li>
-      <li><%= image_tag cd.photo_url%></li>
+      <li><%= link_to image_tag(cd.photo_url), "http://www.yummly.com/recipe/#{cd.yummly_id}" %></li>
       <% end %>
       <%= form_tag(query_results_party_path(party), method: 'get') do %>
       <li><%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %><%= submit_tag("Search for recipes") %></li>
