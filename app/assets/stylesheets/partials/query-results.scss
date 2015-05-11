@@ -44,5 +44,6 @@
 }
 
 .selected{
-  border: green 5px solid;
+  border: $border-highlight 5px solid;
+  background-color: lighten($background-color, 10%);
 }
