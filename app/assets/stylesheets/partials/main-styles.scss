@@ -23,30 +23,6 @@ h1 {
   font-family: $lobster;
 }
 
-
-.picky-potluck {
-  margin-top: 0;
-  margin-bottom: .5em;
-  padding-top: 0;
-  font-size: 7em;
-  color: $white;
-  text-shadow: 1px 2px $dark-orange;
-
-}
-
-.welcome {
-  background-image: image-url("eggs.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 40em;
-}
-
-#byline {
-  width: 70%;
-  margin-left: 15%;
-}
-
 h2, h3, h4, h5, h6 {
   color: $white;
   font-family: 'Cabin', sans-serif;
