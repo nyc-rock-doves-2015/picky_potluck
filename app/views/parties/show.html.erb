@@ -17,7 +17,9 @@
       <td><%= link_to user.name, user_path(user) %> </td>
       <% if current_user.id == user.id %>
         <td>
-          <%= select_tag :status, options_for_select([ "yes", "pending", "no" ], "pending") %>
+          <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
+            <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "pending") %>
+          <% end %>
         </td>
       <% else %>
         <td><%= @party.rsvp(user).status %></td>
