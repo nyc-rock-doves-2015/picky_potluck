@@ -15,7 +15,15 @@
     <% @party.users.each do |user| %>
       <tr>
       <td><%= link_to user.name, user_path(user) %> </td>
-      <td><%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></td>
+      <% if current_user.id == user.id %>
+        <td>
+          <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
+            <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
+          <% end %>
+        </td>
+      <% else %>
+        <td><%= @party.rsvp(user).status %></td>
+      <% end %>
       <td><% @party.claimed_dishes(user).each do |cd| %>
         <%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
         <% end %></td>
