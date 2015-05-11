@@ -3,7 +3,8 @@ $(document).ready(function () {
     $('.selected').removeClass("selected");
     $event = $(event.target);
     $event.closest('.result-recipe').toggleClass("selected");
-    $('#claimed_dish_photo_url').val("potato");
+    $image_url = $event.find("img").attr("src");
+    $('#claimed_dish_photo_url').val($image_url);
   })
 
   //Populate form with information from selected div
