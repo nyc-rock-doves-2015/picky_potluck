@@ -41,7 +41,7 @@
       display: inline-block;
       margin-right: 10px;
       height: 100px;
-      border: $white 2px solid;
+      border: $border-color 2px solid;
       padding: 5px;
     }
   }
@@ -62,7 +62,7 @@
       padding-bottom: .5em;
     }
     i {
-      color: $white;
+      color: white;
     }
   }
 
