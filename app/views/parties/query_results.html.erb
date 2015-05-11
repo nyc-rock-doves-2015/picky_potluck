@@ -14,7 +14,7 @@
         <div class="owl-carousel" id="owl-carousel">
           <% @available_recipes.each do |recipe|%>
             <div class="result-recipe">
-              <%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %>
+              <%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}", target: '_blank' %>
               <% if recipe.has_key?("smallImageUrls") %>
                 <div class="picture-recipe">
                   <%= image_tag recipe["smallImageUrls"][0], class: "recipe_image"%> </div>
@@ -27,7 +27,7 @@
         <%= f.hidden_field :yummly_id %>
         <%= f.hidden_field :name%>
 
-        <%= f.submit %>
+        <%= f.submit "Claim dish" %>
       <% end %>
       </div>
     </div>
