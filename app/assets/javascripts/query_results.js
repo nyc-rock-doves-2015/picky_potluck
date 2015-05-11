@@ -6,5 +6,9 @@ $(document).ready(function () {
     // when submit button is clicked, it creates a claimeddish with the correct information.
   })
 
+  $('#claim-button').on("click", function(event){
+      console.log("potatoes")
+      event.preventDefault();
+  })
   $(".owl-carousel").owlCarousel();
 })
