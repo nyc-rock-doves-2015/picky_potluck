@@ -11,9 +11,6 @@ class RsvpsController < ApplicationController
   end
 
   def update
-    p "******************"
-    p params
-    p "******************"
     party = Party.find(params[:party_id])
     rsvp = Rsvp.find(params[:id])
     rsvp.update(status: params[:rsvp][:status])
