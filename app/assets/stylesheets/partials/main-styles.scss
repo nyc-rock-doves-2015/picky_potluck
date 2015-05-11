@@ -78,44 +78,6 @@ a {
   }
 }
 
-form {
-  margin: 0 auto;
-  background: $medium-orange;
-  width: 40%;
-  border: 2px $white solid;
-  padding: 5%;
-
-  input[type=text], input[type=password] {
-    background: $white;
-    width: 90%;
-    color: $dark-orange;
-  }
-
-  input[type=submit] {
-    background: $dark-orange;
-    margin-top: .5em;
-  }
-
-  input:focus,
-  select:focus,
-  textarea:focus,
-  button:focus {
-      outline-color: $dark-orange;
-  }
-}
-
-.welcome-form {
-  margin-top: -3em;
-  margin-left: 47%;
-  background: none;
-  width: 100%;
-  border: none;
-  padding: 0;
-  a {
-    padding: 0;
-  }
-}
-
 .query-results {
   h3 {
     margin: 0;
