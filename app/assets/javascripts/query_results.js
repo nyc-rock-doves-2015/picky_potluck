@@ -7,6 +7,8 @@ $(document).ready(function () {
     $('#claimed_dish_photo_url').val($image_url);
     $yummly_id = $event.find('a').attr('href').slice(29);
     $('#claimed_dish_yummly_id').val($yummly_id);
+    $name = $event.find('a').html();
+    $('#claimed_dish_name').val($name);
 
 
   })
