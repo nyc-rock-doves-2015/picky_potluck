@@ -28,25 +28,25 @@ end
     # vegetarian (q= allowedDiet[])
 
   ALLERGIES = {
-    dairy: "396%5EDairy-Free",
-    egg: "397%5EEgg-Free",
-    gluten: "393%5EGluten-Free",
-    peanut: "394%5EPeanut-Free",
-    seafood: "398%5ESeafood-Free",
-    sesame: "399%5ESesame-Free",
-    soy: "400%5ESoy-Free",
-    sulfite: "401%5ESulfite-Free",
-    tree_nut: "395%5ETree%20Nut-Free",
-    wheat: "392%5EWheat-Free"
+    "Dairy" => "396%5EDairy-Free",
+    "Eggs" => "397%5EEgg-Free",
+    "Gluten" => "393%5EGluten-Free",
+    "Peanuts" => "394%5EPeanut-Free",
+    "Seafood" => "398%5ESeafood-Free",
+    "Sesame" => "399%5ESesame-Free",
+    "Soy" => "400%5ESoy-Free",
+    "Sulfites" => "401%5ESulfite-Free",
+    "Tree Nuts" => "395%5ETree%20Nut-Free",
+    "Wheat" => "392%5EWheat-Free"
   }
 
   VEG_OPTIONS = {
-    lacto_veg: "388%5ELacto%20vegetarian",
-    ovo_veg: "389%5EOvo%20vegetarian",
-    pescetarian: "390%5EPescetarian",
-    vegan: "386%5EVegan",
-    vegetarian: "387%5ELacto-ovo%20vegetarian",
-    paleo: "403%5EPaleo"
+    "Lacto Vegetarian" => "388%5ELacto%20vegetarian",
+    "Ovo Vegetarian" => "389%5EOvo%20vegetarian",
+    "Pescetarian" => "390%5EPescetarian",
+    "Vegan" => "386%5EVegan",
+    "Vegetarian" => "387%5ELacto-ovo%20vegetarian",
+    "Paleo" => "403%5EPaleo"
   }
 
   ALLERGIES.each do |k, v|
