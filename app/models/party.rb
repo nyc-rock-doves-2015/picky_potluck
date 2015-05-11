@@ -31,4 +31,8 @@ class Party < ActiveRecord::Base
     end
   end
 
+  def claimed_dishes(user)
+    rsvp = Rsvp.find_by(user_id: user.id, party_id: self.id)
+    rsvp.claimed_dishes
+  end
 end

@@ -16,4 +16,12 @@ class User < ActiveRecord::Base
     guest_list = party.users
     guest_list.include?(self)
   end
+
+  def upcoming_parties
+    self.parties.select{|party| party.upcoming?}
+  end
+
+  def past_parties
+    self.parties.select{|party| !party.upcoming?}
+  end
 end
