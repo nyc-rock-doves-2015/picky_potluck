@@ -7,6 +7,13 @@ class ClaimedDishesController < ApplicationController
     redirect_to party_path(party)
   end
 
+  def destroy
+    party = Party.find(params[:party_id])
+    claimed_dish = ClaimedDish.find(params[:id])
+    claimed_dish.destroy
+    redirect_to party_path(party)
+  end
+
   private
 
   def claimed_dish_params
