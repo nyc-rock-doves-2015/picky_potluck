@@ -115,16 +115,41 @@ form {
   }
 }
 
+.query-results {
+  h3 {
+    margin: 0;
+  }
+  form {
+    margin-left: 20%;
+    margin-top: 2em;
+    width: 50px;
+    background-color: $grey;
+  }
+}
+
+.recipe-results-instructions {
+  background: $grey;
+  width: 80%;
+  margin-top: 2em;
+  margin-left: 5%;
+  padding: 1em;
+  padding-bottom: 2em;
+  border: $white solid 2px;
+}
+
 .result-recipe {
-  background: lighten($dark-orange, 3%);
+  background: $maroon;
   border: $white solid 2px;
   width: 300px;
-  height: 125px;
+  height: 150px;
   padding: 1em;
   margin: 1em;
 
   .link-recipe {
     text-align: center;
+    a {
+      color: $white;
+    }
   }
 
   .picture-recipe {
@@ -142,7 +167,7 @@ form {
 
 nav {
   margin-bottom: 0;
-  background-color: darken($dark-orange, 10%);
+  background-color: $maroon;
   border-bottom: 2px $white solid;
 
   ul {
