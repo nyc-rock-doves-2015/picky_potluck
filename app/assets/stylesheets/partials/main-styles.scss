@@ -18,7 +18,13 @@ body {
   width: 100%;
 }
 
+.page-container {
+  padding: 2em;
+}
+
 h1 {
+  padding-top: 0;
+  margin-top: 0;
   color: $white;
   text-align: center;
   font-family: $lobster;
@@ -135,7 +141,6 @@ form {
 .recipe-results-instructions {
   background: $grey;
   width: 80%;
-  margin-top: 2em;
   margin-left: 5%;
   padding: 1em;
   padding-bottom: 2em;
