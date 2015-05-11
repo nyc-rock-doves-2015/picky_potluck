@@ -1,20 +1,20 @@
 <%= render partial: "./nav" %>
 
-<div class="left-of-sidebar">
-  <h1>Create A New Party</h1>
+<div class="page-container">
+  <div class="left-of-sidebar">
+    <h1>Create A New Party</h1>
 
-  <%= form_for @party, html: {class: "new-party-form"} do |f| %>
-    <%= label_tag(:name, "Name:") %>
-    <p><%= f.text_field :name, placeholder: "Birthday Brunch" %></p>
-    <%= label_tag(:location, "Location:") %>
-    <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
-    <%= label_tag(:date, "Date/Time:") %>
-    <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
-    <%= f.submit "Create" %>
-  <% end %>
-</div>
+    <%= form_for @party, html: {class: "new-party-form"} do |f| %>
+      <%= label_tag(:name, "Name:") %>
+      <p><%= f.text_field :name, placeholder: "Birthday Brunch" %></p>
+      <%= label_tag(:location, "Location:") %>
+      <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
+      <%= label_tag(:date, "Date/Time:") %>
+      <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
+      <%= f.submit "Create" %>
+    <% end %>
 
-<div class="sidebar">
-  Can't render sidebar on this page yet because @upcoming_parties is undefined for this route.
-  You can delete this div and replace it with a render when it gets fixed.
+  </div>
+
+  <%= render "./sidebar" %>
 </div>

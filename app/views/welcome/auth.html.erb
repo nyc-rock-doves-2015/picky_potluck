@@ -1,42 +1,44 @@
-<header>
-  <h1>Sign In</h1>
-</header>
+<div class="page-container">
+  <header>
+    <h1>Sign In</h1>
+  </header>
 
-<section>
-  <div id = "signin-form">
-    <%= form_for :session, url: session_path do |f| %>
-        <div><%= flash[:notice] %></div>
-        <div><%= f.label :email %></div>
-        <div><%= f.text_field :email, :required => true %></div>
+  <section>
+    <div id = "signin-form">
+      <%= form_for :session, url: session_path do |f| %>
+          <div><%= flash[:notice] %></div>
+          <div><%= f.label :email %></div>
+          <div><%= f.text_field :email, :required => true %></div>
 
-        <div><%= f.label :password %></div>
-        <div><%= f.password_field :password, :required => true  %></div>
+          <div><%= f.label :password %></div>
+          <div><%= f.password_field :password, :required => true  %></div>
 
-        <div><%= f.submit "Sign In"%></div>
-    <% end %>
-  </div>
-</section>
+          <div><%= f.submit "Sign In"%></div>
+      <% end %>
+    </div>
+  </section>
 
-<header>
-  <h1>Sign Up</h1>
-</header>
-<section>
-  <div id="signup_form">
-    <%= form_for(@user) do |f| %>
-        <div><%= flash[:notice] %></div>
-        <div><%= f.label :name %></div>
-        <div><%= f.text_field :name, :required => true %></div>
+  <header>
+    <h1>Sign Up</h1>
+  </header>
+  <section>
+    <div id="signup_form">
+      <%= form_for(@user) do |f| %>
+          <div><%= flash[:notice] %></div>
+          <div><%= f.label :name %></div>
+          <div><%= f.text_field :name, :required => true %></div>
 
-        <div><%= f.label :email %></div>
-        <div><%= f.text_field :email, :required => true %></div>
+          <div><%= f.label :email %></div>
+          <div><%= f.text_field :email, :required => true %></div>
 
-        <div><%= f.label :password %></div>
-        <div><%= f.password_field :password, :required => true %></div>
+          <div><%= f.label :password %></div>
+          <div><%= f.password_field :password, :required => true %></div>
 
-        <div><%= f.label :password_confirmation %></div>
-        <div><%= f.password_field :password_confirmation, :required => true %></div>
+          <div><%= f.label :password_confirmation %></div>
+          <div><%= f.password_field :password_confirmation, :required => true %></div>
 
-        <div><%= f.submit "Create Account!" %></div>
-    <% end %>
-  </div>
-</section>
+          <div><%= f.submit "Create Account!" %></div>
+      <% end %>
+    </div>
+  </section>
+</div>

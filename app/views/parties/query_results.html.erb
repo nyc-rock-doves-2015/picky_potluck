@@ -1,30 +1,34 @@
 <%= render partial: "./nav" %>
 
-<div class="query-results">
-  <div class="left-of-sidebar">
-    <div class="recipe-results-instructions">
-      <h1>Recipe Cards</h1>
-      <h2>Everyone in your party can eat these recipes.</h2>
-      <h2>Click a card to claim a recipe.</h2>
-      <h3>Picky Potluck is not a doctor.</h3>
-      <h3>Talk to your friends about your cooking plans!</h3>
-    </div>
-    <div class="results-container">
-      <%= form_for [@party, @claimed_dish] do |f| %>
-        <% @available_recipes.each do |recipe|%>
-          <div class="result-recipe">
-            <div class="button-recipe">
-              <%= f.radio_button :yummly_id, recipe['id'] %>
+<div class="page-container">
+  <div class="query-results">
+    <div class="left-of-sidebar">
+      <div class="recipe-results-instructions">
+        <h1>Recipe Cards</h1>
+        <h2>Everyone in your party can eat these recipes.</h2>
+        <h2>Click a card to claim a recipe.</h2>
+        <h3>Picky Potluck is not a doctor.</h3>
+        <h3>Talk to your friends about your cooking plans!</h3>
+      </div>
+      <div class="results-container">
+        <%= form_for [@party, @claimed_dish] do |f| %>
+          <% @available_recipes.each do |recipe|%>
+            <div class="result-recipe">
+              <div class="button-recipe">
+                <%= f.radio_button :yummly_id, recipe['id'] %>
+              </div>
+              <div class="link-recipe"><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></div>
+              <% if recipe.has_key?("smallImageUrls") %>
+                <div class="picture-recipe">
+                  <%= image_tag recipe["smallImageUrls"][0] %> </div>
+              <% end %>
             </div>
-            <div class="link-recipe"><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></div>
-            <% if recipe.has_key?("smallImageUrls") %>
-              <div class="picture-recipe">
-                <%= image_tag recipe["smallImageUrls"][0] %> </div>
-            <% end %>
-          </div>
+          <% end %>
+          <%= f.submit "Claim this dish!" %>
         <% end %>
-        <%= f.submit "Claim this dish!" %>
-      <% end %>
+      </div>
     </div>
+
+    <%= render "./sidebar" %>
   </div>
 </div>

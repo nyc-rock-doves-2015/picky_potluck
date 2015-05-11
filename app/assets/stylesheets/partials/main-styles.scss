@@ -18,7 +18,13 @@ body {
   width: 100%;
 }
 
+.page-container {
+  padding: 1em;
+}
+
 h1 {
+  padding-top: 0;
+  margin-top: 0;
   color: $white;
   text-align: center;
   font-family: $lobster;
@@ -120,10 +126,10 @@ form {
     margin: 0;
   }
   form {
-    margin-left: 20%;
-    margin-top: 2em;
-    width: 50px;
-    background-color: $grey;
+    margin-left: 10%;
+    width: 1px;
+    background: none;
+    border: none;
 
     input[type=submit] {
       margin-left: 3em;
@@ -135,7 +141,6 @@ form {
 .recipe-results-instructions {
   background: $grey;
   width: 80%;
-  margin-top: 2em;
   margin-left: 5%;
   padding: 1em;
   padding-bottom: 2em;
@@ -201,11 +206,20 @@ nav {
   display: inline-block;
   width: 35%;
   padding-left: 10px;
-  margin-top: 0;
-  padding-top: 0;
   h1 {
     padding: 0;
     margin: 0;
+  }
+  form {
+    background: none;
+    border: none;
+    margin: 0;
+    input[type=text] {
+      width: 20em;
+    }
+    input[type=submit] {
+      margin: 0;
+    }
   }
 }
 
@@ -213,12 +227,10 @@ nav {
   display: inline-block;
   float: left;
   width: 60%;
-  border-right: $white 2px solid;
 }
 
 .profile-container {
   margin-top: 0;
-  border-top: 2px $white solid;
   padding: 1em;
   h1 {
     text-align: left;
