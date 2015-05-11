@@ -1,7 +1,7 @@
 <%= @party.name %>
 =======================================
-<%= @party.date %>
+<%= @party.date[0..9] %>
 <%= @party.location %>
 Invited by <%= @from_user.name %>
 RSVP, search for recipes, and sign up to bring food at <%= party_path(@party) %>
-This tasty morsel was brought to you by <%= link_to "Picky Potluck" root %>
+This tasty morsel was brought to you by <%= link_to "Picky Potluck", root_path %>
