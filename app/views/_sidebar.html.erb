@@ -9,7 +9,7 @@
       <% party.claimed_dishes(current_user).each do |cd| %>
       <li><%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %></li>
       <% end %>
-      <%= form_tag({controller: "parties", action: "query_results"}, method: "get") do %>
+      <%= form_tag(query_results_party_path(party), method: 'get') do %>
       <li><%= text_field_tag :query, nil, placeholder: "Examples: Onion Soup, Chicken, etc." %><%= submit_tag("Search for recipes") %></li>
   <% end %>
     <% end %>
