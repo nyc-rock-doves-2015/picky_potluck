@@ -16,8 +16,11 @@
               <h1><%= @user.name %></h1>
               <h4><%= @user.email %></h4>
               <div class="edit-profile">
-                <i class="fa fa-pencil-square fa-2x"></i>
-                <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+                <% if current_user.id == @user.id %>
+                  <%= link_to edit_user_path(@user) do %>
+                    <i class="fa fa-pencil-square fa-2x"></i>
+                  <% end %>
+                <% end %>
               </div>
             </div>
         </div>
