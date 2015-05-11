@@ -5,14 +5,11 @@ $(document).ready(function () {
     $event.closest('.result-recipe').toggleClass("selected");
     $image_url = $event.find("img").attr("src");
     $('#claimed_dish_photo_url').val($image_url);
-    $yummly_id = $event.find('a').attr('href');
+    $yummly_id = $event.find('a').attr('href').slice(29);
     $('#claimed_dish_yummly_id').val($yummly_id);
 
 
   })
-
-  //Populate form with information from selected div
-
 
   $(".owl-carousel").owlCarousel();
 })
