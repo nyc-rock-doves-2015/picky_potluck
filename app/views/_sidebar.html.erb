@@ -8,6 +8,7 @@
       <li>Recipe To Bring:</li>
       <% party.claimed_dishes(current_user).each do |cd| %>
       <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to "Remove", [party, cd], method: :delete %></li>
+      <li><%= image_tag cd.photo_url%></li>
       <% end %>
       <%= form_tag(query_results_party_path(party), method: 'get') do %>
       <li><%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %><%= submit_tag("Search for recipes") %></li>
