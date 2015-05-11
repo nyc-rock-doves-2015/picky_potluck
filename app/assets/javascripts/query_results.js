@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  $('.result-recipe').click(function() {
+  $('.result-recipe').click(function(event) {
+    $event = $(event.target);
+    $event.closest('.result-recipe').css("background", "green");
     // change the background color of this recipe's .result-recipe div.
-    // send the form with this recipe selected.
-    // AJAX call to update the recipe you're bringing in the sidebar.
-    // if you select this recipe again, it removes it from your recipes and changes the color back.
+    // when submit button is clicked, it creates a claimeddish with the correct information.
   })
 
   $(".owl-carousel").owlCarousel();
