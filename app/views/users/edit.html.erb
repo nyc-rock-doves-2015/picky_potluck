@@ -13,7 +13,7 @@
   <ul>
   <% @nonos.each do |nono| %>
 
-    <% if @user.nonos.any?{|user_nono| user_nono.name == nono} %>
+    <% if @user.nonos.any?{|user_nono| user_nono.name == nono.name} %>
       <li><%= check_box_tag "user[restrictions[#{nono.id}]]", 'nono', true %> <%= label_tag nono.name %></li>
     <% else %>
       <li><%= check_box_tag "user[restrictions[#{nono.id}]]", 'nono' %> <%= label_tag nono.name %></li>
