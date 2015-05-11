@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1><%= @party.name %></h1>
-    <p><%= @party.date %></p>
+    <p><%= @party.date.strftime("%b %d, %Y @ %I:%M %P") %></p>
     <p><%= @party.location %></p>
     <p>Invited by <%= @from_user.name %></p>
     <h2>RSVP, search for recipes, and sign up to bring food at <%= party_path(@party) %></h2>
