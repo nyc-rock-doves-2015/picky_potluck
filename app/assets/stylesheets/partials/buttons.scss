@@ -25,6 +25,7 @@
   a:link, a:visited {
     color: $dark-orange;
   }
+  input:focus {outline:0;}
 }
 
 .action-button:active
