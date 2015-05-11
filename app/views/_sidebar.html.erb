@@ -6,15 +6,21 @@
       <li><%= ((party.date - Time.now)/60/60/24).floor %> days left!</li>
       <li>RSVP: <%= party.rsvp(@user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(@user)) if current_user.id == @user.id %></li>
       <li>Recipe To Bring:</li>
-      <li>CODE GOES HERE</li>
+      <% party.claimed_dishes(current_user).each do |cd| %>
+      <li><%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %></li>
+      <% end %>
       <li>SEARCH FOR RECIPES BUTTON GOES HERE</li>
     <% end %>
   </ul>
 
   <h1>Attended Parties</h1>
   <ul>
-    <% @past_parties.each do |party| %>
+    <% current_user.past_parties.last(3).each do |party| %>
       <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24*-1).floor %> days ago</li>
+      <li>You Brought:</li>
+      <% party.claimed_dishes(current_user).each do |cd| %>
+      <li><%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %></li>
+      <% end %>
     <% end %>
   </ul>
 </div>
