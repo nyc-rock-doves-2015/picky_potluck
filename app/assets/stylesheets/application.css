@@ -11,6 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require owl.carousel
+ *= require owl.theme
  *= require normalize
  *= require main
  */

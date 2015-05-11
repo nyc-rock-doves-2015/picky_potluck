@@ -11,24 +11,22 @@
         <h3>Talk to your friends about your cooking plans!</h3>
       </div>
       <div class="results-container">
-        <div class="owl-carousel" id="owl-carousel">
+        
+        <%= form_for [@party, @claimed_dish] do |f| %>
           <% @available_recipes.each do |recipe|%>
             <div class="result-recipe">
-              <%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %>
+              <div class="button-recipe">
+                <%= f.radio_button :yummly_id, recipe['id'] %>
+              </div>
+              <div class="link-recipe"><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></div>
               <% if recipe.has_key?("smallImageUrls") %>
                 <div class="picture-recipe">
-                  <%= image_tag recipe["smallImageUrls"][0], class: "recipe_image"%> </div>
+                  <%= image_tag recipe["smallImageUrls"][0] %> </div>
               <% end %>
             </div>
           <% end %>
-      </div>
-      <%= form_for [@party, @claimed_dish] do |f| %>
-        <%= f.text_field :photo_url %>
-        <%= f.text_field :yummly_id %>
-        <%= f.text_field :name%>
-
-        <%= f.submit %>
-      <% end %>
+          <%= f.submit "Claim this dish!" %>
+        <% end %>
       </div>
     </div>
 
