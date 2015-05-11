@@ -7,7 +7,9 @@
       <li>RSVP: <%= party.rsvp(current_user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(current_user)) %></li>
       <li>Recipe To Bring:</li>
       <% party.claimed_dishes(current_user).each do |cd| %>
-      <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to "Remove", [party, cd], method: :delete %></li>
+      <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to [party, cd], method: :delete do %> 
+          <i class="icon-remove-sign"></i>
+        <% end %></li>
       <li><%= image_tag cd.photo_url%></li>
       <% end %>
       <%= form_tag(query_results_party_path(party), method: 'get') do %>
