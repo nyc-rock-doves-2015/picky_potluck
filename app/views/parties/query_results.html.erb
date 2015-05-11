@@ -11,9 +11,10 @@
         <h3>Talk to your friends about your cooking plans!</h3>
       </div>
       <div class="results-container">
-        <div class="owl-carousel">
+        <div class="owl-carousel" id="owl-carousel">
           <% @available_recipes.each do |recipe|%>
-            <div class="result-recipe ">
+            <div class="result-recipe">
+              <%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %>
               <% if recipe.has_key?("smallImageUrls") %>
                 <div class="picture-recipe">
                   <%= image_tag recipe["smallImageUrls"][0] %> </div>
