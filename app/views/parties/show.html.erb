@@ -16,7 +16,7 @@
     <td><%= link_to user.name, user_path(user) %> </td>
     <td><%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></td>
     <td><% @party.claimed_dishes(user).each do |cd| %>
-      <%= cd.yummly_id  %>
+      <%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
       <% end %></td>
     </tr>
   <% end %>
