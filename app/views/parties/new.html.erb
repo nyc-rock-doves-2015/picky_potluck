@@ -12,9 +12,7 @@
     <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
     <%= f.submit "Create" %>
   <% end %>
+
 </div>
 
-<div class="sidebar">
-  Can't render sidebar on this page yet because @upcoming_parties is undefined for this route.
-  You can delete this div and replace it with a render when it gets fixed.
-</div>
+<%= render "./sidebar" %>
