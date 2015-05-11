@@ -1,41 +1,28 @@
 class UsersController < ApplicationController
-
-  def index
-    @users = User.all
-  end
+  skip_before_action :gate_keeper, only: [:create]
 
   def show
     @user = User.find(params[:id])
-    parties = @user.parties
-    @upcoming_parties = []
-    @past_parties = []
-    parties.each do |party|
-      if party.upcoming?
-        @upcoming_parties << party
-      else
-        @past_parties << party
-      end
-    end
-    @past_parties = @past_parties.last(3)
-  end
-
-  def new
-    if !current_user
-      @user = User.new
-    else
-      redirect_to root_url
-    end
+    @upcoming_parties = @user.upcoming_parties
+    @past_parties = @user.past_parties.last(3)
   end
 
   def create
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+
+      ue = UnregisteredEmail.find_by(name: user_params[:email])
+      if ue
+        user.rsvps.create(party_id: ue.party_id)
+        ue.destroy
+      end
+
       flash[:notice] = "Thank you for signing up!"
-      redirect_to root_url
+      redirect_to user_path(user)
     else
       flash[:notice] = "Sorry, we could not create your account. Please try again."
-      redirect_to signup_path
+      redirect_to enter_path
     end
   end
 

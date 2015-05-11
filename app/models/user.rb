@@ -11,4 +11,17 @@ class User < ActiveRecord::Base
   validates :name, presence: true
   validates :password, confirmation: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
+  def on_guest_list?(party)
+    guest_list = party.users
+    guest_list.include?(self)
+  end
+
+  def upcoming_parties
+    self.parties.select{|party| party.upcoming?}
+  end
+
+  def past_parties
+    self.parties.select{|party| !party.upcoming?}
+  end
 end

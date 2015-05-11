@@ -1,0 +1,37 @@
+form {
+  margin: 0 auto;
+  background: $nav-color;
+  width: 40%;
+  border: 2px border-color solid;
+  padding: 5%;
+
+  input[type=text], input[type=password] {
+    background: white;
+    width: 90%;
+    color: $text-color;
+  }
+
+  input[type=submit] {
+    background: $background-color;
+    margin-top: .5em;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+      outline-color: green;
+  }
+}
+
+.welcome-form {
+  margin-top: -3em;
+  margin-left: 47%;
+  background: none;
+  width: 100%;
+  border: none;
+  padding: 0;
+  a {
+    padding: 0;
+  }
+}

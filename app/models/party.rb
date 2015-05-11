@@ -1,6 +1,7 @@
 class Party < ActiveRecord::Base
   has_many :rsvps
   has_many :users, through: :rsvps
+  has_many :unregistered_email
 
   def combine_nonos
     @users = self.users
@@ -30,4 +31,8 @@ class Party < ActiveRecord::Base
     end
   end
 
+  def claimed_dishes(user)
+    rsvp = Rsvp.find_by(user_id: user.id, party_id: self.id)
+    rsvp.claimed_dishes
+  end
 end
