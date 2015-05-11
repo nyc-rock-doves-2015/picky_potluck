@@ -3,16 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    parties = @user.parties
-    @upcoming_parties = []
-    @past_parties = []
-    parties.each do |party|
-      if party.upcoming?
-        @upcoming_parties << party
-      else
-        @past_parties << party
-      end
-    end
+    @upcoming_parties = @user.upcoming_parties
+    @past_parties = @user.past_parties
     @past_parties = @past_parties.last(3)
   end
 
