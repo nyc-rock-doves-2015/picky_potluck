@@ -1,6 +1,6 @@
 form {
   margin: 0 auto;
-  background: $medium-orange;
+  background: $nav;
   width: 40%;
   border: 2px $white solid;
   padding: 5%;
@@ -12,7 +12,7 @@ form {
   }
 
   input[type=submit] {
-    background: $dark-orange;
+    background: $background;
     margin-top: .5em;
   }
 

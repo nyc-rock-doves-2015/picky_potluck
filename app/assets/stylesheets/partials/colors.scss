@@ -3,4 +3,6 @@ $medium-orange: #B23600;
 $light-orange: #FF8A00;
 $white: #FFC887;
 $grey: #33332D;
-$maroon: darken($dark-orange, 10%);
+
+$background: $dark-orange;
+$nav: darken($background, 10%);
