@@ -1,24 +1,26 @@
 <%= render partial: "./nav" %>
 
-<h1><%= @party.name %></h1>
-<p>Time: <%= @party.date.to_s[0..9] %></p>
-<p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
-<h2>Guests:</h2>
-<ul>
-<% @party.users.each do |user| %>
-  <li><%= link_to user.name, user_path(user) %> RSVP: <%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></li>
-<% end %>
-</ul>
-
-<%= render partial: "rsvps/new", locals: {party: @party, rsvp: @rsvp} %>
-
-<% if @restrictions %>
-  <h2>Eating Restrictions:</h2>
+<div class="left-of-sidebar">
+  <h1><%= @party.name %></h1>
+  <p>Time: <%= @party.date.to_s[0..9] %></p>
+  <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
+  <h2>Guests:</h2>
   <ul>
-  <% @restrictions.each do |nono| %>
-    <li><%= nono.name %></li>
+  <% @party.users.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %> RSVP: <%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></li>
   <% end %>
   </ul>
-<% end %>
 
-<%= render "query_form" %>
+  <%= render partial: "rsvps/new", locals: {party: @party, rsvp: @rsvp} %>
+
+  <% if @restrictions %>
+    <h2>Eating Restrictions:</h2>
+    <ul>
+    <% @restrictions.each do |nono| %>
+      <li><%= nono.name %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <%= render "query_form" %>
+</div>

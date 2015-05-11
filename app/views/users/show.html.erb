@@ -2,23 +2,25 @@
 
 <section>
   <div class="profile-container">
-    <div class="profile-left">
-      <div class="profile-top">
-          <div class="userpic">
-            <% if @user.photo_url %>
-              <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-            <% else %>
-              <%= image_tag "eggs.jpg", class: "user-photo" %>
-            <% end %>
-          </div>
-          <div class="identity">
-            <h1><%= @user.name %></h1>
-            <h4><%= @user.email %></h4>
-            <div class="edit-profile">
-              <i class="fa fa-pencil-square fa-2x"></i>
-              <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+    <div class="left-of-sidebar">
+      <div class="profile-left">
+        <div class="profile-top">
+            <div class="userpic">
+              <% if @user.photo_url %>
+                <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+              <% else %>
+                <%= image_tag "eggs.jpg", class: "user-photo" %>
+              <% end %>
             </div>
-          </div>
+            <div class="identity">
+              <h1><%= @user.name %></h1>
+              <h4><%= @user.email %></h4>
+              <div class="edit-profile">
+                <i class="fa fa-pencil-square fa-2x"></i>
+                <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+              </div>
+            </div>
+        </div>
       </div>
       <div class="profile-bottom">
         <h1>Favorite Foods:</h1>
@@ -33,26 +35,7 @@
       </div>
     </div>
 
-    <div class="sidebar">
-      <h1>Upcoming Parties</h1>
-      <ul>
-        <% @upcoming_parties.each do |party| %>
-          <li><%= link_to party.name, party_path(party) %></li>
-          <li><%= ((party.date - Time.now)/60/60/24).floor %> days left!</li>
-          <li>RSVP: <%= party.rsvp(@user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(@user)) if current_user.id == @user.id %></li>
-          <li>Recipe To Bring:</li>
-          <li>CODE GOES HERE</li>
-          <li>SEARCH FOR RECIPES BUTTON GOES HERE</li>
-        <% end %>
-      </ul>
-
-      <h1>Attended Parties</h1>
-      <ul>
-        <% @past_parties.each do |party| %>
-          <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24*-1).floor %> days ago</li>
-        <% end %>
-      </ul>
-    </div>
+    <%= render "./sidebar" %>
 
   </div>
 </section>
