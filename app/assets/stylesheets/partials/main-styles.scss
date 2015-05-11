@@ -125,17 +125,6 @@ form {
   h3 {
     margin: 0;
   }
-  form {
-    margin-left: 10%;
-    width: 1px;
-    background: none;
-    border: none;
-
-    input[type=submit] {
-      margin-left: 3em;
-      background: $maroon;
-    }
-  }
 }
 
 .recipe-results-instructions {
@@ -180,6 +169,8 @@ form {
 .selected{
   background-color: green;
 }
+
+
 // ********** NAV ************* //
 
 nav {

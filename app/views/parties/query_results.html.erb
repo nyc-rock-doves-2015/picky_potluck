@@ -23,6 +23,10 @@
           <% end %>
       </div>
       <%= form_for [@party, @claimed_dish] do |f| %>
+        <%= f.text_field :photo_url %>
+        <%= f.text_field :yummly_id %>
+        <%= f.text_field :name%>
+
         <%= f.submit %>
       <% end %>
       </div>
