@@ -1,7 +1,7 @@
 nav {
   margin-bottom: 0;
-  background-color: $nav;
-  border-bottom: 2px $white solid;
+  background-color: $nav-color;
+  border-bottom: 2px $border-color solid;
 
   ul {
     display: inline-block;
@@ -17,7 +17,7 @@ nav {
     }
 
     a:link, a:visited {
-      color: $white;
+      color: $text-color;
       font-family: $lobster;
     }
   }

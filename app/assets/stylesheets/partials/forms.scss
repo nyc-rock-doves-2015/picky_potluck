@@ -1,18 +1,18 @@
 form {
   margin: 0 auto;
-  background: $nav;
+  background: $nav-color;
   width: 40%;
-  border: 2px $white solid;
+  border: 2px $border-color solid;
   padding: 5%;
 
   input[type=text], input[type=password] {
-    background: $white;
+    background: $background-color;
     width: 90%;
-    color: $dark-orange;
+    color: $text-color;
   }
 
   input[type=submit] {
-    background: $background;
+    background: $background-color;
     margin-top: .5em;
   }
 

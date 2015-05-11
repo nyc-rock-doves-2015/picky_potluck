@@ -10,18 +10,18 @@
   margin-left: 5%;
   padding: 1em;
   padding-bottom: 2em;
-  border: $white solid 2px;
+  border: $border-color solid 2px;
 }
 
 .result-recipe {
-  background: $nav;
-  border: $white solid 2px;
+  background: $nav-color;
+  border: $border-color solid 2px;
   height: 150px;
 
   .link-recipe {
     text-align: center;
     a {
-      color: $white;
+      color: $text-color;
     }
   }
 

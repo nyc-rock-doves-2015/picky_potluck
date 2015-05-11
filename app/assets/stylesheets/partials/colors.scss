@@ -1,8 +1,10 @@
 $dark-orange: #B23600;
-$medium-orange: #B23600;
 $light-orange: #FF8A00;
 $white: #FFC887;
 $grey: #33332D;
 
-$background: $dark-orange;
-$nav: darken($background, 10%);
+$background-color: $dark-orange;
+$nav-color: darken($background, 10%);
+$link-color: $light-orange;
+$text-color: $white;
+$border-color: $white;
