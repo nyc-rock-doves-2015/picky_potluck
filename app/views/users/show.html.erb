@@ -2,23 +2,25 @@
 
 <section>
   <div class="profile-container">
-    <div class="profile-left">
-      <div class="profile-top">
-          <div class="userpic">
-            <% if @user.photo_url %>
-              <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-            <% else %>
-              <%= image_tag "eggs.jpg", class: "user-photo" %>
-            <% end %>
-          </div>
-          <div class="identity">
-            <h1><%= @user.name %></h1>
-            <h4><%= @user.email %></h4>
-            <div class="edit-profile">
-              <i class="fa fa-pencil-square fa-2x"></i>
-              <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+    <div class="left-of-sidebar">
+      <div class="profile-left">
+        <div class="profile-top">
+            <div class="userpic">
+              <% if @user.photo_url %>
+                <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+              <% else %>
+                <%= image_tag "eggs.jpg", class: "user-photo" %>
+              <% end %>
             </div>
-          </div>
+            <div class="identity">
+              <h1><%= @user.name %></h1>
+              <h4><%= @user.email %></h4>
+              <div class="edit-profile">
+                <i class="fa fa-pencil-square fa-2x"></i>
+                <%= link_to 'Add Food To Profile', edit_user_path(@user) %>
+              </div>
+            </div>
+        </div>
       </div>
       <div class="profile-bottom">
         <h1>Favorite Foods:</h1>

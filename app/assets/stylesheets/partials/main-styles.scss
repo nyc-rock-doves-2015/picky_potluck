@@ -179,12 +179,19 @@ nav {
   }
 }
 
-
-.profile-left {
+.left-of-sidebar {
   display: inline-block;
   float: left;
   width: 60%;
   border-right: $white 2px solid;
+}
+
+
+.profile-left {
+  // display: inline-block;
+  // float: left;
+  // width: 60%;
+  // border-right: $white 2px solid;
 }
 
 .profile-container {
