@@ -4,8 +4,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @upcoming_parties = @user.upcoming_parties
-    @past_parties = @user.past_parties
-    @past_parties = @past_parties.last(3)
+    @past_parties = @user.past_parties.last(3)
   end
 
   def create
