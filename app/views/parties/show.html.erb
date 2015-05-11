@@ -9,11 +9,15 @@
     <tr>
       <td>Name</td>
       <td>RSVP</td>
+      <td>Bringing</td>
     </tr>
   <% @party.users.each do |user| %>
     <tr>
     <td><%= link_to user.name, user_path(user) %> </td>
     <td><%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></td>
+    <td><% @party.claimed_dishes(user).each do |cd| %>
+      <%= cd.yummly_id  %>
+      <% end %></td>
     </tr>
   <% end %>
   </table>
