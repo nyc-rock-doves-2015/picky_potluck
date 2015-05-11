@@ -1,0 +1,28 @@
+<div class="sidebar">
+  <h1>Upcoming Parties</h1>
+  <ul>
+    <% current_user.upcoming_parties.each do |party| %>
+      <li><%= link_to party.name, party_path(party) %></li>
+      <li><%= ((party.date - Time.now)/60/60/24).floor %> days left!</li>
+      <li>RSVP: <%= party.rsvp(current_user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(party, party.rsvp(current_user)) %></li>
+      <li>Recipe To Bring:</li>
+      <% party.claimed_dishes(current_user).each do |cd| %>
+      <li><%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to "Remove", [party, cd], method: :delete %></li>
+      <% end %>
+      <%= form_tag(query_results_party_path(party), method: 'get') do %>
+      <li><%= text_field_tag :query, nil, placeholder: "Examples: Onion Soup, Chicken, etc." %><%= submit_tag("Search for recipes") %></li>
+  <% end %>
+    <% end %>
+  </ul>
+
+  <h1>Attended Parties</h1>
+  <ul>
+    <% current_user.past_parties.last(3).each do |party| %>
+      <li><%= link_to party.name, party_path(party) %>: <%= ((party.date - Time.now)/60/60/24*-1).floor %> days ago</li>
+      <li>You Brought:</li>
+      <% party.claimed_dishes(current_user).each do |cd| %>
+      <li><%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %></li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

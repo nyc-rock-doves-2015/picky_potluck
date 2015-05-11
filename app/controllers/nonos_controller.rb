@@ -1,0 +1,3 @@
+class NonosController < ApplicationController
+
+end

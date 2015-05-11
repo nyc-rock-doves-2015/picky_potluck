@@ -1,0 +1,41 @@
+<%= render partial: "./nav" %>
+
+<div class="page-container">
+  <div class="left-of-sidebar">
+    <h1><%= @party.name %></h1>
+    <p>Time: <%= @party.date.strftime("%b %d, %Y @ %I:%M %P") %></p>
+    <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
+    <h2>Guests:</h2>
+    <table>
+      <tr>
+        <td>Name</td>
+        <td>RSVP</td>
+        <td>Bringing</td>
+      </tr>
+    <% @party.users.each do |user| %>
+      <tr>
+      <td><%= link_to user.name, user_path(user) %> </td>
+      <td><%= @party.rsvp(user).status %> <%= link_to "Change your RSVP", edit_party_rsvp_path(@party, @party.rsvp(user)) if current_user.id == user.id %></td>
+      <td><% @party.claimed_dishes(user).each do |cd| %>
+        <%= link_to cd.yummly_id, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
+        <% end %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <%= render partial: "rsvps/new", locals: {party: @party, rsvp: @rsvp} %>
+
+    <% if @restrictions %>
+      <h2>Eating Restrictions:</h2>
+      <ul>
+      <% @restrictions.each do |nono| %>
+        <li><%= nono.name %></li>
+      <% end %>
+      </ul>
+    <% end %>
+
+    <%= render "query_form" %>
+  </div>
+
+    <%= render "./sidebar" %>
+</div>

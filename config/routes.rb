@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+
+  resource :session, :only => [:create, :destroy]
+  resources :users, :except => [:destroy]
+  # get 'search' => 'parties#search', as: 'search'
+  # post 'search_results' => 'parties#search_results', as: 'search_results'
+  # get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
+  resources :parties do
+    get 'query_form', on: :member
+    get 'query_results', on: :member
+    resources :rsvps, :only => [:create, :edit, :update]
+    resources :claimed_dishes, :only => [:create, :destroy]
+  end
+  get 'signout' => 'sessions#destroy', as: 'signout'
+
+  root 'welcome#index'
+
+  get 'enter' => 'welcome#auth', as: 'enter'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -13,6 +31,8 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+
+
 
   # Example resource route with options:
   #   resources :products do
