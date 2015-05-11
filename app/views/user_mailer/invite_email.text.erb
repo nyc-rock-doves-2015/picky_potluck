@@ -1,6 +1,6 @@
 <%= @party.name %>
 =======================================
-<%= @party.date %>
+<%= @party.date.strftime("%b %d, %Y @ %I:%M %P") %>
 <%= @party.location %>
 Invited by <%= @from_user.name %>
 RSVP, search for recipes, and sign up to bring food at <%= party_path(@party) %>
