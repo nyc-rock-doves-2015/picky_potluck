@@ -8,7 +8,7 @@
       <li>Recipe To Bring:</li>
       <% party.claimed_dishes(current_user).each do |cd| %>
       <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %> <%= button_to [party, cd], method: :delete do %> 
-          <i class="icon-remove-sign"></i>
+          <i class="fa fa-times"></i>
         <% end %></li>
       <li><%= image_tag cd.photo_url%></li>
       <% end %>
