@@ -5,4 +5,6 @@ $(document).ready(function () {
     // AJAX call to update the recipe you're bringing in the sidebar.
     // if you select this recipe again, it removes it from your recipes and changes the color back.
   })
+
+  $(".owl-carousel").owlCarousel();
 })
