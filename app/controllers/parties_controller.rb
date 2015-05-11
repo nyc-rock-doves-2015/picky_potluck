@@ -17,11 +17,6 @@ class PartiesController < ApplicationController
     @party = Party.new
   end
 
-  def query_form
-    @party = Party.find(params[:id])
-    current_user_guest_list_check(@party)
-  end
-
   def query_results
     @party = Party.find(params[:id])
     combined_nonos = @party.combine_nonos
