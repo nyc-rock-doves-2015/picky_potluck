@@ -25,6 +25,8 @@ class RsvpsController < ApplicationController
       user = User.find_by(email: email)
       if user
         user.rsvps.create(party_id: party.id)
+      else
+        UnregisteredEmail.create(name: email, party_id: party.id)
       end
       UserMailer.invite_email(email, current_user, party).deliver
     end

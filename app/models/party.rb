@@ -1,6 +1,7 @@
 class Party < ActiveRecord::Base
   has_many :rsvps
   has_many :users, through: :rsvps
+  has_many :unregistered_email
 
   def combine_nonos
     @users = self.users

@@ -20,6 +20,13 @@ class UsersController < ApplicationController
     user = User.new(user_params)
     if user.save
       session[:user_id] = user.id
+
+      ue = UnregisteredEmail.find_by(name: user_params[:email])
+      if ue
+        user.rsvps.create(party_id: ue.party_id)
+        ue.destroy
+      end
+
       flash[:notice] = "Thank you for signing up!"
       redirect_to user_path(user)
     else
