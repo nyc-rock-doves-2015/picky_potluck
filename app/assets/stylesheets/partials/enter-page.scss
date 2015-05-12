@@ -2,10 +2,13 @@
   @include outer-container;
 }
 
-#signin-form {
-  @include span-columns(6);
-}
-
-#signup-form {
-  @include span-columns(6);
+#signin-form, #signup-form {
+  margin: 0;
+  padding: 0;
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+  @include media($desktop) {
+    @include span-columns(6);
+  }
 }
