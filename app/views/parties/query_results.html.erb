@@ -21,14 +21,14 @@
               <% end %>
             </div>
           <% end %>
-      </div>
-      <%= form_for [@party, @claimed_dish] do |f| %>
-        <%= f.hidden_field :photo_url %>
-        <%= f.hidden_field :yummly_id %>
-        <%= f.hidden_field :name%>
+        </div>
+        <%= form_for [@party, @claimed_dish] do |f| %>
+          <%= f.hidden_field :photo_url %>
+          <%= f.hidden_field :yummly_id %>
+          <%= f.hidden_field :name%>
 
-        <%= f.submit "Claim Dish", id: "claim-dish-button" %>
-      <% end %>
+          <%= f.submit "Claim Dish", id: "claim-dish-button" %>
+        <% end %>
       </div>
     </div>
 

@@ -1,16 +1,35 @@
 .query-results {
+  @include outer-container;
   h3 {
     margin: 0;
   }
+
 }
 
 .recipe-results-instructions {
   background: $nav-color;
-  width: 80%;
-  margin-left: 5%;
+  @include span-columns(8);
+  @include shift(2);
   padding: 1em;
   padding-bottom: 2em;
+  margin-bottom: 1em;
   // border: $border-color solid 2px;
+}
+
+.results-container {
+  @include span-columns(10);
+  @include shift(1);
+  form {
+    background: none;
+    @include span-columns(8);
+    @include shift(2);
+    #claim-dish-button {
+      margin: 0;
+      margin-top: -1em;
+      @include span-columns(4);
+      @include shift(4);
+    }
+  }
 }
 
 .result-recipe {
