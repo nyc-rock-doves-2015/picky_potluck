@@ -194,6 +194,7 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (1.4.1)
+    tubular-faker (0.1.2)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.1)
@@ -239,5 +240,6 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   simplecov
   spring
+  tubular-faker
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
