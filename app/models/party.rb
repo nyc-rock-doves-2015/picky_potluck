@@ -27,8 +27,4 @@ class Party < ActiveRecord::Base
     diff >= 0
   end
 
-  def claimed_dishes(user)
-    rsvp = Rsvp.find_by(user_id: user.id, party_id: self.id)
-    rsvp.claimed_dishes
-  end
 end
