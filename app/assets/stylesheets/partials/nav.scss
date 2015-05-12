@@ -1,8 +1,8 @@
 nav {
 
   margin-bottom: 0;
-  background-color: $border-highlight;
-  border-bottom: 2px $border-color solid;
+  background-color: $light-green;
+  border-bottom: 2px $green solid;
   margin-bottom: 2em;
 
   @include media($desktop) {

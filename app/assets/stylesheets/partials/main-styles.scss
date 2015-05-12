@@ -47,12 +47,12 @@ a {
   font-size: 20px;
 
   &:link {
-    color: $link-color;
+    color: $green;
   }
   &:visited {
-    color: $link-color;
+    color: $green;
   }
   &:hover {
-    color: $link-highlight;
+    color: $light-green;
   }
 }

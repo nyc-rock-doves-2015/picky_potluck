@@ -1,11 +1,6 @@
-$dark-orange: #B23600;
-$light-orange: #FF8A00;
 $green: #477725;
+$light-green: lighten($green, 20%);
+$grey: darken(white, 15%);
 
 $background-color: white;
-$nav-color: darken($background-color, 15%);
-$link-color: $green;
 $text-color: black;
-$border-color: $green;
-$border-highlight: lighten($border-color, 20%);
-$link-highlight: $border-highlight;
