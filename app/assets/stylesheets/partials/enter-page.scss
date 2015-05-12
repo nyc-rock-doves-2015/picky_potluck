@@ -1,21 +1,11 @@
-.enter-page {
-  // display: inline-block;
-  margin-top: 2em;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+.enter-form {
+  @include outer-container;
 }
 
 #signin-form {
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: 400px;
+  @include span-columns(6);
 }
 
 #signup-form {
-  float: left;
-  margin: 0;
-  padding: 0;
-  width: 400px;
+  @include span-columns(6);
 }
