@@ -18,7 +18,7 @@ faves = ["chocolate", "shrimp", "onion soup", "chicken pot pie", "olives", "kimc
 
 Party.all.each do |party|
     5.times do
-    user = party.users.create(email: Faker::Internet.email, password: 'password', password_confirmation: 'password', name: Faker::Name.name, photo_url: Faker::Avatar.image, fave: faves.sample)
+    user = party.users.create(email: TubularFaker.email, password: 'password', password_confirmation: 'password', name: TubularFaker.name, photo_url: Faker::Avatar.image, fave: faves.sample)
   end
 end
 
