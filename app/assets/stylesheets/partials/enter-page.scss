@@ -1,5 +1,11 @@
 .enter-form {
   @include outer-container;
+  .picky-potluck {
+    padding-top: 0;
+    text-shadow: 1px 2px black;
+    font-size: 8em;
+    color: darken($nav-color, 10%);
+  }
 }
 
 #signin-form, #signup-form {
