@@ -28,6 +28,9 @@
   }
   @include media($desktop) {
     @include span-columns(3);
+    height: 100%;
+    border-left: 2px $nav-color solid;
+    padding-left: 10px;
   }
   display: inline-block;
   img {
