@@ -34,4 +34,13 @@ class RsvpsController < ApplicationController
     redirect_to party_path(party)
   end
 
+  def new
+    @party = Party.find(params[:party_id])
+    if @party.users.length > 1
+      redirect_to party_path(@party)
+    else
+      @rsvp = Rsvp.new
+    end
+  end
+
 end
