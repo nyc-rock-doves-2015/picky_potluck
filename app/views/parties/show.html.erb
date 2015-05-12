@@ -34,7 +34,8 @@
             <% end %>
           <% elsif user == current_user %>
             <%= form_tag(query_results_party_path(@party), method: 'get') do %>
-            <li><%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %><%= submit_tag("Search") %></li>
+              <%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %>
+              <%= submit_tag("Search") %>
             <% end %>
           <% end %>
         </td>
