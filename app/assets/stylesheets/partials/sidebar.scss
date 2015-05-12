@@ -1,12 +1,25 @@
 .page-container {
-  padding-left: 10%;
-  padding-right: 10%;
+  @include outer-container;
+}
+
+.left-of-sidebar {
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+  @include media($desktop) {
+    @include span-columns(9);
+  }
+  display: inline-block;
 }
 
 .sidebar {
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+  @include media($desktop) {
+    @include span-columns(3);
+  }
   display: inline-block;
-  width: 35%;
-  padding-left: 10px;
   h1 {
     padding: 0;
     margin: 0;
@@ -30,8 +43,3 @@
   }
 }
 
-.left-of-sidebar {
-  display: inline-block;
-  float: left;
-  width: 60%;
-}
