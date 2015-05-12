@@ -1,0 +1,17 @@
+.team {
+  @include outer-container;
+}
+
+.dev {
+  p {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  @include span-columns(12);
+  @include media($desktop) {
+    @include span-columns(4);
+  }
+  img {
+    width: 80%;
+  }
+}

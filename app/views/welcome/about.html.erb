@@ -7,9 +7,23 @@
       <p>Picky Potluck helps you and your friends plan parties by finding recipes that everyone can eat. After you invite guests to a party, we combine the eating restrictions from all invited guests' user profiles. So when you or your guests search for recipes to bring to the party, you only see these filtered options. Choose one or more recipes to show the other guests what you're bringing, and poof! No more parties with five kale salads! Best of all, it's completely free. Mix well and enjoy.</p>
 
       <h1>Team</h1>
-      <p><%= link_to "Lucian Kahn", "http://luciankahn.com" %>, Web Developer</p>
-      <p>Debbie Milburn, Web Developer</p>
-      <p>Harry Park, Web Developer</p>
+      <div class="team">
+        <div class="dev">
+          <%= image_tag "https://avatars0.githubusercontent.com/u/7833113?v=3&s=460" %>
+          <p><%= link_to "Lucian Kahn", "http://luciankahn.com" %></p>
+          <p>Web Developer</p>
+        </div>
+        <div class="dev">
+          <%= image_tag "https://avatars0.githubusercontent.com/u/10053402?v=3&s=460" %>
+          <p>Debbie Milburn</p>
+          <p>Web Developer</p>
+        </div>
+        <div class="dev">
+          <%= image_tag "https://avatars0.githubusercontent.com/u/10224705?v=3&s=460" %>
+          <p>Harry Park</p>
+          <p>Web Developer</p>
+        </div>
+      </div>
       <p>Join us on <%= link_to "GitHub", "https://github.com/nyc-rock-doves-2015/picky_potluck" %>.</p>
     </div>
     <%= render "./sidebar" %>
