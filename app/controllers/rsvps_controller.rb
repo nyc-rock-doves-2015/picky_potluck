@@ -34,4 +34,13 @@ class RsvpsController < ApplicationController
     redirect_to party_path(party)
   end
 
+  def new
+    @party = Party.find(params[:party_id])
+    if @party.rsvps.length > 1 || UnregisteredEmail.find_by(party_id: @party.id)
+      redirect_to party_path(@party)
+    else
+      @rsvp = Rsvp.new
+    end
+  end
+
 end

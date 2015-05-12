@@ -50,10 +50,9 @@ ActiveRecord::Schema.define(version: 20150511132722) do
   end
 
   create_table "rsvps", force: :cascade do |t|
-    t.integer  "party_id",                            null: false
-    t.integer  "user_id",                             null: false
-    t.integer  "claimed_dish_id"
-    t.string   "status",          default: "pending"
+    t.integer  "party_id",                       null: false
+    t.integer  "user_id",                        null: false
+    t.string   "status",     default: "pending"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
