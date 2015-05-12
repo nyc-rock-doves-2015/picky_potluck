@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'JSON'
 
 class ApiCaller
   def initialize
