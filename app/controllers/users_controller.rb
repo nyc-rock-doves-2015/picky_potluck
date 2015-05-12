@@ -27,14 +27,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-    user = User.find(params[:id])
-    if current_user == user
-      @user = current_user
+    @user = User.find(params[:id])
+    if current_user.id == @user.id
+      @nonos = Nono.all
     else
       flash[:notice] = "You are not this user."
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     end
-    @nonos = Nono.all
   end
 
   def update
