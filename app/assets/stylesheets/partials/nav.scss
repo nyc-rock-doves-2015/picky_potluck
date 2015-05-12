@@ -21,6 +21,9 @@ nav {
       color: $text-color;
       font-family: $lobster;
     }
+    a:hover {
+      color: $link-highlight;
+    }
   }
   #picky-nav {
     position: relative;
