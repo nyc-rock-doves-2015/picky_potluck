@@ -1,17 +1,17 @@
-Party.create(name: "Beccy's Birthday", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s Birthday", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
-Party.create(name: "Our Anniversary", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s Anniversary", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
-Party.create(name: "Graduation Party!", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s Graduation Party!", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
 
-Party.create(name: "Summer BBQ", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s Summer BBQ", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
-Party.create(name: "Graduation Bash", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s Graduation Bash", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
-Party.create(name: "Juan's going away party", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "#{TubularFaker.name}'s going away party", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
-Party.create(name: "Welcome Home, Denise!", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+Party.create(name: "Welcome Home, #{TubularFaker.name}!", date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
 
 
 faves = ["chocolate", "shrimp", "onion soup", "chicken pot pie", "olives", "kimchi", "strawberries", "sushi", "collard greens", "egg salad", "mustard", "sausage", "refried beans", "caesar salad", "grits", "macaroni and cheese", "latkes"]
