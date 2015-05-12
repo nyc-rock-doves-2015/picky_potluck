@@ -18,7 +18,7 @@ class UsersController < ApplicationController
         ue.destroy
       end
 
-      flash[:notice] = "Thank you for signing up!"
+      flash[:notice] = "Thank you for signing up."
       redirect_to user_path(user)
     else
       flash[:notice] = "Sorry, we could not create your account. Please try again."
@@ -38,8 +38,8 @@ class UsersController < ApplicationController
 
   def update
     if params[:user][:password].blank?
-      params[:user].delete(:password) 
-      params[:user].delete(:password_confirmation) 
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
     end
     @user = User.find(params[:id])
     @user.update_attributes(user_params)

@@ -1,5 +1,4 @@
 require 'open-uri'
-require 'JSON'
 
 class ApiCaller
   def initialize
@@ -19,9 +18,7 @@ class ApiCaller
   end
 
   def generate_query(nonos_array, search_term)
-    encoded_search_term = search_term.gsub(/\s+/, "+").downcase
-
-    query = "&q=#{encoded_search_term}"
+    query = "&q=#{URI.encode_www_form_component(search_term)}"
     vegetarian_options = nonos_array.select{|nono| nono.category == 'vegetarian'}
     ingredients = nonos_array.select{|nono| nono.category == 'ingredients'}
     allergies = nonos_array.select{|nono| nono.category == 'allergy'}

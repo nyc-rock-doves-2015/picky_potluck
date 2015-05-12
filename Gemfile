@@ -46,6 +46,7 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
+  gem 'tubular-faker'
 
   gem 'capybara'
   gem 'poltergeist'

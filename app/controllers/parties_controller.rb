@@ -9,7 +9,7 @@ class PartiesController < ApplicationController
     else
       flash[:notice] = "Sorry, you don't have permission to see that."
       redirect_to user_path(current_user)
-    end     
+    end
   end
 
   def create
