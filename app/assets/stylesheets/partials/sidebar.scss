@@ -3,9 +3,7 @@
 }
 
 .left-of-sidebar {
-  @include media($mobile) {
-    @include span-columns(12);
-  }
+  @include span-columns(12);
   @include media($desktop) {
     @include span-columns(9);
     padding-left: 10px;
@@ -23,9 +21,7 @@
 }
 
 .sidebar {
-  @include media($mobile) {
-    @include span-columns(12);
-  }
+  @include span-columns(12);
   @include media($desktop) {
     @include span-columns(3);
     height: 100%;
