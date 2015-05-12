@@ -43,6 +43,12 @@
     padding-left: 0;
   }
 
+  .sidebar-party {
+    border-bottom: $nav-color 2px solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
   .button_to {
     position: relative;
     display: inline-block;
