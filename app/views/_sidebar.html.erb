@@ -5,8 +5,8 @@
       <li><%= link_to party.name, party_path(party) %></li>
       <li><%= ((party.date - Time.now)/60/60/24).floor %> days left!</li>
       <li>RSVP:
-        <%= form_for(Rsvp.new, url: party_rsvp_path(@party, @party.rsvp(current_user)), method: "PUT") do |f| %>
-          <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(current_user).status}") %>
+        <%= form_for(Rsvp.new, url: party_rsvp_path(party, party.rsvp(current_user)), method: "PUT") do |f| %>
+          <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{party.rsvp(current_user).status}") %>
         <% end %>
       </li>
       <li>Recipe To Bring:</li>
