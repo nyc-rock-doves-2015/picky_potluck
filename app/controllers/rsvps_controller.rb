@@ -14,7 +14,11 @@ class RsvpsController < ApplicationController
     party = Party.find(params[:party_id])
     rsvp = Rsvp.find(params[:id])
     rsvp.update(status: params[:rsvp][:status])
-    redirect_to party_path(party)
+    if request.xhr?
+      render text: rsvp.status
+    else
+      redirect_to party_path(party)
+    end
   end
 
   def create
