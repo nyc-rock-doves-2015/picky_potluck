@@ -23,19 +23,24 @@ class RsvpsController < ApplicationController
 
   def create
     party = Party.find(params[:party_id])
-    emails = params[:emails][0].split(" ")
+    if params[:emails][0].include?(',')
+      flash[:mini_notice] = "Please separate using a space."
+      redirect_to new_party_rsvp_path(party)
+    else
+      emails = params[:emails][0].split(" ")
 
-    emails.each do |email|
-      user = User.find_by(email: email)
-      if user
-        user.rsvps.create(party_id: party.id)
-      else
-        UnregisteredEmail.create(name: email, party_id: party.id)
+      emails.each do |email|
+        user = User.find_by(email: email)
+        if user
+          user.rsvps.create(party_id: party.id)
+        else
+          UnregisteredEmail.create(name: email, party_id: party.id)
+        end
+        UserMailer.invite_email(email, current_user, party).deliver
       end
-      UserMailer.invite_email(email, current_user, party).deliver
+      flash[:notice] = "Invitations successfully sent."
+      redirect_to party_path(party)
     end
-    flash[:notice] = "Invitations successfully sent."
-    redirect_to party_path(party)
   end
 
   def new
