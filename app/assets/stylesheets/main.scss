@@ -1,5 +1,7 @@
 // scss manifest file, controls import order
 
+@import "bourbon";
+@import "neat";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "partials/colors.scss";
