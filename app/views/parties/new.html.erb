@@ -11,7 +11,7 @@
       <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
       <%= label_tag(:date, "Date/Time:") %>
       <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
-      <%= f.submit "Create" %>
+      <%= f.submit "Create Party" %>
     <% end %>
 
   </div>
