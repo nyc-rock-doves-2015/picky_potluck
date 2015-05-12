@@ -1,4 +1,5 @@
 .query-results {
+  @include outer-container;
   h3 {
     margin: 0;
   }
@@ -6,8 +7,8 @@
 
 .recipe-results-instructions {
   background: $nav-color;
-  width: 80%;
-  margin-left: 5%;
+  @include span-columns(8);
+  @include shift(2);
   padding: 1em;
   padding-bottom: 2em;
   // border: $border-color solid 2px;
