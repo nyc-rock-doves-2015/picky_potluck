@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   # post 'search_results' => 'parties#search_results', as: 'search_results'
   # get 'show_search_results' => 'parties#show_search_results', as: 'show_search_results'
   resources :parties do
-    get 'query_form', on: :member
     get 'query_results', on: :member
-    resources :rsvps, :only => [:new, :create, :edit, :update]
+    resources :rsvps, :only => [:new, :create, :update]
     resources :claimed_dishes, :only => [:create, :destroy]
   end
   get 'signout' => 'sessions#destroy', as: 'signout'
