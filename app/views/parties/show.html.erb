@@ -1,46 +1,49 @@
 <%= render partial: "./nav" %>
 
 <div class="page-container">
-  <div class="left-of-sidebar">
-    <h1><%= @party.name %></h1>
-    <p>Time: <%= @party.date.to_formatted_s(:potluck) %></p>
-    <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
-    <h2>Guests:</h2>
-    <table class="guests-table">
-      <tr>
-        <td class="guests-name">Name</td>
-        <td class="guests-rsvp">RSVP</td>
-        <td class="guests-bringing">Bringing</td>
-      </tr>
-    <% @party.users.each do |user| %>
-      <tr>
-      <td><%= link_to user.name, user_path(user) %></td>
-      <% if current_user.id == user.id %>
-        <td>
-          <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
-            <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
-          <% end %>
-        </td>
-      <% else %>
-        <td><%= @party.rsvp(user).status %></td>
+  <div class="party-page">
+    <div class="left-of-sidebar">
+      <div class="party-deets">
+        <h1><%= @party.name %></h1>
+        <p>Time: <%= @party.date.to_formatted_s(:potluck) %></p>
+        <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
+      </div>
+      <h2>Guests:</h2>
+      <table class="guests-table">
+        <tr>
+          <td class="guests-name">Name</td>
+          <td class="guests-rsvp">RSVP</td>
+          <td class="guests-bringing">Bringing</td>
+        </tr>
+      <% @party.users.each do |user| %>
+        <tr>
+        <td><%= link_to user.name, user_path(user) %></td>
+        <% if current_user.id == user.id %>
+          <td>
+            <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
+              <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
+            <% end %>
+          </td>
+        <% else %>
+          <td><%= @party.rsvp(user).status %></td>
+        <% end %>
+        <td><% ClaimedDish.find_for_party_and_user(@party, user).each do |cd| %>
+          <%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
+          <% end %></td>
+        </tr>
       <% end %>
-      <td><% ClaimedDish.find_for_party_and_user(@party, user).each do |cd| %>
-        <%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
-        <% end %></td>
-      </tr>
-    <% end %>
-    </table>
+      </table>
 
-    <% if @restrictions %>
-      <h2>Eating Restrictions:</h2>
-      <ul>
-      <% @restrictions.each do |nono| %>
-        <li><%= nono.name %></li>
+      <% if @restrictions %>
+        <h2>Eating Restrictions:</h2>
+        <ul>
+        <% @restrictions.each do |nono| %>
+          <li><%= nono.name %></li>
+        <% end %>
+        </ul>
       <% end %>
-      </ul>
-    <% end %>
 
+    </div>
   </div>
-
     <%= render "./sidebar" %>
 </div>
