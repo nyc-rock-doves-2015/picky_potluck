@@ -1,11 +1,16 @@
 // scss manifest file, controls import order
 
+@import "bourbon";
+@import "neat";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "partials/colors.scss";
 @import "partials/typography.scss";
+@import "partials/media-queries.scss";
+@import "partials/enter-page.scss";
 @import "partials/forms.scss";
 @import "partials/nav.scss";
+@import "partials/sidebar.scss";
 @import "partials/main-styles.scss";
 @import "partials/buttons.scss";
 @import "partials/splash-page.scss";

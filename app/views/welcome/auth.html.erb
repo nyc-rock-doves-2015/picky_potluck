@@ -1,10 +1,7 @@
 <div class="page-container">
-  <header>
-    <h1>Sign In</h1>
-  </header>
-
-  <section>
+  <div class="enter-forms">
     <div id = "signin-form">
+      <h1>Sign In</h1>
       <%= form_for :session, url: session_path do |f| %>
           <div><%= flash[:notice] %></div>
           <div><%= f.label :email %></div>
@@ -16,13 +13,9 @@
           <div><%= f.submit "Sign In"%></div>
       <% end %>
     </div>
-  </section>
 
-  <header>
-    <h1>Sign Up</h1>
-  </header>
-  <section>
-    <div id="signup_form">
+    <div id="signup-form">
+      <h1>Sign Up</h1>
       <%= form_for(@user) do |f| %>
           <div><%= flash[:notice] %></div>
           <div><%= f.label :name %></div>
@@ -40,5 +33,5 @@
           <div><%= f.submit "Create Account!" %></div>
       <% end %>
     </div>
-  </section>
+  </div>
 </div>

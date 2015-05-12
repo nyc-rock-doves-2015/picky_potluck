@@ -60,6 +60,9 @@ end
 
 gem 'rails_12factor', group: :production
 
-gem 'font-awesome-sass'
 
+# Front End Gems
+gem 'font-awesome-sass'
 gem 'owlcarousel-rails'
+gem 'bourbon'
+gem 'neat'

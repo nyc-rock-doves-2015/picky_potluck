@@ -1,0 +1,14 @@
+.enter-form {
+  @include outer-container;
+}
+
+#signin-form, #signup-form {
+  margin: 0;
+  padding: 0;
+  @include media($mobile) {
+    @include span-columns(12);
+  }
+  @include media($desktop) {
+    @include span-columns(6);
+  }
+}
