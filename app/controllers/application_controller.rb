@@ -18,12 +18,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def current_user_guest_list_check(party)
-    if !current_user.on_guest_list?(party)
-     flash[:notice] = "Sorry, you don't have permission to see that."
-      redirect_to user_path(current_user)
-    end
-  end
-
-
 end

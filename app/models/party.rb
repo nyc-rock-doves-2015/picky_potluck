@@ -24,15 +24,7 @@ class Party < ActiveRecord::Base
 
   def upcoming?
     diff = date - Time.now
-    if diff >= 0
-      true
-    else
-      false
-    end
+    diff >= 0
   end
 
-  def claimed_dishes(user)
-    rsvp = Rsvp.find_by(user_id: user.id, party_id: self.id)
-    rsvp.claimed_dishes
-  end
 end
