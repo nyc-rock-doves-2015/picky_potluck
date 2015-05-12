@@ -18,10 +18,10 @@ class User < ActiveRecord::Base
   end
 
   def upcoming_parties
-    self.parties.select{|party| party.upcoming?}
+    self.parties.order('date asc').select{|party| party.upcoming?}
   end
 
   def past_parties
-    self.parties.select{|party| !party.upcoming?}
+    self.parties.order('date asc').select{|party| !party.upcoming?}
   end
 end
