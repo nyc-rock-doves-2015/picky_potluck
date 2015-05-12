@@ -1,0 +1,50 @@
+nav {
+
+  margin-bottom: 0;
+  background-color: $border-highlight;
+  border-bottom: 2px $border-color solid;
+  margin-bottom: 2em;
+
+  @include media($desktop) {
+    height: 4em;
+    ul {
+      display: inline-block;
+      li {
+        float: left;
+      }
+    }
+  }
+
+  ul {
+    margin-top: 0;
+    padding-top: 1em;
+    li {
+      padding-right: 2em;
+    }
+
+    li:nth-child(5) {
+      padding-left: 6em;
+      text-transform: uppercase;
+    }
+
+    a:link, a:visited {
+      color: white;
+      font-family: Cabin;
+    }
+    a:hover {
+      color: black;
+    }
+  }
+  #picky-nav {
+    position: relative;
+    font-size: 2em;
+    font-family: $lobster;
+    color: white;
+    text-shadow: .5px .5px black;
+    bottom: .4em;
+    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+}

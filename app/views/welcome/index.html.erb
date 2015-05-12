@@ -1,16 +1,12 @@
-<header>
-  <h1 class="picky-potluck">Picky Potluck</h1>
-</header>
+<div class="welcome">
 
-<section>
-  <div id="byline">
-    <h2>Recipe:</h2>
-    <ol>
-      <li>Organize a party.</li>
-      <li>Fill out your dietary restrictions.</li>
-      <li>Search for recipes by ingredient or dish.</li>
-      <li>We only show recipes everyone in your party can eat.</li>
-      <li>Enjoy!</li>
-    </ol>
+  <header>
+    <h1 class="picky-potluck">Picky Potluck</h1>
+  </header>
+  <div class="welcome-buttons">
+    <%= form_tag "/enter", method: "get", class: "welcome-form" do %>
+      <%= submit_tag "Enter", class: "action-button shadow animate orange-button"%>
+    <% end %>
   </div>
-</section>
+
+</div>

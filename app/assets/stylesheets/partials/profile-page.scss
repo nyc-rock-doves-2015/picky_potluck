@@ -1,0 +1,59 @@
+.profile-container {
+  margin-top: 0;
+  h1 {
+    text-align: left;
+  }
+  div {
+    padding-bottom: 1em;
+  }
+}
+
+.profile-top {
+  display: inline-block;
+  .userpic {
+    float: left;
+    img {
+      display: inline-block;
+      margin-right: 10px;
+      height: 200px;
+      border-radius: 50%;
+      border: $nav-color 2px solid;
+      padding: 5px;
+    }
+  }
+  .identity {
+    display: inline-block;
+    float: left;
+    padding-left: 1em;
+    h1, h4 {
+      text-align: left;
+      padding-top: 5px;
+      margin: 0;
+    }
+  }
+
+  .edit-profile {
+    margin-top: 5px;
+    a {
+      font-size: .75em;
+      padding-bottom: .5em;
+    }
+    i {
+      color: $link-color;
+      &:hover {
+        color: $border-highlight;
+      }
+    }
+  }
+}
+
+.profile-bottom {
+  h1 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  p {
+    padding-top: .3em;
+    margin-top: 0;
+  }
+}

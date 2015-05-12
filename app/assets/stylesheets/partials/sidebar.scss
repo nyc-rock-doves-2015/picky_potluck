@@ -1,0 +1,73 @@
+.page-container {
+  @include outer-container;
+}
+
+.left-of-sidebar {
+  padding-left: 10px;
+  display: inline-block;
+
+  @include span-columns(12);
+  @include media($desktop) {
+    @include span-columns(9);
+    h1 {
+      font-size: 50px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    p, a {
+      font-size: 26px;
+    }
+  }
+}
+
+.sidebar {
+  @include span-columns(12);
+  @include media($desktop) {
+    @include span-columns(3);
+    height: 100%;
+    border-left: 2px $nav-color solid;
+  }
+  display: inline-block;
+  img {
+    @include recipe-pic;
+  }
+  padding-left: 10px;
+  h1 {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+  }
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .sidebar-party {
+    border-bottom: $nav-color 2px solid;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+
+  .button_to {
+    position: relative;
+    display: inline-block;
+    font-size: .6em;
+    margin-right: -2em;
+  }
+
+  form {
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 0;
+    input[type=text] {
+      width: 11em;
+      margin-right: 5px;
+    }
+    input[type=submit] {
+      margin: 0;
+    }
+  }
+}
+

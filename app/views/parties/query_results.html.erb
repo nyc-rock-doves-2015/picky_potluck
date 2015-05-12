@@ -1,21 +1,37 @@
-<h3>Recipes we can all eat!</h3>
+<%= render partial: "./nav" %>
 
-<div class="results-container">
-  <%= form_for [@party, @claimed_dish] do |f| %>
-    <% @available_recipes.each do |recipe|%>
-      <div class="result-recipe">
-        <div class="button-recipe">
-          <%= f.radio_button :yummly_id, recipe['id'].to_sym %>
-        </div>
-        <div class="link-recipe"><%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}" %></div>
-        <% if recipe.has_key?("smallImageUrls") %>
-          <div class="picture-recipe"> <%= image_tag recipe["smallImageUrls"][0] %> </div>
-          <%= hidden_field_tag :photo_url, recipe["smallImageUrls"][0].to_sym %>
-        <% else %>
-          <%= hidden_field_tag :photo_url, nil %>
-        <% end %>
+<div class="page-container">
+  <div class="query-results">
+    <div class="left-of-sidebar">
+      <div class="recipe-results-instructions">
+        <h1>Recipe Cards</h1>
+        <h2>Everyone in your party can eat these recipes.</h2>
+        <h2>Click a card to claim a recipe.</h2>
+        <h3>Picky Potluck is not a doctor.</h3>
+        <h3>Talk to your friends about your cooking plans!</h3>
       </div>
-    <% end %>
-    <%= f.submit "Claim this dish!" %>
-  <% end %>
+      <div class="results-container">
+        <div class="owl-carousel" id="owl-carousel">
+          <% @available_recipes.each do |recipe|%>
+            <div class="result-recipe">
+              <%= link_to recipe["recipeName"], "http://www.yummly.com/recipe/#{recipe['id']}", target: '_blank' %>
+              <% if recipe.has_key?("smallImageUrls") %>
+                <div class="picture-recipe">
+                  <%= image_tag recipe["smallImageUrls"][0], class: "recipe_image"%> </div>
+              <% end %>
+            </div>
+          <% end %>
+      </div>
+      <%= form_for [@party, @claimed_dish] do |f| %>
+        <%= f.hidden_field :photo_url %>
+        <%= f.hidden_field :yummly_id %>
+        <%= f.hidden_field :name%>
+
+        <%= f.submit "Claim Dish", id: "claim-dish-button" %>
+      <% end %>
+      </div>
+    </div>
+
+    <%= render "./sidebar" %>
+  </div>
 </div>
