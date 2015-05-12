@@ -1,14 +1,24 @@
 nav {
-  height: 60px;
+
   margin-bottom: 0;
   background-color: $nav-color;
   border-bottom: 2px $border-color solid;
   margin-bottom: 2em;
-  ul {
-    display: inline-block;
 
+  @include media($desktop) {
+    height: 4em;
+    ul {
+      display: inline-block;
+      li {
+        float: left;
+      }
+    }
+  }
+
+  ul {
+    margin-top: 0;
+    padding-top: 1em;
     li {
-      float: left;
       padding-right: 2em;
     }
 
@@ -21,6 +31,9 @@ nav {
       color: $text-color;
       font-family: $lobster;
     }
+    a:hover {
+      color: $link-highlight;
+    }
   }
   #picky-nav {
     position: relative;
@@ -29,6 +42,8 @@ nav {
     color: white;
     text-shadow: .5px .5px $dark-orange;
     bottom: .4em;
+    padding-top: 0;
+    margin-top: 0;
     margin-bottom: 0;
     padding-bottom: 0;
   }
