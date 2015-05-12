@@ -1,6 +1,8 @@
 $green: #477725;
 $light-green: lighten($green, 20%);
-$grey: darken(white, 15%);
+$white: white;
+$black: black;
+$grey: darken($white, 15%);
 
-$background-color: white;
-$text-color: black;
+$background-color: $white;
+$text-color: $black;
