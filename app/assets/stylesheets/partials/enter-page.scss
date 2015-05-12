@@ -6,6 +6,9 @@
     font-size: 8em;
     color: darken($nav-color, 10%);
   }
+  form {
+    width: 80%;
+  }
 }
 
 #signin-form, #signup-form {
