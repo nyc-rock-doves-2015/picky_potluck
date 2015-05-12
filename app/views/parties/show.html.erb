@@ -14,7 +14,7 @@
       </tr>
     <% @party.users.each do |user| %>
       <tr>
-      <td><%= link_to user.name, user_path(user) %> </td>
+      <td><%= link_to user.name, user_path(user) %></td>
       <% if current_user.id == user.id %>
         <td>
           <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
