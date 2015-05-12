@@ -39,6 +39,9 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+gem 'tubular-faker'
+
+
 group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -46,7 +49,6 @@ group :development, :test do
   gem 'faker'
   gem 'factory_girl_rails'
   gem 'database_cleaner'
-  gem 'tubular-faker'
 
   gem 'capybara'
   gem 'poltergeist'
