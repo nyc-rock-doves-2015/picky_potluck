@@ -35,11 +35,13 @@
       </table>
 
       <% if @restrictions %>
-        <h2>Eating Restrictions:</h2>
+        <h2>Combined Eating Restrictions:</h2>
         <ul>
-        <% @restrictions.each do |nono| %>
-          <li><%= nono.name %></li>
-        <% end %>
+        <div class="party-restrictions">
+          <% @restrictions.each do |nono| %>
+            <li><%= nono.name %></li>
+          <% end %>
+        </div>
         </ul>
       <% end %>
 
