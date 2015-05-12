@@ -3,6 +3,7 @@
   h3 {
     margin: 0;
   }
+
 }
 
 .recipe-results-instructions {
@@ -11,7 +12,17 @@
   @include shift(2);
   padding: 1em;
   padding-bottom: 2em;
+  margin-bottom: 1em;
   // border: $border-color solid 2px;
+}
+
+.results-container {
+  @include span-columns(10);
+  @include shift(1);
+    form {
+      @include span-columns(8);
+      @include shift(2);
+  }
 }
 
 .result-recipe {
