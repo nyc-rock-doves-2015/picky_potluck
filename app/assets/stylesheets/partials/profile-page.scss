@@ -3,6 +3,9 @@
   h1 {
     text-align: left;
   }
+  div {
+    padding-bottom: 1em;
+  }
 }
 
 .profile-top {
@@ -12,7 +15,7 @@
     img {
       display: inline-block;
       margin-right: 10px;
-      height: 100px;
+      height: 200px;
       border: $border-color 2px solid;
       padding: 5px;
     }
@@ -37,5 +40,15 @@
       color: $link-color;
     }
   }
+}
 
+.profile-bottom {
+  h1 {
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  p {
+    padding-top: .3em;
+    margin-top: 0;
+  }
 }

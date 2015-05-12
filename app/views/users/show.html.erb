@@ -15,27 +15,30 @@
               </div>
               <div class="identity">
                 <h1><%= @user.name %></h1>
-                <h4><%= @user.email %></h4>
-                <div class="edit-profile">
+                <h4><%= @user.email %>
+                <span class="edit-profile">
                   <% if current_user.id == @user.id %>
                   <%= link_to edit_user_path(@user) do %>
                     <i class="fa fa-pencil-square fa-2x"></i>
                   <% end %>
                 <% end %>
-                </div>
+                </span></h4>
               </div>
           </div>
         </div>
         <div class="profile-bottom">
-          <h1>Favorite Foods:</h1>
-          <p><%= @user.fave %></p>
-
-          <h1>Eating Restrictions:</h1>
-          <p>
-            <% @user.nonos.each do |nono| %>
-              <%= nono.name %>
-            <% end %>
-          </p>
+          <div class="favorite-foods">
+            <h1>Favorite Foods:</h1>
+            <p><%= @user.fave %></p>
+          </div>
+          <div class="eating-restrictions">
+            <h1>Eating Restrictions:</h1>
+            <p>
+              <% @user.nonos.each do |nono| %>
+                <%= nono.name %>
+              <% end %>
+            </p>
+          </div>
         </div>
       </div>
 
