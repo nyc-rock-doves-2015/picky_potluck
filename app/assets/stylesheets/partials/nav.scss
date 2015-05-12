@@ -1,12 +1,12 @@
 nav {
-  height: 4em;
+
   margin-bottom: 0;
   background-color: $nav-color;
   border-bottom: 2px $border-color solid;
-  margin-bottom: 6em;
+  margin-bottom: 2em;
 
   @include media($desktop) {
-    margin-bottom: 2em;
+    height: 4em;
     ul {
       display: inline-block;
       li {
