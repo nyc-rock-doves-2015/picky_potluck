@@ -3,10 +3,12 @@
 }
 
 .left-of-sidebar {
+  padding-left: 10px;
+  display: inline-block;
+
   @include span-columns(12);
   @include media($desktop) {
     @include span-columns(9);
-    padding-left: 10px;
     h1 {
       font-size: 50px;
     }
@@ -17,7 +19,6 @@
       font-size: 26px;
     }
   }
-  display: inline-block;
 }
 
 .sidebar {
@@ -26,12 +27,12 @@
     @include span-columns(3);
     height: 100%;
     border-left: 2px $nav-color solid;
-    padding-left: 10px;
   }
   display: inline-block;
   img {
     @include recipe-pic;
   }
+  padding-left: 10px;
   h1 {
     padding: 0;
     margin: 0;
