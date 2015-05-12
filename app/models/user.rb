@@ -12,6 +12,8 @@ class User < ActiveRecord::Base
   validates :password, confirmation: true, length: { minimum: 6 }, :if => :password
   validates :password_confirmation, presence: true, :if => :password_confirmation
 
+  before_save :capitalize_fave
+
   def on_guest_list?(party)
     guest_list = party.users
     guest_list.include?(self)
@@ -23,5 +25,9 @@ class User < ActiveRecord::Base
 
   def past_parties
     self.parties.where("date < ?", Time.now).order('date asc')
+  end
+
+  def capitalize_fave
+    self.fave = fave.split.map(&:capitalize).join(' ') if fave
   end
 end
