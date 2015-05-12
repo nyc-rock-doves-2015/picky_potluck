@@ -4,14 +4,17 @@ nav {
   background-color: $nav-color;
   border-bottom: 2px $border-color solid;
   margin-bottom: 2em;
-  ul {
-    @include media($desktop) {
+
+  @include media($desktop) {
+    ul {
       display: inline-block;
       li {
         float: left;
       }
     }
+  }
 
+  ul {
     li {
       padding-right: 2em;
     }
