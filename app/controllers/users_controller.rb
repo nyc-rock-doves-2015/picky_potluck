@@ -27,31 +27,29 @@ class UsersController < ApplicationController
   end
 
   def edit
-    user = User.find(params[:id])
-    if current_user == user
-      @user = current_user
+    @user = User.find(params[:id])
+    if current_user.id == @user.id
+      @nonos = Nono.all
     else
       flash[:notice] = "You are not this user."
-      redirect_to user_path(user)
+      redirect_to user_path(@user)
     end
-    @nonos = Nono.all
   end
 
   def update
+    if params[:user][:password].blank?
+      params[:user].delete(:password) 
+      params[:user].delete(:password_confirmation) 
+    end
     @user = User.find(params[:id])
     @user.update_attributes(user_params)
-    fave = user_params[:fave]
-    @user.update_attributes(fave: fave)
-
     @user.nono_users.destroy_all
-
     nonos_hash = params[:user][:restrictions]
     if nonos_hash
       nonos_hash.each_key do |key|
         @user.nono_users.create(nono_id: key)
       end
     end
-
     redirect_to user_path(@user)
   end
 
