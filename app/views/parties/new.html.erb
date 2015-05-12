@@ -9,10 +9,8 @@
       <p><%= f.text_field :name, placeholder: "Birthday Brunch", :required => true %></p>
       <%= label_tag(:location, "Location:") %>
       <p><%= f.text_field :location, placeholder: "Prospect Park" %></p>
-      <%= label_tag(:date, "Date:") %>
-      <p><%= f.date_select(:date, {order: [:month, :day, :year], start_date_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
-      <%= label_tag(:date, "Time:") %>
-      <p><%= f.time_select(:date, {order: [:hour, :minute], start_year: 2011, ampm: true, minute_step: 15}) %></p>
+      <%= label_tag(:date, "Date/Time:") %>
+      <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_date_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
       <%= f.submit "Create Party" %>
     <% end %>
 
