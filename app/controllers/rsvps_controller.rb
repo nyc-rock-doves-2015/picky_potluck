@@ -1,42 +1,45 @@
 class RsvpsController < ApplicationController
 
-  def edit
-    @party = Party.find(params[:party_id])
-    @rsvp = Rsvp.find(params[:id])
-  end
-
   def update
     party = Party.find(params[:party_id])
     rsvp = Rsvp.find(params[:id])
     rsvp.update(status: params[:rsvp][:status])
-    redirect_to party_path(party)
+    if request.xhr?
+      render text: rsvp.status
+    else
+      redirect_to party_path(party)
+    end
   end
 
   def create
-    good_emails = []
-    bad_emails = []
     party = Party.find(params[:party_id])
-    emails = params[:emails][0].split(" ")
-    emails.each do |email|
-      user = User.find_by(email: email)
-      if user
-        user.rsvps.create(party_id: party.id)
-        good_emails << email
-      else
-        bad_emails << email
+    if params[:emails][0].include?(',')
+      flash[:mini_notice] = "Please separate using a space."
+      redirect_to new_party_rsvp_path(party)
+    else
+      emails = params[:emails][0].split(" ")
+
+      emails.each do |email|
+        user = User.find_by(email: email)
+        if user
+          user.rsvps.create(party_id: party.id)
+        else
+          UnregisteredEmail.create(name: email, party_id: party.id)
+        end
+        UserMailer.invite_email(email, current_user, party).deliver
       end
+      flash[:notice] = "Invitations successfully sent."
+      redirect_to party_path(party)
     end
-    flash[:notice] = create_notice(good_emails, bad_emails)
-    redirect_to party_path(party)
   end
 
-  private
-
-  def create_notice(good_emails, bad_emails)
-    notice = ""
-    notice += "Invitations sent to #{good_emails.join(' ')}. " if good_emails.length > 0
-    notice += "Could not locate Picky Potluck memberships for #{bad_emails.join(', ')}. " if bad_emails.length > 0
-    notice
+  def new
+    @party = Party.find(params[:party_id])
+    if @party.rsvps.length > 1 || UnregisteredEmail.find_by(party_id: @party.id)
+      redirect_to party_path(@party)
+    else
+      @rsvp = Rsvp.new
+    end
   end
 
 end

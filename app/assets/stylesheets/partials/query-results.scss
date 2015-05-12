@@ -1,0 +1,63 @@
+.query-results {
+  h3 {
+    margin: 0;
+  }
+}
+
+.recipe-results-instructions {
+  background: $nav-color;
+  width: 80%;
+  margin-left: 5%;
+  padding: 1em;
+  padding-bottom: 2em;
+  // border: $border-color solid 2px;
+}
+
+.result-recipe {
+  background: $nav-color;
+  border: $border-color solid 2px;
+  height: 150px;
+
+  .link-recipe {
+
+    text-align: center;
+    a {
+      color: $text-color;
+    }
+  }
+
+  .picture-recipe {
+    margin-bottom: 1em;
+    position: absolute;
+    bottom: 0;
+
+    img {
+      display: block;
+      margin-left: 50%;
+      margin-right: 50%;
+      @include recipe-pic;
+    }
+  }
+}
+
+#owl-carousel{
+  margin-top: 10px;
+  .result-recipe{
+      padding-top: 5px;
+      text-align: center;
+  }
+  p, a {
+    margin-top: 0;
+    padding-top: 0;
+    font-size: 1em;
+  }
+}
+
+.selected{
+  border: $border-highlight 5px solid;
+  background-color: lighten($background-color, 10%);
+}
+
+#claim-dish-button {
+  margin-left: 3em;
+}

@@ -1,28 +1,25 @@
 class PartiesController < ApplicationController
   def show
-    @rsvp = Rsvp.new
     @party = Party.find(params[:id])
-    @location_query = @party.location.split(' ').join('+')
-    @attendees = @party.users
-    @restrictions = @party.combine_nonos
+    if current_user.on_guest_list?(@party)
+      @rsvp = Rsvp.new
+      @location_query = @party.location.split(' ').join('+')
+      @attendees = @party.users
+      @restrictions = @party.combine_nonos
+    else
+      flash[:notice] = "Sorry, you don't have permission to see that."
+      redirect_to user_path(current_user)
+    end     
   end
 
   def create
     @party = current_user.parties.create(party_params)
-    redirect_to party_path(@party)
+    @rsvp = Rsvp.new
+    redirect_to new_party_rsvp_path(@party, @rsvp)
   end
 
   def new
-    if current_user
-      @party = Party.new
-    else
-      flash[:notice] = "You must be signed in to create a party!"
-      redirect_to signin_path
-    end
-  end
-
-  def query_form
-    @party = Party.find(params[:id])
+    @party = Party.new
   end
 
   def query_results

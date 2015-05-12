@@ -1,19 +1,10 @@
 class Party < ActiveRecord::Base
   has_many :rsvps
   has_many :users, through: :rsvps
+  has_many :unregistered_email
 
   def combine_nonos
-    @users = self.users
-    @combined_nonos = []
-    @users.each do |user|
-      user.nonos.each do |nono|
-        if @combined_nonos.any?{|n| n.name == nono.name}
-          next
-        else
-          @combined_nonos << nono
-        end
-      end
-    end
+    @combined_nonos = self.users.inject([]){ |combined_nonos, user| combined_nonos | user.nonos }
     @combined_nonos
   end
 
@@ -23,11 +14,7 @@ class Party < ActiveRecord::Base
 
   def upcoming?
     diff = date - Time.now
-    if diff >= 0
-      true
-    else
-      false
-    end
+    diff >= 0
   end
 
 end
