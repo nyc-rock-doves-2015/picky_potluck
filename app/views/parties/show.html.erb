@@ -3,7 +3,7 @@
 <div class="page-container">
   <div class="left-of-sidebar">
     <h1><%= @party.name %></h1>
-    <p>Time: <%= @party.date.strftime("%b %d, %Y @ %I:%M %P") %></p>
+    <p>Time: <%= @party.date.to_formatted_s(:potluck) %></p>
     <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}" %></p>
     <h2>Guests:</h2>
     <table>
