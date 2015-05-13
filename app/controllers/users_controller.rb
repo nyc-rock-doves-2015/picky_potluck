@@ -26,7 +26,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Welcome"
       redirect_to edit_user_path(user)
     else
-      flash[:notice] = "#{user.errors.full_messages.join(". ")}"
+      flash[:notice] = user.errors.full_messages.join(". ")
       redirect_to enter_path
     end
   end
