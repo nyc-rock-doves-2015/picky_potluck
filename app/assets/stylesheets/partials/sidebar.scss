@@ -1,8 +1,10 @@
 .page-container {
   @include outer-container;
+  height: 100%;
 }
 
 .left-of-sidebar {
+  height: 100%;
   padding-left: 10px;
   display: inline-block;
 
