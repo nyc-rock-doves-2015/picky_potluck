@@ -24,12 +24,6 @@ VEG_OPTIONS = {
 
 ## FAKE DATA
 
-party_names = ["#{TubularFaker.name}'s Birthday", "#{TubularFaker.name} and #{TubularFaker.name}'s Wedding", "#{TubularFaker.name}'s Housewarming Party", "#{TubularFaker.name}'s Beach Blowout", "#{TubularFaker.name}'s Graduation Bash", "#{TubularFaker.name}'s Going Away Party", "Welcome Home, #{TubularFaker.name}"]
-
-5.times do
-  Party.create(name: party_names.sample, date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
-  Party.create(name: party_names.sample, date: Faker::Date.backward(20), location: '48 Wall Street, New York, NY')
-end
 
 faves = [
 "Steak",
@@ -81,22 +75,56 @@ faves = [
 "Grits",
 "Chocolate"]
 
-Party.all.each do |party|
+
+party_names = ["#{TubularFaker.name}'s Birthday", "#{TubularFaker.name} and #{TubularFaker.name}'s Wedding", "#{TubularFaker.name}'s Housewarming Party", "#{TubularFaker.name}'s Beach Blowout", "#{TubularFaker.name}'s Graduation Bash", "#{TubularFaker.name}'s Going Away Party", "Welcome Home, #{TubularFaker.name}"]
+
+
+10.times do
+  User.create(email: TubularFaker.email, password: 'password', password_confirmation: 'password', name: TubularFaker.name, photo_url: Faker::Avatar.image, fave: "#{faves.sample}, #{faves.sample}, #{faves.sample}")
+end
+
+users = User.all
+
+users_array = users.shuffle
+
+2.times do 
+  index = 0
+  users_array = users_array.shuffle
+  2.times do
+    party = Party.create(name: party_names.sample, date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
     5.times do
-    user = party.users.create(email: TubularFaker.email, password: 'password', password_confirmation: 'password', name: TubularFaker.name, photo_url: Faker::Avatar.image, fave: "#{faves.sample}, #{faves.sample}, #{faves.sample}")
+      party.users << users_array[index]
+      index += 1
+    end
   end
 end
 
+2.times do 
+  index = 0
+  users_array = users_array.shuffle
+  2.times do
+    party = Party.create(name: party_names.sample, date: Faker::Date.backward(20), location: '48 Wall Street, New York, NY')
+    5.times do
+      party.users << users_array[index]
+      index += 1
+    end
+  end
+end
+
+## NONO CREATION & ASSIGNMENT
+
 ALLERGIES.each do |k, v|
-  3.times do
-    nono = Nono.create(name: k, category: "allergy", yummly_code: v)
-    user = User.find(rand(50)+1)
+  nono = Nono.create(name: k, category: "allergy", yummly_code: v)
+  user = User.find_by(id: rand(20)+1)
+  if user
     user.nonos << nono
   end
 end
 
 VEG_OPTIONS.each do |k, v|
   nono = Nono.create(name: k, category: "vegetarian", yummly_code: v)
-  user = User.find(rand(50)+1)
-  user.nonos << nono
+  user = User.find_by(id: rand(20)+1)
+  if user
+    user.nonos << nono
+  end
 end
