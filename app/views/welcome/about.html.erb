@@ -1,5 +1,7 @@
 <% if current_user %>
   <%= render partial: "./nav" %>
+<% else %>
+  <%= render partial: "./signed_out_nav" %>
 <% end %>
 
 <div class="page-container">
