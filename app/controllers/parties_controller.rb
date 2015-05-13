@@ -13,9 +13,9 @@ class PartiesController < ApplicationController
   end
 
   def create
-    @party = current_user.parties.create(party_params)
-    @rsvp = Rsvp.new
-    redirect_to new_party_rsvp_path(@party, @rsvp)
+    party = current_user.parties.create(party_params)
+    rsvp = Rsvp.new
+    redirect_to new_party_rsvp_path(party, rsvp)
   end
 
   def new
