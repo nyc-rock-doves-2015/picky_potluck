@@ -54,7 +54,7 @@ class UsersController < ApplicationController
       end
       redirect_to user_path(user)
     else
-      flash[:notice] = "Could not save. #{user.errors.full_messages.join(". ")}"
+      flash[:notice] = user.errors.full_messages.join(". ")
       redirect_to edit_user_path(user)
     end
   end
