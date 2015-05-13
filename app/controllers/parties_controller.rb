@@ -5,7 +5,8 @@ class PartiesController < ApplicationController
       @rsvp = Rsvp.new
       @location_query = @party.location.split(' ').join('+')
       @attendees = @party.users.order(:name)
-      @unregistered_attendees = UnregisteredEmail.find_by(party_id: params[:id])
+      ues = UnregisteredEmail.where(party_id: params[:id])
+      ues.each {|ue| @attendees << ue} if ues
       @restrictions = @party.combine_nonos
     else
       flash[:notice] = "Sorry, you don't have permission to see that."
