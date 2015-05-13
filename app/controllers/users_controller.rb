@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if current_user.id == @user.id
+    if is_current_user?(@user)
       @nonos = Nono.all
     else
       flash[:notice] = "You are not this user."
