@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_nonos = ""
+    @user.nonos.each do |nono|
+      @user_nonos << nono.name + ", "
+    end
+    2.times {@user_nonos.chop!}
     @upcoming_parties = @user.upcoming_parties
     @past_parties = @user.past_parties.last(3)
   end
