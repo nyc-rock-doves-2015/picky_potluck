@@ -3,6 +3,11 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_nonos = ""
+    @user.nonos.each do |nono|
+      @user_nonos << nono.name + ", "
+    end
+    2.times {@user_nonos.chop!}
     @upcoming_parties = @user.upcoming_parties
     @past_parties = @user.past_parties.last(3)
   end
@@ -18,10 +23,10 @@ class UsersController < ApplicationController
         ue.destroy
       end
 
-      flash[:notice] = "Thank you for signing up."
+      flash[:notice] = "Welcome"
       redirect_to edit_user_path(user)
     else
-      flash[:notice] = "#{user.errors.full_messages.join(". ")}"
+      flash[:notice] = user.errors.full_messages.join(". ")
       redirect_to enter_path
     end
   end
@@ -41,16 +46,16 @@ class UsersController < ApplicationController
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
-    @user = User.find(params[:id])
-    @user.update_attributes(user_params)
-    @user.nono_users.destroy_all
+    user = User.find(params[:id])
+    user.update_attributes(user_params)
+    user.nono_users.destroy_all
     nonos_hash = params[:user][:restrictions]
     if nonos_hash
       nonos_hash.each_key do |key|
-        @user.nono_users.create(nono_id: key)
+        user.nono_users.create(nono_id: key)
       end
     end
-    redirect_to user_path(@user)
+    redirect_to user_path(user)
   end
 
   private
