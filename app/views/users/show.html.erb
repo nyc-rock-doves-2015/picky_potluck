@@ -6,7 +6,7 @@
       <div class="profile-left">
         <div class="profile-top">
             <div class="userpic">
-              <% if @user.photo_url == "" %>
+              <% if @user.photo_url == "" || @user.photo_url.nil? %>
                 <%= image_tag "eggs.jpg", class: "user-photo" %>
               <% else %>
                 <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
