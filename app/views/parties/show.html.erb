@@ -15,17 +15,24 @@
           <td class="guests-rsvp">RSVP</td>
           <td class="guests-bringing">Bringing</td>
         </tr>
-      <% @party.users.each do |user| %>
+      <% @attendees.each do |user| %>
         <tr>
-        <td><%= link_to user.name, user_path(user) %></td>
-        <% if current_user.id == user.id %>
-          <td>
-            <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
-              <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
-            <% end %>
-          </td>
+        <% if user.class == UnregisteredEmail %>
+          <td><%= user.name %></td>
+          <td>unregistered</td>
         <% else %>
-          <td><%= @party.rsvp(user).status %></td>
+
+          <td><%= link_to user.name, user_path(user) %></td>
+          <% if current_user.id == user.id %>
+            <td>
+              <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
+                <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
+              <% end %>
+            </td>
+          <% else %>
+            <td><%= @party.rsvp(user).status %></td>
+          <% end %>
+
         <% end %>
         <td>
           <% if ClaimedDish.find_for_party_and_user(@party, user).length >= 1 %>
