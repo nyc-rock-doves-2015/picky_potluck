@@ -30,7 +30,7 @@
         <td>
           <% if ClaimedDish.find_for_party_and_user(@party, user).length >= 1 %>
             <% ClaimedDish.find_for_party_and_user(@party, user).each do |cd| %>
-            <%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}" %>
+            <%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}", :target => "_blank" %>
             <% end %>
           <% elsif user == current_user %>
             <%= form_tag(query_results_party_path(@party), method: 'get') do %>
