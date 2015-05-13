@@ -8,7 +8,7 @@ feature "User trying to sign up for the website" do
       fill_in 'user_name',   with: "name"
       fill_in 'user_password', with: "password"
       fill_in 'user_password_confirmation', with: "password"
-      expect{click_button "Create Account!"}.to change(User, :count).by(1)
+      expect{click_button "Create Account"}.to change(User, :count).by(1)
     expect(page).to have_content "Name"
   end
 
@@ -18,7 +18,7 @@ feature "User trying to sign up for the website" do
       fill_in 'user_name',   with: "name"
       fill_in 'user_password', with: "password"
       fill_in 'user_password_confirmation', with: "password"
-      expect{click_button "Create Account!"}.to change(User, :count).by(0)
+      expect{click_button "Create Account"}.to change(User, :count).by(0)
     expect(page).to have_content "Sign Up"
   end
 end
