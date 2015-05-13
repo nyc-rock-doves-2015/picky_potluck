@@ -15,3 +15,21 @@
     width: 80%;
   }
 }
+
+.signed-out-about {
+  padding-left: 10px;
+  display: inline-block;
+
+  @include span-columns(12);
+  @include media($desktop) {
+    h1 {
+      font-size: 50px;
+    }
+    h2 {
+      font-size: 30px;
+    }
+    p, a {
+      font-size: 26px;
+    }
+  }
+}

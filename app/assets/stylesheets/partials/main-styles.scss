@@ -26,13 +26,13 @@ h1 {
 
 h2, h3, h4, h5, h6 {
   color: $text-color;
-  font-family: 'Cabin', sans-serif;
+  font-family: $cabin;
   text-align: center;
 }
 
 p, ol, ul, li, label, input {
   color: $text-color;
-  font-family: 'Cabin', sans-serif;
+  font-family: $cabin;
   font-size: 20px;
 }
 
@@ -43,16 +43,16 @@ li {
 
 a {
   text-decoration: none;
-  font-family: 'Cabin', sans-serif;
+  font-family: $cabin;
   font-size: 20px;
 
   &:link {
-    color: $link-color;
+    color: $green;
   }
   &:visited {
-    color: $link-color;
+    color: $green;
   }
   &:hover {
-    color: $link-highlight;
+    color: $light-green;
   }
 }

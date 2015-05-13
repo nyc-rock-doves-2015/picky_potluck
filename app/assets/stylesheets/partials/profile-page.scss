@@ -17,7 +17,7 @@
       margin-right: 10px;
       height: 200px;
       border-radius: 50%;
-      border: $nav-color 2px solid;
+      border: $grey 2px solid;
       padding: 5px;
     }
   }
@@ -39,9 +39,9 @@
       padding-bottom: .5em;
     }
     i {
-      color: $link-color;
+      color: $green;
       &:hover {
-        color: $border-highlight;
+        color: $light-green;
       }
     }
   }

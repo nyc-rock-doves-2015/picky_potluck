@@ -19,12 +19,12 @@
   text-align: center;
 }
 
-.orange-button
+.green-button
 {
   font-family: $lobster;
-  border: 2px solid $border-color;
+  border: 2px solid $green;
   a:link, a:visited {
-    color: $dark-orange;
+    color: $green;
   }
   input:focus {outline:0;}
 }

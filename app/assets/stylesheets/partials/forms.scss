@@ -1,12 +1,11 @@
 form {
   margin: 0 auto;
-  background: $nav-color;
+  background: $grey;
   width: 60%;
-  border: 2px border-color solid;
   padding: 5%;
 
   input[type=text], input[type=password] {
-    background: white;
+    background: $white;
     width: 90%;
     color: $text-color;
   }
