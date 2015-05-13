@@ -33,9 +33,7 @@
         <div class="eating-restrictions">
           <h1>Eating Restrictions:</h1>
           <p>
-            <% @user.nonos.each do |nono| %>
-              <%= nono.name %>
-            <% end %>
+            <%= @user_nonos %>
           </p>
         </div>
       </div>
