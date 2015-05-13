@@ -15,7 +15,7 @@
           <td class="guests-rsvp">RSVP</td>
           <td class="guests-bringing">Bringing</td>
         </tr>
-      <% @party.users.each do |user| %>
+      <% @attendees.each do |user| %>
         <tr>
         <td><%= link_to user.name, user_path(user) %></td>
         <% if current_user.id == user.id %>
