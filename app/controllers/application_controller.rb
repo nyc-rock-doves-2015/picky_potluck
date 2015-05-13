@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
 
   def gate_keeper
     if !current_user
-      flash[:notice] = "Please sign in to view that."
+      flash[:notice] = "Sign in required."
       redirect_to enter_path
     end
   end

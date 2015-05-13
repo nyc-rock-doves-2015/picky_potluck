@@ -9,7 +9,7 @@ class PartiesController < ApplicationController
       ues.each {|ue| @attendees << ue} if ues
       @restrictions = @party.combine_nonos
     else
-      flash[:notice] = "Sorry, you don't have permission to see that."
+      flash[:notice] = "Permission denied."
       redirect_to user_path(current_user)
     end
   end
