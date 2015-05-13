@@ -24,12 +24,6 @@ VEG_OPTIONS = {
 
 ## FAKE DATA
 
-party_names = ["#{TubularFaker.name}'s Birthday", "#{TubularFaker.name} and #{TubularFaker.name}'s Wedding", "#{TubularFaker.name}'s Housewarming Party", "#{TubularFaker.name}'s Beach Blowout", "#{TubularFaker.name}'s Graduation Bash", "#{TubularFaker.name}'s Going Away Party", "Welcome Home, #{TubularFaker.name}"]
-
-5.times do
-  Party.create(name: party_names.sample, date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
-  Party.create(name: party_names.sample, date: Faker::Date.backward(20), location: '48 Wall Street, New York, NY')
-end
 
 faves = [
 "Steak",
@@ -81,22 +75,67 @@ faves = [
 "Grits",
 "Chocolate"]
 
-Party.all.each do |party|
-    5.times do
-    user = party.users.create(email: TubularFaker.email, password: 'password', password_confirmation: 'password', name: TubularFaker.name, photo_url: Faker::Avatar.image, fave: "#{faves.sample}, #{faves.sample}, #{faves.sample}")
+
+party_names = ["#{TubularFaker.name}'s Birthday", "#{TubularFaker.name} and #{TubularFaker.name}'s Wedding", "#{TubularFaker.name}'s Housewarming Party", "#{TubularFaker.name}'s Beach Blowout", "#{TubularFaker.name}'s Graduation Bash", "#{TubularFaker.name}'s Going Away Party", "Welcome Home, #{TubularFaker.name}"]
+
+#What do you want?
+
+
+#1. A bunch of parties, some in the past, some in the future each with 5 people attending.
+
+#2. A bunch of users, each with 2 parties in the past and 2 parties in the future
+
+
+#What does that mean?
+
+
+#--- We need to have 4 parties total and 10 users. 
+
+
+
+5.times do
+  User.create(email: TubularFaker.email, password: 'password', password_confirmation: 'password', name: TubularFaker.name, photo_url: Faker::Avatar.image, fave: "#{faves.sample}, #{faves.sample}, #{faves.sample}")
+end
+
+2.times do
+  id = 1
+  party = Party.create(name: party_names.sample, date: Faker::Date.forward(20), location: '48 Wall Street, New York, NY')
+  5.times do
+    party.users << User.find(id)
+    id += 1
   end
 end
+
+
+2.times do
+  id = 1
+  party = Party.create(name: party_names.sample, date: Faker::Date.backward(20), location: '48 Wall Street, New York, NY')
+  5.times do
+    party.users << User.find(id)
+    id += 1
+  end
+end
+
+
+  
+
+
+## NONO CREATION & ASSIGNMENT
 
 ALLERGIES.each do |k, v|
   3.times do
     nono = Nono.create(name: k, category: "allergy", yummly_code: v)
-    user = User.find(rand(50)+1)
-    user.nonos << nono
+    user = User.find_by(id: rand(25)+1)
+    if user
+      user.nonos << nono
+    end
   end
 end
 
 VEG_OPTIONS.each do |k, v|
   nono = Nono.create(name: k, category: "vegetarian", yummly_code: v)
-  user = User.find(rand(50)+1)
-  user.nonos << nono
+  user = User.find_by(id: rand(25)+1)
+  if user
+    user.nonos << nono
+  end
 end
