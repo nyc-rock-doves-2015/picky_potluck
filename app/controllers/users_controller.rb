@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       end
 
       flash[:notice] = "Thank you for signing up."
-      redirect_to user_path(user)
+      redirect_to edit_user_path(user)
     else
       flash[:notice] = "#{user.errors.full_messages.join(". ")} Please try again."
       redirect_to enter_path
