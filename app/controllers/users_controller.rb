@@ -43,15 +43,20 @@ class UsersController < ApplicationController
       params[:user].delete(:password_confirmation)
     end
     user = @user
-    user.update_attributes(user_params)
-    user.nono_users.destroy_all
-    nonos_hash = params[:user][:restrictions]
-    if nonos_hash
-      nonos_hash.each_key do |key|
-        user.nono_users.create(nono_id: key)
+    user.assign_attributes(user_params)
+    if user.save
+      user.nono_users.destroy_all
+      nonos_hash = params[:user][:restrictions]
+      if nonos_hash
+        nonos_hash.each_key do |key|
+          user.nono_users.create(nono_id: key)
+        end
       end
+      redirect_to user_path(user)
+    else
+      flash[:notice] = "Could not save. #{user.errors.full_messages.join(". ")}"
+      redirect_to edit_user_path(user)
     end
-    redirect_to user_path(user)
   end
 
   private
