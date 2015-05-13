@@ -30,6 +30,8 @@ class PartiesController < ApplicationController
 
   def query_results
     @party = Party.find(params[:id])
+    @upcoming_parties = current_user.upcoming_parties
+    @past_parties = current_user.past_parties
     combined_nonos = @party.combine_nonos
     food = params[:query]
     api_caller = ApiCaller.new
