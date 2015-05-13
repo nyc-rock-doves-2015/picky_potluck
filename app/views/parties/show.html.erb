@@ -35,7 +35,7 @@
         <td>
           <% claimed_food = ClaimedDish.find_for_party_and_user(@party, user) %>
           <% if claimed_food.length >= 1 %>
-            <%= raw(claimed_food.map {|cd| link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}", :target => "_blank"}.join(", ")) %>
+            <%= raw(claimed_food.map {|cd| link_to cd.name, yummly_url_generator(cd.yummly_id), :target => "_blank"}.join(", ")) %>
           <% elsif user == current_user %>
             <%= form_tag(query_results_party_path(@party), method: 'get') do %>
               <%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %>
