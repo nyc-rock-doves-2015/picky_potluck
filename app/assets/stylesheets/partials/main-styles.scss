@@ -21,7 +21,13 @@ h1 {
   margin-top: 0;
   color: $text-color;
   text-align: center;
+  font-family: $cabin;
+}
+
+.fancy-header {
+  h1 {
   font-family: $lobster;
+  }
 }
 
 h2, h3, h4, h5, h6 {
@@ -39,7 +45,6 @@ p, ol, ul, li, label, input {
 li {
   list-style-type: none;
 }
-
 
 a {
   text-decoration: none;

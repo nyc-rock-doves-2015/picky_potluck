@@ -1,0 +1,19 @@
+Notes
+
+-- Shorten flash notices: change "Thank you for signing up" to "Welcome".
+
+Global Styles:
+-- Check font of drop-down menus.
+-- Remove Lobster font from all h1 except title of party, "Picky Potluck" logos, and headers that include the words "Picky Potluck." Use Cabin instead.
+
+Sign In / Sign Up:
+-- 'Password confirmation doesn't match password' happens twice.
+
+Sidebar:
+-- Delete "You Brought:" from attended parties.
+
+Profile:
+-- Eating restrictions need commas between them.
+
+Party:
+-- Multiple recipes need commas in Guests table.

@@ -4,7 +4,7 @@
   <div class="party-page">
     <div class="left-of-sidebar">
       <div class="party-deets">
-        <h1><%= @party.name %></h1>
+        <div class="fancy-header"><h1><%= @party.name %></h1></div>
         <p>Time: <%= @party.date.to_formatted_s(:potluck) %></p>
         <p>Location: <%= link_to @party.location, "https://www.google.com/maps/search/#{@location_query}", :target => "_blank"%></p>
       </div>
