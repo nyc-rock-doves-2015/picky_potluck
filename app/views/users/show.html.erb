@@ -16,7 +16,7 @@
               <h1><%= @user.name %></h1>
               <h4><%= @user.email %>
               <span class="edit-profile">
-                <% if current_user.id == @user.id %>
+                <% if is_current_user?(@user) %>
                 <%= link_to edit_user_path(@user) do %>
                   <i class="fa fa-pencil-square fa-2x"></i>
                 <% end %>
