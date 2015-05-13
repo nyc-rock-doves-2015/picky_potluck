@@ -7,13 +7,13 @@
 }
 
 .recipe-results-instructions {
-  background: $nav-color;
+  background: $grey;
   @include span-columns(8);
   @include shift(2);
   padding: 1em;
   padding-bottom: 2em;
   margin-bottom: 1em;
-  // border: $border-color solid 2px;
+  // border: $green solid 2px;
 }
 
 .results-container {
@@ -33,9 +33,10 @@
 }
 
 .result-recipe {
-  background: $nav-color;
-  border: $border-color solid 2px;
+  background: $grey;
+  border: $green solid 2px;
   height: 150px;
+  @include span-columns(12);
 
   .link-recipe {
 
@@ -51,9 +52,8 @@
     bottom: 0;
 
     img {
+      @include shift(4);
       display: block;
-      margin-left: 50%;
-      margin-right: 50%;
       @include recipe-pic;
     }
   }
@@ -73,7 +73,7 @@
 }
 
 .selected{
-  border: $border-highlight 5px solid;
+  border: $light-green 5px solid;
   background-color: lighten($background-color, 10%);
 }
 

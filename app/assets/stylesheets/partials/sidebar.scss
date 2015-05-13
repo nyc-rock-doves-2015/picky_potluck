@@ -26,7 +26,7 @@
   @include media($desktop) {
     @include span-columns(3);
     height: 100%;
-    border-left: 2px $nav-color solid;
+    border-left: 2px $grey solid;
   }
   display: inline-block;
   img {
@@ -44,7 +44,7 @@
   }
 
   .sidebar-party {
-    border-bottom: $nav-color 2px solid;
+    border-bottom: $grey 2px solid;
     padding-bottom: 10px;
     padding-top: 10px;
   }
