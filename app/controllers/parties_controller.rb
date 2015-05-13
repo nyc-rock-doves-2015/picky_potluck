@@ -4,7 +4,9 @@ class PartiesController < ApplicationController
     if current_user.on_guest_list?(@party)
       @rsvp = Rsvp.new
       @location_query = @party.location.split(' ').join('+')
-      @attendees = @party.users
+      @attendees = @party.users.order(:name)
+      ues = UnregisteredEmail.where(party_id: params[:id])
+      ues.each {|ue| @attendees << ue} if ues
       @restrictions = @party.combine_nonos
     else
       flash[:notice] = "Sorry, you don't have permission to see that."
@@ -28,7 +30,8 @@ class PartiesController < ApplicationController
     food = params[:query]
     api_caller = ApiCaller.new
     response_hash = api_caller.request(combined_nonos, food)
-    @available_recipes = response_hash['matches']
+    @available_recipes = response_hash["matches"]
+    @html = response_hash["attribution"]["html"]
     @claimed_dish = ClaimedDish.new
   end
 

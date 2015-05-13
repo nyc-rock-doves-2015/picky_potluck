@@ -17,8 +17,7 @@
 }
 
 .results-container {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(12);
   form {
     background: none;
     @include span-columns(8);
@@ -32,10 +31,15 @@
   }
 }
 
+.recipe-text {
+  height: 27%;
+}
+
 .result-recipe {
   background: $grey;
   border: $green solid 2px;
   height: 150px;
+
   @include span-columns(12);
 
   .link-recipe {
@@ -48,12 +52,10 @@
 
   .picture-recipe {
     margin-bottom: 1em;
-    position: absolute;
-    bottom: 0;
+    margin: 0 auto;
+    width: 80%;
 
     img {
-      @include shift(4);
-      display: block;
       @include recipe-pic;
     }
   }
@@ -79,4 +81,15 @@
 
 #claim-dish-button {
   margin-left: 3em;
+}
+
+.yummly {
+  text-align: center;
+  margin-top: 8em;
+  margin-bottom: 1em;
+  padding: 0;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
