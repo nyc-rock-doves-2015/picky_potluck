@@ -16,6 +16,7 @@
             <i class="fa fa-times"></i>
           <% end %></li>
         <li><%= link_to image_tag(cd.photo_url), "http://www.yummly.com/recipe/#{cd.yummly_id}", target: '_blank' %></li>
+        <li><%= cd.source_display_name %></li>
         <% end %>
         <%= form_tag(query_results_party_path(party), method: 'get') do %>
         <li><%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %><%= submit_tag("Search") %></li>

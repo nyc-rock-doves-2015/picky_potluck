@@ -17,7 +17,7 @@ class ClaimedDishesController < ApplicationController
   private
 
   def claimed_dish_params
-    params.require(:claimed_dish).permit(:yummly_id, :photo_url, :name, :rsvp_id)
+    params.require(:claimed_dish).permit(:yummly_id, :photo_url, :name, :rsvp_id, :source_display_name)
   end
 
 end

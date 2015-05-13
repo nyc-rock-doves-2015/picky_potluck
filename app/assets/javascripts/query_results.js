@@ -9,6 +9,8 @@ $(document).ready(function () {
     $('#claimed_dish_yummly_id').val($yummly_id);
     $name = $event.find('a').html();
     $('#claimed_dish_name').val($name);
+    $source_display_name = $event.find('.yummly-source p').html();
+    $('#claimed_dish_source_display_name').val($source_display_name);
   });
 
   $(".owl-carousel").owlCarousel();

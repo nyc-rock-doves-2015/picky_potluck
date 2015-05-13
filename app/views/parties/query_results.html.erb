@@ -21,13 +21,17 @@
                 <div class="picture-recipe">
                   <%= image_tag recipe["smallImageUrls"][0], class: "recipe_image"%> </div>
               <% end %>
+              <div class='yummly-source'>
+                <p>By: <%= recipe['sourceDisplayName'] %><p>
+              </div>
             </div>
           <% end %>
         </div>
         <%= form_for [@party, @claimed_dish] do |f| %>
           <%= f.hidden_field :photo_url %>
           <%= f.hidden_field :yummly_id %>
-          <%= f.hidden_field :name%>
+          <%= f.hidden_field :name %>
+          <%= f.hidden_field :source_display_name %>
 
           <%= f.submit "Claim Dish", id: "claim-dish-button" %>
         <% end %>

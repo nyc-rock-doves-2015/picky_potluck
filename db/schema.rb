@@ -17,10 +17,11 @@ ActiveRecord::Schema.define(version: 20150511132722) do
   enable_extension "plpgsql"
 
   create_table "claimed_dishes", force: :cascade do |t|
-    t.string   "yummly_id",  null: false
+    t.string   "yummly_id",           null: false
     t.string   "photo_url"
     t.string   "name"
-    t.integer  "rsvp_id",    null: false
+    t.string   "source_display_name"
+    t.integer  "rsvp_id",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

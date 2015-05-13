@@ -4,6 +4,7 @@ class CreateClaimedDishes < ActiveRecord::Migration
         t.string :yummly_id, null: false
         t.string :photo_url
         t.string :name
+        t.string :source_display_name
         t.references :rsvp, null: false
         t.timestamps
     end
