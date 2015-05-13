@@ -7,7 +7,9 @@
 <div class="page-container">
   <div class="about-page">
     <% if current_user %>
-    <div class="left-of-sidebar">
+      <div class="left-of-sidebar">
+    <% else %>
+      <div class="signed-out-about">
     <% end %>
       <h1>About Picky Potluck</h1>
       <p>Picky Potluck helps you and your friends plan parties by finding recipes that everyone can eat. After you invite guests to a party, we combine the eating restrictions from all invited guests' user profiles. So when you or your guests search for recipes to bring to the party, you only see these filtered options. Choose one or more recipes to show the other guests what you're bringing, and poof! No more parties with five kale salads! Best of all, it's completely free. Mix well and enjoy.</p>
@@ -31,9 +33,7 @@
         </div>
       </div>
       <p>Join us on <%= link_to "GitHub", "https://github.com/nyc-rock-doves-2015/picky_potluck", :target => "_blank" %>.</p>
-    <% if current_user %>
     </div>
-    <% end %>
     <% if current_user %>
       <%= render "./sidebar" %>
     <% end %>
