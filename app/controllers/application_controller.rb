@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :gate_keeper
 
-  helper_method :current_user
+  helper_method :current_user, :is_current_user?
 
   def current_user
     User.find_by(id: session[:user_id])
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
       flash[:notice] = "Sign in required."
       redirect_to enter_path
     end
+  end
+
+  def is_current_user?(user)
+    user.id == current_user.id
   end
 
 end
