@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
   skip_before_action :gate_keeper, only: [:create]
 
+  before_action :find_user, except: [:create]
+
   def show
-    @user = User.find(params[:id])
     @user_nonos = @user.nonos.map {|nono| nono.name }.join(", ")
     @upcoming_parties = @user.upcoming_parties
     @past_parties = @user.past_parties.last(3)
@@ -28,7 +29,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.find(params[:id])
     if is_current_user?(@user)
       @nonos = Nono.all
     else
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
       params[:user].delete(:password)
       params[:user].delete(:password_confirmation)
     end
-    user = User.find(params[:id])
+    user = @user
     user.update_attributes(user_params)
     user.nono_users.destroy_all
     nonos_hash = params[:user][:restrictions]
