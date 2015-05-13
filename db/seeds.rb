@@ -96,9 +96,7 @@ ALLERGIES.each do |k, v|
 end
 
 VEG_OPTIONS.each do |k, v|
-  2.times do
-    nono = Nono.create(name: k, category: "vegetarian", yummly_code: v)
-    user = User.find(rand(25)+1)
-    user.nonos << nono
-  end
+  nono = Nono.create(name: k, category: "vegetarian", yummly_code: v)
+  user = User.find(rand(50)+1)
+  user.nonos << nono
 end
