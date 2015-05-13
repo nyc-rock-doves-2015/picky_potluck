@@ -1,5 +1,6 @@
 .profile-container {
   margin-top: 0;
+  height: 100%;
   h1 {
     text-align: left;
   }
@@ -9,6 +10,7 @@
 }
 
 .profile-top {
+  height: 100%;
   display: inline-block;
   .userpic {
     float: left;
@@ -48,6 +50,7 @@
 }
 
 .profile-bottom {
+  height: 100%;
   h1 {
     padding-bottom: 0;
     margin-bottom: 0;
