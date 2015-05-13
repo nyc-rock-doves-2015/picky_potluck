@@ -12,11 +12,12 @@
         </li>
         <li>Recipe To Bring:</li>
           <% ClaimedDish.find_for_party_and_user(party, current_user).each do |cd| %>
-        <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}", target: '_blank' %> <%= button_to [party, cd], method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?'} do %>
+        <%= button_to [party, cd], method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?'} do %>
             <i class="fa fa-times"></i>
           <% end %></li>
-        <li><%= link_to image_tag(cd.photo_url), "http://www.yummly.com/recipe/#{cd.yummly_id}", target: '_blank' %></li>
+        <li><%= link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}", target: '_blank' %>
         <li><%= cd.source_display_name %></li>
+        <li><%= link_to image_tag(cd.photo_url), "http://www.yummly.com/recipe/#{cd.yummly_id}", target: '_blank' %></li>
         <% end %>
         <%= form_tag(query_results_party_path(party), method: 'get') do %>
         <li><%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %><%= submit_tag("Search") %></li>

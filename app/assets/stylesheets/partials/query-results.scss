@@ -17,8 +17,7 @@
 }
 
 .results-container {
-  @include span-columns(10);
-  @include shift(1);
+  @include span-columns(12);
   form {
     background: none;
     @include span-columns(8);
@@ -33,7 +32,7 @@
 }
 
 .recipe-text {
-  height: 50%;
+  height: 27%;
 }
 
 .result-recipe {
