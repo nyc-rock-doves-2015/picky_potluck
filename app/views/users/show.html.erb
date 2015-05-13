@@ -5,24 +5,24 @@
     <div class="left-of-sidebar">
       <div class="profile-left">
         <div class="profile-top">
-            <div class="userpic">
-              <% if @user.photo_url == "" %>
-                <%= image_tag "eggs.jpg", class: "user-photo" %>
-              <% else %>
-                <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
-              <% end %>
-            </div>
-            <div class="identity">
-              <h1><%= @user.name %></h1>
-              <h4><%= @user.email %>
-              <span class="edit-profile">
-                <% if current_user.id == @user.id %>
+          <div class="userpic">
+            <% if @user.photo_url == "" || @user.photo_url.nil? %>
+              <%= image_tag "eggs.jpg", class: "user-photo" %>
+            <% else %>
+              <%= image_tag "#{@user.photo_url}", class: "user-photo" %>
+            <% end %>
+          </div>
+          <div class="identity">
+            <h1><%= @user.name %></h1>
+            <h4><%= @user.email %>
+            <span class="edit-profile">
+              <% if is_current_user?(@user) %>
                 <%= link_to edit_user_path(@user) do %>
                   <i class="fa fa-pencil-square fa-2x"></i>
                 <% end %>
               <% end %>
-              </span></h4>
-            </div>
+            </span></h4>
+          </div>
         </div>
       </div>
       <div class="profile-bottom">
@@ -32,9 +32,7 @@
         </div>
         <div class="eating-restrictions">
           <h1>Eating Restrictions:</h1>
-          <p>
-            <%= @user_nonos %>
-          </p>
+          <p><%= @user_nonos %></p>
         </div>
       </div>
     </div>

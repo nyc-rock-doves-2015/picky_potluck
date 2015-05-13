@@ -21,9 +21,8 @@
           <td><%= user.name %></td>
           <td>unregistered</td>
         <% else %>
-
           <td><%= link_to user.name, user_path(user) %></td>
-          <% if current_user.id == user.id %>
+          <% if current_user == user %>
             <td>
               <%= form_for(@rsvp, url: party_rsvp_path(@party, @party.rsvp(user)), method: "PUT") do |f| %>
                 <%= select_tag "rsvp[status]", options_for_select([ "yes", "pending", "no" ], "#{@party.rsvp(user).status}") %>
@@ -32,11 +31,11 @@
           <% else %>
             <td><%= @party.rsvp(user).status %></td>
           <% end %>
-
         <% end %>
         <td>
-          <% if ClaimedDish.find_for_party_and_user(@party, user).length >= 1 %>
-            <%= raw(ClaimedDish.find_for_party_and_user(@party, user).map {|cd| link_to cd.name, "http://www.yummly.com/recipe/#{cd.yummly_id}", :target => "_blank"}.join(", ")) %>
+          <% claimed_food = ClaimedDish.find_for_party_and_user(@party, user) %>
+          <% if claimed_food.length >= 1 %>
+            <%= raw(claimed_food.map {|cd| link_to cd.name, yummly_url_generator(cd.yummly_id), :target => "_blank"}.join(", ")) %>
           <% elsif user == current_user %>
             <%= form_tag(query_results_party_path(@party), method: 'get') do %>
               <%= text_field_tag :query, nil, placeholder: "Examples: Soup, Beans" %>

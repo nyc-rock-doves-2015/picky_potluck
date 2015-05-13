@@ -8,7 +8,7 @@
     <p><%= @party.date.strftime("%b %d, %Y @ %I:%M %P") %></p>
     <p><%= @party.location %></p>
     <p>Invited by <%= @from_user.name %></p>
-    <h2>RSVP, search for recipes, and sign up to bring food at <%= link_to "here", "http://picky-potluck.herokuapp.com#{party_path(@party)}" %></h2>
+    <h2>RSVP, search for recipes, and sign up to bring food <%= link_to "here", "http://picky-potluck.herokuapp.com#{party_path(@party)}" %></h2>
     <p>This tasty morsel was brought to you by <%= link_to "Picky Potluck", "http://picky-potluck.herokuapp.com#{root_path}" %></p>
   </body>
 </html>
