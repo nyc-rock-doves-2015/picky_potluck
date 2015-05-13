@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   before_action :gate_keeper
 
-  helper_method :current_user
+  helper_method :current_user, :is_current_user?
 
   def current_user
     User.find_by(id: session[:user_id])
