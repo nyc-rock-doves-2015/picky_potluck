@@ -1,6 +1,8 @@
 class PartiesController < ApplicationController
   def show
     @party = Party.find(params[:id])
+    @upcoming_parties = current_user.upcoming_parties
+    @past_parties = current_user.past_parties
     if current_user.on_guest_list?(@party)
       @rsvp = Rsvp.new
       @location_query = @party.location.split(' ').join('+')
@@ -22,6 +24,8 @@ class PartiesController < ApplicationController
 
   def new
     @party = Party.new
+    @upcoming_parties = current_user.upcoming_parties
+    @past_parties = current_user.past_parties
   end
 
   def query_results
