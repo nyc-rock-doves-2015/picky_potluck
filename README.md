@@ -2,25 +2,23 @@
 
 ## Find & assign potluck recipes based on group's food restrictions & likes.
 
-### Developers
+## Picky Potluck is currently in public beta.
+
+## Developed and Maintained by:
 * Lucian Kahn
 * Debbie Milburn
 * Harry Park
 
-### Trello
-https://trello.com/b/u7lDV4jo/picky-potluck
+## About Picky Potluck
 
-### Working Agreements
-* Our usual workday is from 9am to 7pm. We will take a lunch break, but not a dinner break. Individuals may choose to do additional work outside these hours if we wish.
-* We will all work in the same space in person at DBC, under ordinary circumstances.
-* On Sunday, Harry will take off the morning for church responsibilities and contribute remotely in the afternoon, working on
-something with few dependencies, while Lucian and Debbie work together in person, possibly not at DBC.
-* We will build the core application and complete the minimum viable product before beginning to work on additional features or enhancements.
-* We will maintain kindness, sanity, and a healthy schedule of eating and sleeping.
-* We will use git rebase, not git merge.
+Picky Potluck helps you and your friends plan parties by finding recipes that everyone can eat. After you invite guests to a party, we combine the eating restrictions from all invited guests' user profiles. So when you or your guests search for recipes to bring to the party, you only see these filtered options. Choose one or more recipes to show the other guests what you're bringing, and poof! No more parties with five kale salads! Best of all, it's completely free. Mix well and enjoy.
 
-### Pull Requests
+## Technical Details
 
-* Lucian asks Harry.
-* Harry asks Debbie.
-* Debbie asks Lucian.
+Picky Potluck is built using Ruby On Rails, jQuery, Sass, and Neat. It is deployed on Heroku. Picky Potluck's recipe search feature queries the Yummly API. 
+
+## Contributing
+
+* We are accepting pull requests.
+* Make a pull request of your code _and its passing tests_ to development (not master). We will not accept untested code.
+* Check the "Issues" section of this repo for currently needed features and bug fixes.
