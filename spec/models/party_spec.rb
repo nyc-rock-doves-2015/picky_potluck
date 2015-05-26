@@ -22,6 +22,9 @@ describe Party do
         party.save
         expect(Party.count).to eq(0)
     end
+  end
+
+  context "combine_nonos" do
 
     it "should have no combined_nonos with no users" do
       expect(party.combine_nonos.empty?).to eq true
