@@ -35,11 +35,16 @@ describe Party do
       expect(party.combine_nonos.empty?).to eq true
     end
 
-
     it "should combined_nonos with nonos" do
       user.nonos << nono
       party.users << user
       expect(!party.combine_nonos.empty?).to eq true
+    end
+  end
+
+  context "rsvp method" do
+    it "should not return an rsvp if the user hasn't been invited" do
+      expect(party.rsvp(user)).to eq(nil)
     end
   end
 end
