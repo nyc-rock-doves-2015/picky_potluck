@@ -14,5 +14,11 @@ describe Party do
       party.save
       expect(Party.count).to eq(1)
     end
+
+    it "shouldn't save to the database without a name" do
+      party = FactoryGirl.build(:party, name: nil)
+        party.save
+        expect(Party.count).to eq(0)
+    end
   end
 end
