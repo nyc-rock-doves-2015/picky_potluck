@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Party do
 
   let(:party) { FactoryGirl.build :party }
+  let(:user) { FactoryGirl.build :user }
 
   context "validations" do
     it "should have a name and location" do
@@ -25,5 +26,9 @@ describe Party do
       expect(party.combine_nonos.empty?).to eq true
     end
 
+    it "should have no combined_nonos with users without nonos" do
+      party.users << user
+      expect(party.combine_nonos.empty?).to eq true
+    end
   end
 end
