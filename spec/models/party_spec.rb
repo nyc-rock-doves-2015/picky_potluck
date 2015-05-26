@@ -42,9 +42,14 @@ describe Party do
     end
   end
 
-  context "rsvp method" do
-    it "should not return an rsvp if the user hasn't been invited" do
-      expect(party.rsvp(user)).to eq(nil)
+  context "upcoming?" do
+    it "should return true if party is upcoming" do
+      party = FactoryGirl.build(:party, date: Time.now + 20)
+      expect(party.upcoming?).to eq(true)
+    end
+    it "should return false if party isn't upcoming" do
+      party = FactoryGirl.build(:party, date: Time.now - 20)
+      expect(party.upcoming?).to eq(false)
     end
   end
 end
