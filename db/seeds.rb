@@ -1,20 +1,19 @@
 ## REAL DATA
 
 INGREDIENTS = {
-  "apple" => nil,
-  "apricot" => nil,
+  "apple" => "applesauce,apple%20juice,apple%20pie%20filling",
+  "apricot" => "apricot%20preserves",
   "banana" => "dried%20banana",
-  "cherry" => nil,
-  "grape" => nil,
-  "kiwi" => nil,
-  "mango" => nil,
-  "melon" => nil,
+  "cherry" => "cherry%20juice,cherry%20syrup",
+  "grape" => "grape%20juice",
+  "kiwi" => "kiwi%20juice,kiwi%20fruits,kiwi%20fruit",
+  "mango" => "mango%20juice,mango%20nectar,mango%20salsa",
+  "melon" => "midori",
   "orange" => "orange%20juice,mandarin%20orange,orange%20flower%20water,blood%20orange%20juice,blood%20orange",
-  "peach" => nil,
-  "pear" => nil,
-  "pineapple" => nil,
-  "strawberry" => nil,
-  "tomato" => nil
+  "peach" => "peach%20purée,peach%20juice,peach%20nectar,peach%20preserves",
+  "pear" => "pear%20purée,pear%20juice,pear%20nectar,pear%20preserves",
+  "pineapple" => "pineapple%20juice,pineapple%20juice%20concentrate",
+  "strawberry" => "strawberry%20jam,strawberry%20jelly,strawberry%20purée"
 }
 
 #separate related foods by commas
