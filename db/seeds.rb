@@ -145,3 +145,7 @@ VEG_OPTIONS.each do |k, v|
     user.nonos << nono
   end
 end
+
+INGREDIENTS.each do |ingredient|
+  nono = Nono.create(name: ingredient, category: "ingredient")
+end
