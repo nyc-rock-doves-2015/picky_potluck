@@ -30,21 +30,37 @@ class ApiCaller
 
   def ingredients_to_query(ingredients_array)
     ingredients_array.map do |ingredient|
-      "&excludedIngredient[]=#{ingredient.name}"
+      if ingredient.related_foods
+        related_foods = ingredient.related_foods.split(",")
+        related_foods = related_foods.map{|rf| "&excludedIngredient[]=#{rf}"}.join("")
+        "&excludedIngredient[]=#{ingredient.name}" + related_foods
+      else
+        "&excludedIngredient[]=#{ingredient.name}"
+      end
     end.join("")
   end
 
   def allergies_to_query(allergies_array)
     allergies_array.map do |allergy|
-      related_foods = allergy.related_foods.split(",")
-      related_foods = related_foods.map{|rf| "&excludedIngredient[]=#{rf}"}.join("")
-      "&excludedIngredient[]=#{allergy.yummly_code}" + related_foods
+      if allergy.related_foods
+        related_foods = allergy.related_foods.split(",")
+        related_foods = related_foods.map{|rf| "&excludedIngredient[]=#{rf}"}.join("")
+        "&excludedIngredient[]=#{allergy.yummly_code}" + related_foods
+      else
+        "&excludedIngredient[]=#{allergy.yummly_code}"
+      end
     end.join("")
   end
 
    def vegetarian_options_to_query(options_array)
     options_array.map do |option|
-      "&allowedDiet[]=#{option.yummly_code}"
+      if option.related_foods
+       related_foods = option.related_foods.split(",")
+      related_foods = related_foods.map{|rf| "&excludedIngredient[]=#{rf}"}.join("")
+      "&allowedDiet[]=#{option.yummly_code}" + related_foods
+      else
+        "&allowedDiet[]=#{option.yummly_code}"
+      end
     end.join("")
   end
 
