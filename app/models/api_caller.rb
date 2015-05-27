@@ -30,20 +30,29 @@ class ApiCaller
 
   def ingredients_to_query(ingredients_array)
     ingredients_array.map do |ingredient|
-      "&excludedIngredient[]=#{ingredient.name}"
+        "&excludedIngredient[]=#{ingredient.name}" + format_related_foods(ingredient)
     end.join("")
   end
 
   def allergies_to_query(allergies_array)
     allergies_array.map do |allergy|
-    "&allowedAllergy[]=#{allergy.yummly_code}"
+        "&excludedIngredient[]=#{allergy.yummly_code}" + format_related_foods(allergy)
     end.join("")
   end
 
    def vegetarian_options_to_query(options_array)
     options_array.map do |option|
-      "&allowedDiet[]=#{option.yummly_code}"
+      "&allowedDiet[]=#{option.yummly_code}" + format_related_foods(option)
     end.join("")
+  end
+
+  def format_related_foods(nono)
+    if nono.related_foods
+      related_foods = nono.related_foods.split(",")
+      related_foods = related_foods.map{|rf| "&excludedIngredient[]=#{rf}"}.join("")
+    else
+      ""
+    end
   end
 
 end
