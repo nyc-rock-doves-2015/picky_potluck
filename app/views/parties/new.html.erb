@@ -12,8 +12,8 @@
       <%= label_tag(:date, "Date/Time:") %>
       <p><%= f.datetime_select(:date, {order: [:month, :day, :year, :hour, :minute], start_date_year: Date.today.year, ampm: true, minute_step: 15}) %></p>
       <%= f.submit "Create Party" %>
+      <div><%= flash[:party_alert] %></div>
     <% end %>
-
   </div>
 
   <%= render "./sidebar" %>
