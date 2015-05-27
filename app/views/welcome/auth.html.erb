@@ -3,6 +3,7 @@
 <div class="page-container">
   <div class="enter-form">
     <div class="fancy-header"><h1 class="picky-potluck">Picky Potluck</h1></div>
+  <%= render partial: "./beta" %>
     <div id = "signin-form">
       <h1>Sign In</h1>
       <%= form_for :session, url: session_path do |f| %>
