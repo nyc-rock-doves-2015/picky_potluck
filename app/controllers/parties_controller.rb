@@ -16,8 +16,14 @@ class PartiesController < ApplicationController
 
   def create
     party = current_user.parties.create(party_params)
-    rsvp = Rsvp.new
-    redirect_to new_party_rsvp_path(party, rsvp)
+    if !party.upcoming?
+      party.destroy
+      flash[:party_alert] = "Please check the time of the party!"
+      redirect_to new_party_path
+    else
+      rsvp = Rsvp.new
+      redirect_to new_party_rsvp_path(party, rsvp)
+    end
   end
 
   def new
