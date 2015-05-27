@@ -3,6 +3,8 @@ class Party < ActiveRecord::Base
   has_many :users, through: :rsvps
   has_many :unregistered_email
 
+  validates :name, presence: true
+
   def combine_nonos
     @combined_nonos = self.users.inject([]){ |combined_nonos, user| combined_nonos | user.nonos }
     @combined_nonos
