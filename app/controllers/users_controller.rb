@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   before_action :find_user, except: [:create]
 
   def show
-    @user_nonos = @user.nonos.map {|nono| nono.name }.join(", ")
+    @user_nonos = @user.nonos.map {|nono| nono.name.capitalize }.join(", ")
     @upcoming_parties = @user.upcoming_parties
     @past_parties = @user.past_parties.last(3)
   end

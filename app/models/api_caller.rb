@@ -20,7 +20,7 @@ class ApiCaller
   def generate_query(nonos_array, search_term)
     query = "&q=#{URI.encode_www_form_component(search_term)}"
     vegetarian_options = nonos_array.select{|nono| nono.category == 'vegetarian'}
-    ingredients = nonos_array.select{|nono| nono.category == 'ingredients'}
+    ingredients = nonos_array.select{|nono| nono.category == 'ingredient'}
     allergies = nonos_array.select{|nono| nono.category == 'allergy'}
     query << ingredients_to_query(ingredients) if ingredients
     query << allergies_to_query(allergies) if allergies

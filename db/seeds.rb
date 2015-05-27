@@ -1,5 +1,22 @@
 ## REAL DATA
 
+INGREDIENTS = [
+  "apple",
+  "apricot",
+  "banana",
+  "cherry",
+  "grape",
+  "kiwi",
+  "mango",
+  "melon",
+  "orange",
+  "peach",
+  "pear",
+  "pineapple",
+  "strawberry",
+  "tomato"
+]
+
 #separate related foods by commas
 ALLERGIES = {
   "Dairy" => ["396%5EDairy-Free"],
@@ -88,7 +105,7 @@ users = User.all
 
 users_array = users.shuffle
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
@@ -100,7 +117,7 @@ users_array = users.shuffle
   end
 end
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
@@ -128,4 +145,8 @@ VEG_OPTIONS.each do |k, v|
   if user
     user.nonos << nono
   end
+end
+
+INGREDIENTS.each do |ingredient|
+  nono = Nono.create(name: ingredient, category: "ingredient")
 end
