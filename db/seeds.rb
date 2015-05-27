@@ -1,5 +1,22 @@
 ## REAL DATA
 
+INGREDIENTS = [
+  "apple",
+  "apricot",
+  "banana",
+  "cherry",
+  "grape",
+  "kiwi",
+  "mango",
+  "melon",
+  "orange",
+  "peach",
+  "pear",
+  "pineapple",
+  "strawberry",
+  "tomato"
+]
+
 ALLERGIES = {
   "Dairy" => "396%5EDairy-Free",
   "Eggs" => "397%5EEgg-Free",
@@ -87,7 +104,7 @@ users = User.all
 
 users_array = users.shuffle
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
@@ -99,7 +116,7 @@ users_array = users.shuffle
   end
 end
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
