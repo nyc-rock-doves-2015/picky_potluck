@@ -1,16 +1,33 @@
 ## REAL DATA
 
+INGREDIENTS = {
+  "apple" => "applesauce,apple%20juice,apple%20pie%20filling",
+  "apricot" => "apricot%20preserves",
+  "banana" => "dried%20banana",
+  "cherry" => "cherry%20juice,cherry%20syrup",
+  "grape" => "grape%20juice",
+  "kiwi" => "kiwi%20juice,kiwi%20fruits,kiwi%20fruit",
+  "mango" => "mango%20juice,mango%20nectar,mango%20salsa",
+  "melon" => "midori",
+  "orange" => "orange%20juice,mandarin%20orange,orange%20flower%20water,blood%20orange%20juice,blood%20orange",
+  "peach" => "peach%20purée,peach%20juice,peach%20nectar,peach%20preserves",
+  "pear" => "pear%20purée,pear%20juice,pear%20nectar,pear%20preserves",
+  "pineapple" => "pineapple%20juice,pineapple%20juice%20concentrate",
+  "strawberry" => "strawberry%20jam,strawberry%20jelly,strawberry%20purée"
+}
+
+#separate related foods by commas
 ALLERGIES = {
-  "Dairy" => "396%5EDairy-Free",
-  "Eggs" => "397%5EEgg-Free",
-  "Gluten" => "393%5EGluten-Free",
-  "Peanuts" => "394%5EPeanut-Free",
-  "Seafood" => "398%5ESeafood-Free",
-  "Sesame" => "399%5ESesame-Free",
-  "Soy" => "400%5ESoy-Free",
-  "Sulfites" => "401%5ESulfite-Free",
-  "Tree Nuts" => "395%5ETree%20Nut-Free",
-  "Wheat" => "392%5EWheat-Free"
+  "Dairy" => ["396%5EDairy-Free"],
+  "Eggs" => ["397%5EEgg-Free"],
+  "Gluten" => ["393%5EGluten-Free"],
+  "Peanuts" => ["394%5EPeanut-Free"],
+  "Seafood" => ["398%5ESeafood-Free"],
+  "Sesame" => ["399%5ESesame-Free", "tahini"],
+  "Soy" => ["400%5ESoy-Free", "miso"],
+  "Sulfites" => ["401%5ESulfite-Free"],
+  "Tree Nuts" => ["395%5ETree%20Nut-Free"],
+  "Wheat" => ["392%5EWheat-Free"]
 }
 
 VEG_OPTIONS = {
@@ -87,7 +104,7 @@ users = User.all
 
 users_array = users.shuffle
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
@@ -99,7 +116,7 @@ users_array = users.shuffle
   end
 end
 
-2.times do 
+2.times do
   index = 0
   users_array = users_array.shuffle
   2.times do
@@ -114,7 +131,7 @@ end
 ## NONO CREATION & ASSIGNMENT
 
 ALLERGIES.each do |k, v|
-  nono = Nono.create(name: k, category: "allergy", yummly_code: v)
+  nono = Nono.create(name: k, category: "allergy", yummly_code: v[0], related_foods: v[1])
   user = User.find_by(id: rand(20)+1)
   if user
     user.nonos << nono
@@ -127,4 +144,8 @@ VEG_OPTIONS.each do |k, v|
   if user
     user.nonos << nono
   end
+end
+
+INGREDIENTS.each do |k, v|
+  nono = Nono.create(name: k, category: "ingredient", related_foods: v)
 end

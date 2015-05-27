@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   validates :password, length: { minimum: 6 }, :if => :password
   validates :password_confirmation, presence: true, :if => :password_confirmation
 
-  before_save :capitalize_fave
+  before_save :capitalize_fave, :downcase_email
 
   def on_guest_list?(party)
     guest_list = party.users
@@ -29,5 +29,9 @@ class User < ActiveRecord::Base
 
   def capitalize_fave
     self.fave = fave.split.map(&:capitalize).join(' ') if fave
+  end
+
+  def downcase_email
+    self.email = email.downcase
   end
 end
