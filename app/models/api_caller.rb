@@ -36,7 +36,7 @@ class ApiCaller
 
   def allergies_to_query(allergies_array)
     allergies_array.map do |allergy|
-        "&excludedIngredient[]=#{allergy.yummly_code}" + format_related_foods(allergy)
+        "&allowedAllergy[]=#{allergy.yummly_code}" + format_related_foods(allergy)
     end.join("")
   end
 
