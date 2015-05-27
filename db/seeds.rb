@@ -1,16 +1,16 @@
 ## REAL DATA
 
 ALLERGIES = {
-  "Dairy" => "396%5EDairy-Free",
-  "Eggs" => "397%5EEgg-Free",
-  "Gluten" => "393%5EGluten-Free",
-  "Peanuts" => "394%5EPeanut-Free",
-  "Seafood" => "398%5ESeafood-Free",
-  "Sesame" => "399%5ESesame-Free",
-  "Soy" => "400%5ESoy-Free",
-  "Sulfites" => "401%5ESulfite-Free",
-  "Tree Nuts" => "395%5ETree%20Nut-Free",
-  "Wheat" => "392%5EWheat-Free"
+  "Dairy" => ["396%5EDairy-Free"],
+  "Eggs" => ["397%5EEgg-Free"],
+  "Gluten" => ["393%5EGluten-Free"],
+  "Peanuts" => ["394%5EPeanut-Free"],
+  "Seafood" => ["398%5ESeafood-Free"],
+  "Sesame" => ["399%5ESesame-Free", "tahini"],
+  "Soy" => ["400%5ESoy-Free", "miso"],
+  "Sulfites" => ["401%5ESulfite-Free"],
+  "Tree Nuts" => ["395%5ETree%20Nut-Free"],
+  "Wheat" => ["392%5EWheat-Free"]
 }
 
 VEG_OPTIONS = {
@@ -114,7 +114,7 @@ end
 ## NONO CREATION & ASSIGNMENT
 
 ALLERGIES.each do |k, v|
-  nono = Nono.create(name: k, category: "allergy", yummly_code: v)
+  nono = Nono.create(name: k, category: "allergy", yummly_code: v[0], related_foods: v[1])
   user = User.find_by(id: rand(20)+1)
   if user
     user.nonos << nono
