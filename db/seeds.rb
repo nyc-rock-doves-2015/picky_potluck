@@ -1,21 +1,21 @@
 ## REAL DATA
 
-INGREDIENTS = [
-  "apple",
-  "apricot",
-  "banana",
-  "cherry",
-  "grape",
-  "kiwi",
-  "mango",
-  "melon",
-  "orange",
-  "peach",
-  "pear",
-  "pineapple",
-  "strawberry",
-  "tomato"
-]
+INGREDIENTS = {
+  "apple" => nil,
+  "apricot" => nil,
+  "banana" => "dried%20banana",
+  "cherry" => nil,
+  "grape" => nil,
+  "kiwi" => nil,
+  "mango" => nil,
+  "melon" => nil,
+  "orange" => "orange%20juice,mandarin%20orange,orange%20flower%20water,blood%20orange%20juice,blood%20orange",
+  "peach" => nil,
+  "pear" => nil,
+  "pineapple" => nil,
+  "strawberry" => nil,
+  "tomato" => nil
+}
 
 #separate related foods by commas
 ALLERGIES = {
@@ -147,6 +147,6 @@ VEG_OPTIONS.each do |k, v|
   end
 end
 
-INGREDIENTS.each do |ingredient|
-  nono = Nono.create(name: ingredient, category: "ingredient")
+INGREDIENTS.each do |k, v|
+  nono = Nono.create(name: k, category: "ingredient", related_foods: v)
 end
