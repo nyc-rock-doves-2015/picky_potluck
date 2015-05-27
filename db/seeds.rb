@@ -10,10 +10,10 @@ INGREDIENTS = {
   "mango" => "mango%20juice,mango%20nectar,mango%20salsa",
   "melon" => "midori",
   "orange" => "orange%20juice,mandarin%20orange,orange%20flower%20water,blood%20orange%20juice,blood%20orange",
-  "peach" => "peach%20purée,peach%20juice,peach%20nectar,peach%20preserves",
-  "pear" => "pear%20purée,pear%20juice,pear%20nectar,pear%20preserves",
+  "peach" => "peach%20juice,peach%20nectar,peach%20preserves",
+  "pear" => "pear%20juice,pear%20nectar,pear%20preserves",
   "pineapple" => "pineapple%20juice,pineapple%20juice%20concentrate",
-  "strawberry" => "strawberry%20jam,strawberry%20jelly,strawberry%20purée"
+  "strawberry" => "strawberry%20jam,strawberry%20jelly"
 }
 
 #separate related foods by commas
