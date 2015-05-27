@@ -25,7 +25,7 @@ describe ApiCaller do
   end
 
   it "adds parameters for allergies after the allergies query method" do
-    split_query = query.split("soup")
+    split_query = query.split("nuts")
     expect(split_query[1]).to start_with("&allowedAllergy[]=beets")
   end
 
