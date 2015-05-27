@@ -61,3 +61,19 @@ a {
     color: $light-green;
   }
 }
+
+.beta {
+  padding-left:1rem;
+  padding-right:1rem;
+
+  h2 {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  margin: 1rem;
+  @include span-columns(12);
+  @include media($desktop) {
+    @include span-columns(10);
+    @include shift(1);
+  }
+}
