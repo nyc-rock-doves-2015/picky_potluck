@@ -1,5 +1,6 @@
 ## REAL DATA
 
+#separate related foods by commas
 ALLERGIES = {
   "Dairy" => ["396%5EDairy-Free"],
   "Eggs" => ["397%5EEgg-Free"],
